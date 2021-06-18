@@ -1,0 +1,33 @@
+.header-background {
+    background: linear-gradient(180deg, #000, transparent);
+    height: 137px;
+    .header {
+        height: 96px;
+        &-right {
+            .logo {
+                width: 152px;
+                height: 36px;
+            }
+            .nav {
+                .nav-item {
+                    .nav-link {
+                        color: #fff;
+                    }
+                    .dropdown-menu {
+                        background-color: transparent;
+                        .dropdown-item {
+                            img {
+                                width: 100%;
+                            }
+                            &:hover,
+                            &:active {
+                                background-color: transparent;
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
