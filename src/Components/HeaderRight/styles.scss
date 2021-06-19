@@ -1,0 +1,101 @@
+.header-right {
+    .navbar {
+        .navbar-brand {
+            .logo {
+                height: 36px;
+            }
+        }
+    }
+    .nav {
+        .nav-item {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+
+            .nav-title {
+                font-weight: 400;
+                span {
+                    margin-right: 15px;
+                }
+            }
+            &:hover {
+                .nav-title {
+                    color: #ff6400;
+                    i {
+                        transform: rotate(180deg);
+                        transition: 0.5s;
+                    }
+                }
+                .sub-menu,
+                .wrapper-drop {
+                    top: 0%;
+                }
+            }
+            a {
+                color: #fff;
+            }
+            .wrapper-drop {
+                background-color: rgba(0, 0, 0, 0.85);
+                position: fixed;
+                width: 100vw;
+                left: 0;
+                top: -300%;
+                z-index: -1;
+                padding-top: 97px;
+                transition: top 0.4s;
+                .nav-drop {
+                    .drop-item {
+                        text-align: center;
+                        margin-right: 36px;
+                        padding-bottom: 14px;
+                        img {
+                            width: 162px;
+                            height: 162px;
+                            margin-bottom: 10px;
+                        }
+                        div {
+                            font-size: 13px;
+                            color: #fff;
+                        }
+                        &:hover {
+                            .item-title {
+                                color: #ff6400;
+                            }
+                        }
+                    }
+                }
+            }
+            .sub-menu {
+                z-index: -1;
+                position: absolute;
+                width: 180%;
+                background-color: rgba(0, 0, 0, 0.85);
+                padding: 80px 5px 10px 5px;
+                top: -500%;
+                transition: top 0.5s;
+                .drop-item {
+                    font-size: 14px;
+                    &::after {
+                        content: "";
+                        width: 90%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        height: 1px;
+                        background-color: rgba(151, 151, 151, 0.867);
+                        position: absolute;
+                    }
+                    &:last-child::after {
+                        display: none;
+                    }
+                    &:hover {
+                        .nav-link {
+                            color: #ff6400;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
