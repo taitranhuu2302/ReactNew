@@ -151,13 +151,6 @@ class HeaderRight extends Component {
     return result;
   };
 
-  onClickText = (list) => {
-    list.map((item, index) => {
-      if (item == "Products") {
-        return console.log(item);
-      }
-    });
-  };
 
   render() {
     var { toggleCanvas } = this.state;
@@ -232,10 +225,10 @@ class HeaderRight extends Component {
         </div>
         <ul className="nav h-100 d-none d-xl-flex">
           <li className="nav-item">
-            <a className="nav-link nav-title">
+            <div className="nav-link nav-title">
               <span>PRODUCTS</span>
               <i className="fas fa-chevron-down"></i>
-            </a>
+            </div>
             <div className="wrapper-drop container-fluid">
               <ul className="nav nav-drop justify-content-center">
                 {this.navSub(subMenuProducts)}
@@ -243,28 +236,28 @@ class HeaderRight extends Component {
             </div>
           </li>
           <li className="nav-item">
-            <a className="nav-link nav-title">
+            <div className="nav-link nav-title">
               <span>EXPRLORE</span>
               <i className="fas fa-chevron-down"></i>
-            </a>
+            </div>
             <ul className="nav sub-menu nav-drop flex-column">
               {this.navSub(subMenuExplore)}
             </ul>
           </li>
           <li className="nav-item">
-            <a className="nav-link nav-title">
+            <div className="nav-link nav-title">
               <span>SERVICE</span>
               <i className="fas fa-chevron-down"></i>
-            </a>
+            </div>
             <ul className="nav sub-menu nav-drop flex-column">
               {this.navSub(subMenuService)}
             </ul>
           </li>
           <li className="nav-item">
-            <a className="nav-link nav-title">
+            <div className="nav-link nav-title">
               <span>MEMBERSHIP</span>
               <i className="fas fa-chevron-down"></i>
-            </a>
+            </div>
             <ul className="nav sub-menu nav-drop flex-column">
               {this.navSub(subMenuMember)}
             </ul>
