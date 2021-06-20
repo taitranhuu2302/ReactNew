@@ -1,0 +1,22 @@
+.header-right {
+    img {
+        height: 14px;
+    }
+    .login:hover {
+        i {
+            color: #ff6400;
+        }
+    }
+    i {
+        font-size: 20px;
+        color: white;
+    }
+}
+
+@media (max-width: 1399.98px) {
+    .header-right {
+        i {
+            font-size: 16px;
+        }
+    }
+}

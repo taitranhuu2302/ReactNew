@@ -1,18 +1,278 @@
-import React, { Component, Fragment } from 'react';
-import './styles.scss';
+import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
+import "./styles.scss";
 
-class HeaderLeft extends Component {
-    render() {
+const subMenuProducts = [
+  {
+    to: "/",
+    image: "https://www.aorus.com/assets/img/Motherboard.18fe2f57.png",
+    label: "MOTHERBOARD",
+  },
+  {
+    to: "/",
+    image: "https://www.aorus.com/assets/img/Graphics.6ca7d8bf.png",
+    label: "GRAPHICS CARDS",
+  },
+  {
+    to: "/",
+    image: "https://www.aorus.com/assets/img/Laptop.e77d5ad1.png",
+    label: "LAPTOPS",
+  },
+  {
+    to: "/",
+    image: "https://www.aorus.com/assets/img/Monitor.b4e0aada.png",
+    label: "MONITORS",
+  },
+  {
+    to: "/",
+    image: "https://www.aorus.com/assets/img/Desktop-PC.ab83c481.png",
+    label: "DESKTOP PC",
+  },
+  {
+    to: "/",
+    image: "https://www.aorus.com/assets/img/Peripherals.9f53da7d.png",
+    label: "PC PERIPHERALS",
+  },
+  {
+    to: "/",
+    image: "https://www.aorus.com/assets/img/Components.9dcdfdc0.png",
+    label: "PC COMPONENTS",
+  },
+];
+
+const subMenuExplore = [
+  {
+    to: "/",
+    label: "NEWS",
+  },
+  {
+    to: "/",
+    label: "EVENTS",
+  },
+  {
+    to: "/",
+    label: "BLOG",
+  },
+  {
+    to: "/",
+    label: "WALLPAPER",
+  },
+];
+
+const subMenuService = [
+  {
+    to: "/",
+    label: "WARRANTY INFORMATION",
+  },
+  {
+    to: "/",
+    label: "PRODUCT REGISTRATION",
+  },
+];
+
+const subMenuMember = [
+  {
+    to: "/",
+    label: "WHY JOIN?",
+  },
+  {
+    to: "/",
+    label: "MEMBERSHIP LEVELS",
+  },
+  {
+    to: "/",
+    label: "AORUS POINTS & REWADS",
+  },
+  {
+    to: "/",
+    label: "ACHIVEMENT BAGGES",
+  },
+  {
+    to: "/",
+    label: "MEMBER LEADERBOARD",
+  },
+  {
+    to: "/",
+    label: "MEMBER FAQS",
+  },
+];
+
+class HeaderRight extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      toggleCanvas: false,
+    };
+  }
+
+  toggleCanvas = () => {
+    this.setState({
+      toggleCanvas: !this.state.toggleCanvas,
+    });
+    console.log(this.state);
+  };
+
+  navSub = (list) => {
+    var result = null;
+    result = list.map((item, index) => {
+      if (item.image) {
         return (
-            <Fragment>
-                <a href=""><img
-                    src="data:image/png;base64,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"
-                    alt="" /></a>
-                <a href="" className=" login ms-4"><i className="fas fa-user"></i></a>
-
-            </Fragment>
+          <li key={index} className="drop-item">
+            <Link to={item.to}>
+              <img src={item.image} alt="" />
+            </Link>
+            <div className="item-title">{item.label}</div>
+          </li>
         );
-    }
+      }
+      if (!item.image) {
+        return (
+          <li key={index} className="drop-item">
+            <Link to={item.to} className="nav-link">
+              {item.label}
+            </Link>
+          </li>
+        );
+      }
+    });
+    return result;
+  };
+
+  subCanvas = (list) => {
+    var result = null;
+    result = list.map((item, index) => {
+      return (
+        <Link to={item.to} key={index}>
+          {item.label}
+        </Link>
+      );
+    });
+
+    return result;
+  };
+
+  onClickText = (list) => {
+    list.map((item, index) => {
+      if (item == "Products") {
+        return console.log(item);
+      }
+    });
+  };
+
+  render() {
+    var { toggleCanvas } = this.state;
+    return (
+      <Fragment>
+        <div>
+          <button
+            onClick={this.toggleCanvas}
+            className="btn text-white fs-5 shadow-none d-block d-xl-none far fa-bars"
+          ></button>
+          <div
+            className={
+              toggleCanvas ? "menu-canvas canvas-active" : "menu-canvas"
+            }
+          >
+            <div className="canvas-header d-flex ms-2 mb-4 align-items-center">
+              <button
+                onClick={this.toggleCanvas}
+                className="btn text-white shadow-none canvas-close fas fa-times"
+              ></button>
+            </div>
+            <div className="canvas-content">
+              <ul className="list">
+                <li className="list-item mb-2">
+                  <div className="item-title">
+                    <span>PRODUCTS</span>
+                    <i className="fas fa-chevron-down"></i>
+                  </div>
+                  <div className="sub-menu d-flex flex-column">
+                    {this.subCanvas(subMenuProducts)}
+                  </div>
+                </li>
+                <li className="list-item mb-2">
+                  <div className="item-title">
+                    <span>EXPLORE</span>
+                    <i className="fas fa-chevron-down"></i>
+                  </div>
+                  <div className="sub-menu d-flex flex-column">
+                    {this.subCanvas(subMenuExplore)}
+                  </div>
+                </li>
+                <li className="list-item mb-2">
+                  <div className="item-title">
+                    <span>SERVICE</span>
+                    <i className="fas fa-chevron-down"></i>
+                  </div>
+                  <div className="sub-menu d-flex flex-column">
+                    {this.subCanvas(subMenuService)}
+                  </div>
+                </li>
+                <li className="list-item mb-2">
+                  <div className="item-title">
+                    <span>MEMEBERSHIP</span>
+                    <i className="fas fa-chevron-down"></i>
+                  </div>
+                  <div className="sub-menu d-flex flex-column">
+                    {this.subCanvas(subMenuMember)}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="navbar">
+          <Link to="/" className="navbar-brand">
+            <img
+              src="https://www.aorus.com/assets/img/logo.acad5b52.png"
+              className="logo"
+              alt=""
+            />
+          </Link>
+        </div>
+        <ul className="nav h-100 d-none d-xl-flex">
+          <li className="nav-item">
+            <a className="nav-link nav-title">
+              <span>PRODUCTS</span>
+              <i className="fas fa-chevron-down"></i>
+            </a>
+            <div className="wrapper-drop container-fluid">
+              <ul className="nav nav-drop justify-content-center">
+                {this.navSub(subMenuProducts)}
+              </ul>
+            </div>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link nav-title">
+              <span>EXPRLORE</span>
+              <i className="fas fa-chevron-down"></i>
+            </a>
+            <ul className="nav sub-menu nav-drop flex-column">
+              {this.navSub(subMenuExplore)}
+            </ul>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link nav-title">
+              <span>SERVICE</span>
+              <i className="fas fa-chevron-down"></i>
+            </a>
+            <ul className="nav sub-menu nav-drop flex-column">
+              {this.navSub(subMenuService)}
+            </ul>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link nav-title">
+              <span>MEMBERSHIP</span>
+              <i className="fas fa-chevron-down"></i>
+            </a>
+            <ul className="nav sub-menu nav-drop flex-column">
+              {this.navSub(subMenuMember)}
+            </ul>
+          </li>
+        </ul>
+      </Fragment>
+    );
+  }
 }
 
-export default HeaderLeft;
+export default HeaderRight;
