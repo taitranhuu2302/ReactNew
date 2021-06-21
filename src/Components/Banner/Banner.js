@@ -5,7 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./styles.scss";
 import SlideItem from "./SlideItem";
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
+// import logo from
 
 const settings = {
   dots: true,
@@ -20,32 +21,28 @@ const settings = {
 };
 
 class Banner extends Component {
-
   slidesShow = (slides) => {
     var result = null;
     result = slides.map((slide, index) => {
-      return <SlideItem slide={slide} key={index} />
-    })
+      return <SlideItem slide={slide} key={index} />;
+    });
     return result;
-  }
+  };
 
   render() {
-    var {slides} = this.props;
+    var { slides } = this.props;
     return (
       <div className="container-fluid p-0 " id="banner">
-        <Slider {...settings}>
-          {this.slidesShow(slides)}
-        </Slider>
+        <Slider {...settings}>{this.slidesShow(slides)}</Slider>
       </div>
     );
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
     slides: state.slider,
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps,null)(Banner);
+export default connect(mapStateToProps, null)(Banner);

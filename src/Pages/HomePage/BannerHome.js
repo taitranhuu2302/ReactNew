@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
-import Banner from "../../Components/Banner/Banner";
+import Banner from "./../../Components/Banner/Banner";
 
-class BannerContainer extends Component {
+class BannerHome extends Component {
   render() {
     return (
       <Fragment>
@@ -11,4 +11,4 @@ class BannerContainer extends Component {
   }
 }
 
-export default BannerContainer;
+export default BannerHome;

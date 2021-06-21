@@ -115,7 +115,7 @@ class HeaderRight extends Component {
   navSub = (list) => {
     var result = null;
     result = list.map((item, index) => {
-      return <NavSub item={item} key={index}/>
+      return <NavSub item={item} key={index} />;
     });
     return result;
   };
@@ -129,7 +129,6 @@ class HeaderRight extends Component {
         </Link>
       );
     });
-
     return result;
   };
 
