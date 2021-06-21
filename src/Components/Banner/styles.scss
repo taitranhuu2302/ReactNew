@@ -2,31 +2,50 @@
     position: relative;
     .slider-item {
         position: relative;
+        color: white;
         img {
             width: 100%;
         }
-        .slider-item-caption-1 {
-            color: white;
+        h2 {
+            font-size: 40px;
+        }
+        p {
+            font-size: 18px;
+        }
+        button.caption-btn {
+            clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+            background-color: #ff6400;
+            color: #fff;
+            font-size: 18px;
+            &:hover {
+                background-color: #73fbfd;
+                color: #000;
+            }
+        }
+        .caption-center {
             position: absolute;
             bottom: 20%;
             left: 50%;
             transform: translateX(-50%);
-            h2 {
-                font-size: 46px;
-            }
-            p {
-                font-size: 20px;
-            }
-            button.caption-btn {
-                clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-                background-color: #ff6400;
-                color: #fff;
-                font-size: 20px;
-                &:hover {
-                    background-color: #73fbfd;
-                    color: #000;
-                }
-            }
+        }
+        .caption-right {
+            position: absolute;
+            right: 25%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .caption-left {
+            position: absolute;
+            left: 15%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .slider-item-caption-3 {
+            position: absolute;
+            right: 10%;
+            top: 45%;
+            transform: translateY(-50%);
+            text-align: start;
         }
     }
     .slick-dots {
@@ -63,32 +82,17 @@
     }
 }
 
-@media (max-width:991.98px) { 
+@media (max-width: 991.98px) {
     #banner {
-        
         .slider-item {
-            .slider-item-caption-1 {
-                color: white;
-                position: absolute;
-                bottom: 20%;
-                left: 50%;
-                transform: translateX(-50%);
-                h2 {
-                    font-size: 40px;
-                }
-                p {
-                    font-size: 16px;
-                }
-                button.caption-btn {
-                    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-                    background-color: #ff6400;
-                    color: #fff;
-                    font-size: 15px;
-                    &:hover {
-                        background-color: #73fbfd;
-                        color: #000;
-                    }
-                }
+            h2 {
+                font-size: 40px;
+            }
+            p {
+                font-size: 16px;
+            }
+            button.caption-btn {
+                font-size: 15px;
             }
         }
         .slick-dots {

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
+import NavSub from "./NavSub";
 
 const subMenuProducts = [
   {
@@ -109,31 +110,12 @@ class HeaderRight extends Component {
     this.setState({
       toggleCanvas: !this.state.toggleCanvas,
     });
-    console.log(this.state);
   };
 
   navSub = (list) => {
     var result = null;
     result = list.map((item, index) => {
-      if (item.image) {
-        return (
-          <li key={index} className="drop-item">
-            <Link to={item.to}>
-              <img src={item.image} alt="" />
-            </Link>
-            <div className="item-title">{item.label}</div>
-          </li>
-        );
-      }
-      if (!item.image) {
-        return (
-          <li key={index} className="drop-item">
-            <Link to={item.to} className="nav-link">
-              {item.label}
-            </Link>
-          </li>
-        );
-      }
+      return <NavSub item={item} key={index}/>
     });
     return result;
   };
@@ -150,7 +132,6 @@ class HeaderRight extends Component {
 
     return result;
   };
-
 
   render() {
     var { toggleCanvas } = this.state;
