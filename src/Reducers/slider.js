@@ -1,5 +1,4 @@
 import * as types from "./../Constant/ActionTypes";
-import image from "./../assets/image/HomeBanner1.jpg";
 
 var inititalState = [
   {
