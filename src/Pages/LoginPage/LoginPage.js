@@ -7,9 +7,9 @@ class LoginPage extends Component {
   render() {
     return (
       <>
-        <Header />
-        <Breadcumb />
-        <LoginForm />
+        <Header match={this.props.match} />
+        <Breadcumb match={this.props.match} />
+        <LoginForm match={this.props.match} />
       </>
     );
   }

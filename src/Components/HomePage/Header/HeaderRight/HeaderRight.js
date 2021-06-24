@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
-
 class HeaderLeft extends Component {
   render() {
     return (
@@ -13,7 +12,7 @@ class HeaderLeft extends Component {
             alt=""
           />
         </Link>
-        <Link to="/login" className="login ms-4">
+        <Link to="/global" className="login ms-4">
           <i className="fas fa-user"></i>
         </Link>
       </Fragment>

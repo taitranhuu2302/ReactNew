@@ -20,3 +20,8 @@ export const gearSlides = () => {
     type: types.GEAR_SLIDES,
   };
 };
+export const onChangeLogin = () => {
+  return {
+    type: types.CHANGE_LOGIN_SIGNIN,
+  };
+};

@@ -16,9 +16,9 @@ const routes = [
     main: () => <StorePage />,
   },
   {
-    path: "/login",
+    path: "/global",
     exact: false,
-    main: () => <LoginPage />,
+    main: ({ match }) => <LoginPage match={match} />,
   },
   {
     path: "",

@@ -4,7 +4,7 @@ class NotFoundPage extends Component {
   render() {
     return (
       <div className="container">
-        <div class="alert alert-warning" role="alert">
+        <div className="alert alert-warning" role="alert">
           Không tìm thấy trang
         </div>
       </div>
