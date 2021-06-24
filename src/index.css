@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
+.color-orange {
+    color: #ff6400;
+}
+
+.background-orange {
+    background-color: #ff6400;
+}
+
+.font-family-Ti {
+    font-family: "Titillium Web", sans-serif;
+}
+
+.font-family-Ad {
+    font-family: "Aldrich", sans-serif;
+}
+
+.size-16 {
+    font-size: 16px;
+}
+
+.size-14 {
+    font-size: 14px;
+}
+
+.size-15 {
+    font-size: 15px;
+}
+
+.size-18 {
+    font-size: 18px;
+}
+
+:root {
+    --color-orange: #ff6400;
+    --font-family-Ti: "Titillium Web", sans-serif;
+    --font-family-Ad: "Aldrich", sans-serif;
+    --size-16: 16px;
+}
