@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import Header from './../../Components/LoginPage/HeaderLogin/Header/Header'
+import Breadcumb from "../../Components/LoginPage/ContentLogin/Breadcumb/Breadcumb";
 
 class LoginPage extends Component {
   render() {
-    return <div>DAY LA LOGIn</div>;
+    return (
+      <>
+        <Header />
+        <Breadcumb/>
+      </>
+    );
   }
 }
 

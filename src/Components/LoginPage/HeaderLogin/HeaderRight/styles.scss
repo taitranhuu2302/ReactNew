@@ -1,0 +1,24 @@
+.list-icon {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+    .list-item {
+        margin-right: 20px;
+        a {
+            i {
+                color: white;
+            }
+            img {
+                height: 12px;
+            }
+        }
+        &:hover {
+            a {
+                i {
+                    color: #ff6400;
+                }
+            }
+        }
+    }
+}

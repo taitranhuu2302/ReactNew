@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import HeaderPage from "./Pages/HeaderPage";
 import routes from "./routes";
 
 class App extends Component {
@@ -8,10 +7,7 @@ class App extends Component {
     return (
       <Fragment>
         <Router>
-          <HeaderPage />
-          <div className="container-fluid p-0">
-            <div className="row">{this.showContentMenus(routes)}</div>
-          </div>
+          {this.showContentMenus(routes)}
         </Router>
       </Fragment>
     );
