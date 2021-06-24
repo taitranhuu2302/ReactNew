@@ -18,7 +18,7 @@
         }
     }
     .slides {
-        padding: 0 80px;
+        padding: 0 100px;
         .slide-item {
             width: 405px;
             height: 365px;
@@ -30,7 +30,7 @@
                 left: 50%;
                 transform: translateX(-50%);
                 img {
-                    transition: transform .2s;
+                    transition: transform 0.2s;
                     width: 300px;
                     height: 300px;
                 }
@@ -38,14 +38,13 @@
             .caption {
                 padding-top: 320px;
                 text-align: center;
-                width: 100%;
+                width: 300px;
                 left: 50%;
                 transform: translateX(-50%);
                 color: #fff;
                 position: absolute;
                 font-size: 25px;
-                transition: font-size .2s;
-                // font-size: 32px;
+                transition: font-size 0.2s;
                 color: #737373;
                 &::after,
                 &::before {
@@ -60,13 +59,13 @@
                     border-left: none;
                     right: 200px;
                     opacity: 0;
-                    transition: all .2s;
+                    transition: all 0.2s;
                 }
                 &::before {
                     border-right: none;
                     left: 200px;
                     opacity: 0;
-                    transition: all .2s;
+                    transition: all 0.2s;
                 }
                 span {
                     &::after,
@@ -83,13 +82,13 @@
                         border-left: none;
                         right: 200px;
                         opacity: 0;
-                        transition: all .2s;
+                        transition: all 0.2s;
                     }
                     &::before {
                         border-right: none;
                         left: 200px;
                         opacity: 0;
-                        transition: all .2s;
+                        transition: all 0.2s;
                     }
                 }
             }
@@ -100,28 +99,44 @@
                     }
                 }
                 .caption {
-                    font-size: 32px;
+                    font-size: 28px;
                     color: #ff6400;
                     &::after {
-                        right: 28px;
+                        right: 0;
                         opacity: 1;
                     }
                     &::before {
-                        left: 28px;
+                        left: 0;
                         opacity: 1;
                     }
                     span {
                         &::after {
-                            right: 28px;
+                            right: 0;
                             opacity: 1;
                         }
                         &::before {
-                            left: 28px;
+                            left: 0;
                             opacity: 1;
                         }
                     }
                 }
             }
+        }
+        .slick-next {
+            right: 0;
+            z-index: 2;
+        }
+        .slick-prev {
+            left: 0;
+            z-index: 2;
+        }
+    }
+}
+
+@media (max-width: 1399.98px) {
+    #gear-slide {
+        .slides {
+            padding: 0;
         }
     }
 }

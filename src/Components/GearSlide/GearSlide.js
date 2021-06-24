@@ -34,19 +34,18 @@ class GearSlide extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 1,
+      slidesToScroll: 4,
       responsive: [
         {
-          breakpoint: 1024,
+          breakpoint: 1025,
           settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true,
           },
         },
         {
-          breakpoint: 600,
+          breakpoint: 769,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
@@ -54,7 +53,7 @@ class GearSlide extends Component {
           },
         },
         {
-          breakpoint: 480,
+          breakpoint: 481,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -64,8 +63,8 @@ class GearSlide extends Component {
     };
     var { gearSlide } = this.props;
     return (
-      <div className="container-fluid p-0" id="gear-slide">
-        <div className="row w-100">
+      <div className="container-fluid" id="gear-slide">
+        <div className="row w-100 m-0">
           <div className="col-12 caption-title text-center">
             <h1>GAMING GEARS</h1>
             <p>

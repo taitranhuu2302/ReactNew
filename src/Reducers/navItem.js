@@ -8,36 +8,43 @@ var inititalState = [
         to: "/",
         image: "https://www.aorus.com/assets/img/Motherboard.18fe2f57.png",
         label: "MOTHERBOARD",
+        exact: false,
       },
       {
         to: "/",
         image: "https://www.aorus.com/assets/img/Graphics.6ca7d8bf.png",
         label: "GRAPHICS CARDS",
+        exact: false,
       },
       {
         to: "/",
         image: "https://www.aorus.com/assets/img/Laptop.e77d5ad1.png",
         label: "LAPTOPS",
+        exact: false,
       },
       {
         to: "/",
         image: "https://www.aorus.com/assets/img/Monitor.b4e0aada.png",
         label: "MONITORS",
+        exact: false,
       },
       {
         to: "/",
         image: "https://www.aorus.com/assets/img/Desktop-PC.ab83c481.png",
         label: "DESKTOP PC",
+        exact: false,
       },
       {
         to: "/",
         image: "https://www.aorus.com/assets/img/Peripherals.9f53da7d.png",
         label: "PC PERIPHERALS",
+        exact: false,
       },
       {
         to: "/",
         image: "https://www.aorus.com/assets/img/Components.9dcdfdc0.png",
         label: "PC COMPONENTS",
+        exact: false,
       },
     ],
   },
@@ -47,18 +54,22 @@ var inititalState = [
       {
         to: "/",
         label: "NEWS",
+        exact: false,
       },
       {
         to: "/",
         label: "EVENTS",
+        exact: false,
       },
       {
         to: "/",
         label: "BLOG",
+        exact: false,
       },
       {
         to: "/",
         label: "WALLPAPER",
+        exact: false,
       },
     ],
   },
@@ -68,10 +79,12 @@ var inititalState = [
       {
         to: "/",
         label: "WARRANTY INFORMATION",
+        exact: false,
       },
       {
         to: "/",
         label: "PRODUCT REGISTRATION",
+        exact: false,
       },
     ],
   },
@@ -81,26 +94,32 @@ var inititalState = [
       {
         to: "/",
         label: "WHY JOIN?",
+        exact: false,
       },
       {
         to: "/",
         label: "MEMBERSHIP LEVELS",
+        exact: false,
       },
       {
         to: "/",
         label: "AORUS POINTS & REWADS",
+        exact: false,
       },
       {
         to: "/",
         label: "ACHIVEMENT BAGGES",
+        exact: false,
       },
       {
         to: "/",
         label: "MEMBER LEADERBOARD",
+        exact: false,
       },
       {
         to: "/",
         label: "MEMBER FAQS",
+        exact: false,
       },
     ],
   },

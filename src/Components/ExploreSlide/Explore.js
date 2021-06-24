@@ -42,12 +42,37 @@ class Explore extends Component {
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+          },
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
     };
+
     var { exploreSlide } = this.props;
-    console.log(exploreSlide);
     return (
       <div className="container-fluid slide-explore p-0">
-        <div className="row w-100">
+        <div className="row w-100 m-0">
           <div className="col-12 caption-title text-center">
             <h1>EXPLORE #AORUS</h1>
             <p>

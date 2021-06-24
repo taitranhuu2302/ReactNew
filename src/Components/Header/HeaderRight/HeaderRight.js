@@ -12,7 +12,7 @@ class HeaderLeft extends Component {
             alt=""
           />
         </Link>
-        <Link to="/" className=" login ms-4">
+        <Link to="/login" className="login ms-4">
           <i className="fas fa-user"></i>
         </Link>
       </Fragment>
