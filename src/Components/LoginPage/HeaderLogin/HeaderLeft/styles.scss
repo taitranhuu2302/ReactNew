@@ -27,6 +27,7 @@
             }
         }
         .menu-sub {
+            z-index: 100;
             width: 300%;
             background-color: rgba(29, 29, 29, 0.9);
             position: absolute;
@@ -45,7 +46,7 @@
                     color: #ddd;
                 }
                 &::after {
-                    content: '';
+                    content: "";
                     position: absolute;
                     width: 100%;
                     height: 1px;

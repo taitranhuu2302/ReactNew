@@ -17,10 +17,7 @@ class Breadcumb extends Component {
       <div className="container-fluid" id="breadcumb">
         <div className="container h-100">
           <nav aria-label="breadcrumb" className="h-100">
-            <ol
-              className="breadcrumb"
-              className="h-100 align-items-center d-flex"
-            >
+            <ol className="breadcrumb h-100 align-items-center d-flex">
               <li className="breadcrumb-item">
                 {changeLogin ? (
                   <Link to="/">HOME</Link>

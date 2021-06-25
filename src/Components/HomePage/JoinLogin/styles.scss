@@ -76,3 +76,16 @@
         }
     }
 }
+
+@media (max-width: 575.98px) {
+    #join-login {
+        .join-content {
+            h1 {
+                font-size: 30px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}

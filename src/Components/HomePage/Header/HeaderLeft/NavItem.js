@@ -10,7 +10,7 @@ export default class NavItem extends Component {
     return result;
   };
   render() {
-    var { item, index } = this.props;
+    var { item } = this.props;
     var html = null;
     if (!item.list[0].image) {
       html = (

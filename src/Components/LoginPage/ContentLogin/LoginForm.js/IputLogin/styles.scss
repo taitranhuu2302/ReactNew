@@ -8,7 +8,6 @@ input[type="password"] {
     background-color: #282828;
     height: 50px;
     color: #fff;
-    border: none;
     &:focus {
         border: 1px solid #ff6400;
     }
@@ -19,10 +18,6 @@ input[type="password"] {
     color: #ff6400;
     text-decoration: none;
     font-size: 14px;
-}
-
-input[type="checkbox"] {
-    border: none;
 }
 
 .label-in-width {

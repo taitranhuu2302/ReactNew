@@ -32,6 +32,10 @@
     font-size: 18px;
 }
 
+.active-border {
+    border: 1px solid #ff6400;
+}
+
 :root {
     --color-orange: #ff6400;
     --font-family-Ti: "Titillium Web", sans-serif;
