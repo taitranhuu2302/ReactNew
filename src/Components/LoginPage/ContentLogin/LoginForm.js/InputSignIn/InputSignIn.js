@@ -27,6 +27,7 @@ class InputSignIn extends Component {
 
   handleErr = () => {
     var { info } = this.state;
+    var { list } = this.props;
     var err = {};
     var check = true;
     // Check Email
@@ -74,6 +75,18 @@ class InputSignIn extends Component {
       check = false;
     }
 
+    // Check account exists
+
+    if (list.some((item) => item.email === info.email)) {
+      err.email = "The Email already exists";
+      check = false;
+    }
+
+    if (list.some((item) => item.username === info.username)) {
+      err.username = "The NickName already exists";
+      check = false;
+    }
+
     this.setState({
       err,
     });
@@ -90,48 +103,73 @@ class InputSignIn extends Component {
 
   render() {
     var { err } = this.state;
+    // var { list } = this.props;
     return (
       <>
         <div className="col-12 text-center">
           <h1 className="text-white">CREATE YOUR ACCOUNT</h1>
         </div>
         <div className="col-12 input-regis">
-          <label htmlFor="email">Email*</label>
+          <label className={err.email ? "regis-title" : ""} htmlFor="email">
+            Email*
+          </label>
           <input
             type="text"
             id="email"
             name="email"
             value={this.state.email}
             onChange={this.onChange}
-            className="w-100 form-control border-0 shadow-none rounded"
+            className={
+              err.email
+                ? "w-100 form-control active-border shadow-none rounded"
+                : "w-100 form-control border-0 shadow-none rounded"
+            }
           />
           <p className="color-orange size-14 mt-1 font-family-Ti">
             The email will be you login ID or GIGABYTE AORUS Account.
           </p>
         </div>
         <div className="col-12 input-regis">
-          <label htmlFor="username">NickName*</label>
+          <label
+            className={err.username ? "regis-title" : ""}
+            htmlFor="username"
+          >
+            NickName*
+          </label>
           <input
             type="text"
             id="username"
             name="username"
             value={this.state.username}
             onChange={this.onChange}
-            className="w-100 form-control border-0 shadow-none rounded"
+            className={
+              err.username
+                ? "w-100 form-control active-border shadow-none rounded"
+                : "w-100 form-control border-0 shadow-none rounded"
+            }
           />
           <p className="color-orange size-14 mt-1 font-family-Ti">
             Nickname must be widthin 30 characters
           </p>
         </div>
         <div className="col-12 input-regis">
-          <label htmlFor="password">Password*</label>
+          <label
+            className={err.password ? "regis-tite" : ""}
+            htmlFor="password"
+          >
+            Password*
+          </label>
           <input
             type="password"
             id="password"
             name="password"
             value={this.state.password}
             onChange={this.onChange}
-            className="w-100 form-control border-0 shadow-none rounded"
+            className={
+              err.password
+                ? "w-100 form-control active-border shadow-none rounded"
+                : "w-100 form-control border-0 shadow-none rounded"
+            }
           />
           <p className="color-orange size-14 mt-1 font-family-Ti">
             Password must be 8 to 20 characters, with a least one numeric
@@ -139,14 +177,23 @@ class InputSignIn extends Component {
           </p>
         </div>
         <div className="col-12 input-regis">
-          <label htmlFor="re-password">Re-enter password*</label>
+          <label
+            className={err.repassword ? "regis-title" : ""}
+            htmlFor="re-password"
+          >
+            Re-enter password*
+          </label>
           <input
             type="password"
             id="re-password"
             name="repassword"
             value={this.state.repassword}
             onChange={this.onChange}
-            className="w-100 form-control border-0 shadow-none rounded"
+            className={
+              err.repassword
+                ? "w-100 form-control active-border shadow-none rounded"
+                : "w-100 form-control border-0 shadow-none rounded"
+            }
           />
           <p className="color-orange size-14 mt-1 font-family-Ti">
             Passwords must match.
@@ -170,14 +217,29 @@ class InputSignIn extends Component {
             </div>
           </div>
         </div>
-
         {err.email || err.username || err.password || err.repassword ? (
           <div className="col-12 mb-4 py-2 color-orange active-border font-family-Ti">
-            {err.email ? err.email : ""} <br />
-            {err.username ? err.username : ""} <br />
-            {err.password ? err.password : ""}
-            <br />
-            {err.repassword ? err.repassword : ""}
+            {err.email ? (
+              <p className="font-family-Ti mb-1">{err.email}</p>
+            ) : (
+              ""
+            )}
+            {err.username ? (
+              <p className="font-family-Ti mb-1">{err.username}</p>
+            ) : (
+              ""
+            )}
+            {err.password ? (
+              <p className="font-family-Ti mb-1">{err.password}</p>
+            ) : (
+              ""
+            )}
+
+            {err.repassword ? (
+              <p className="font-family-Ti mb-1">{err.repassword}</p>
+            ) : (
+              ""
+            )}
           </div>
         ) : (
           ""

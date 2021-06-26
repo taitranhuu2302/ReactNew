@@ -8,6 +8,7 @@ class InputLogin extends Component {
     this.state = {
       email: "",
       password: "",
+      err: {},
     };
   }
 
@@ -21,29 +22,56 @@ class InputLogin extends Component {
     });
   };
 
-  findAccount = (list, email, password) => {
-    var result = false;
-
-    list.forEach((item) => {
-      if (item.email === email && item.password === password) {
-        return (result = true);
-      }
-    });
-    return result;
-  };
-
-  onLogged = () => {
-    var { email, password } = this.state;
+  handleErr = () => {
+    var { email, password, err } = this.state;
     var listAccount = localStorage.getItem("info")
       ? JSON.parse(localStorage.getItem("info"))
       : [];
-    if (this.findAccount(listAccount, email, password)) {
+    var check = true;
+
+    if (!password) {
+      err.password = "Password field is required";
+      check = false;
+    }
+
+    if (!email) {
+      err.email = "Email field is required";
+      check = false;
+    }
+
+    if (listAccount.every((item) => item.email !== email)) {
+      err.email = "Email is not correct";
+      check = false;
+    }
+
+    if (listAccount.every((item) => item.password !== password)) {
+      err.password = "Password is not correct";
+      check = false;
+    }
+    this.setState({
+      err,
+    });
+    return check;
+  };
+
+  onLogged = () => {
+    var { email, err } = this.state;
+    var usered = localStorage.getItem("username") ? true : false;
+    if (usered) {
+      err.exits = "You are logged in";
+      this.setState({
+        err,
+      });
+      return;
+    }
+    if (this.handleErr()) {
       this.props.history.push("/");
       this.props.onLogged(email);
     }
   };
 
   render() {
+    var { err } = this.state;
     return (
       <>
         <div className="col-12 text-center">
@@ -102,6 +130,28 @@ class InputLogin extends Component {
             </div>
           </div>
         </div>
+        {err.email || err.password || err.exits ? (
+          <div className="col-12 mb-4 py-2 color-orange active-border font-family-Ti">
+            {err.exits ? (
+              <p className="font-family-Ti mb-1">{err.exits}</p>
+            ) : (
+              ""
+            )}
+            {err.email ? (
+              <p className="font-family-Ti mb-1">{err.email}</p>
+            ) : (
+              ""
+            )}
+            {err.password ? (
+              <p className="font-family-Ti mb-1">{err.password}</p>
+            ) : (
+              ""
+            )}
+          </div>
+        ) : (
+          ""
+        )}
+
         <div className="col-12">
           <div className="row">
             <div className="col-12 col-sm-7 mt-2 text-center">
