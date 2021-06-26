@@ -3,9 +3,47 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 
 class InputLogin extends Component {
-  render() {
-    var { url, slug } = this.props;
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+    };
+  }
 
+  onChange = (e) => {
+    var target = e.target;
+    var name = target.name;
+    var value = target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  findAccount = (list, email, password) => {
+    var result = false;
+
+    list.forEach((item) => {
+      if (item.email === email && item.password === password) {
+        return (result = true);
+      }
+    });
+    return result;
+  };
+
+  onLogged = () => {
+    var { email, password } = this.state;
+    var listAccount = localStorage.getItem("info")
+      ? JSON.parse(localStorage.getItem("info"))
+      : [];
+    if (this.findAccount(listAccount, email, password)) {
+      this.props.history.push("/");
+      this.props.onLogged(email);
+    }
+  };
+
+  render() {
     return (
       <>
         <div className="col-12 text-center">
@@ -17,6 +55,8 @@ class InputLogin extends Component {
             type="text"
             id="email"
             name="email"
+            alue={this.state.email}
+            onChange={this.onChange}
             className="w-100 form-control border-0 shadow-none rounded"
           />
         </div>
@@ -26,6 +66,8 @@ class InputLogin extends Component {
             type="password"
             id="password"
             name="password"
+            value={this.state.password}
+            onChange={this.onChange}
             className="w-100 form-control border-0 shadow-none rounded"
           />
         </div>
@@ -63,17 +105,17 @@ class InputLogin extends Component {
         <div className="col-12">
           <div className="row">
             <div className="col-12 col-sm-7 mt-2 text-center">
-              <Link to={`${url}/${slug}`}>
-                <button
-                  onClick={this.props.onChangeLogin}
-                  className="btn shadow-none button-create w-100 text-white"
-                >
+              <Link to="/global/register">
+                <button className="btn shadow-none button-create w-100 text-white">
                   Create An Account
                 </button>
               </Link>
             </div>
             <div className="col-12 col-sm-5 mt-2 text-center ">
-              <button className="btn shadow-none button-login w-100 text-white">
+              <button
+                className="btn shadow-none button-login w-100 text-white"
+                onClick={this.onLogged}
+              >
                 LOG IN
               </button>
             </div>

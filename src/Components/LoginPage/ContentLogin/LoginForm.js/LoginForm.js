@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import InputLogin from "./IputLogin/InputLogin";
-import InputSignIn from "./InputSignIn/InputSignIn";
 import "./styles.scss";
 import { connect } from "react-redux";
 import * as action from "./../../../../Actions/index";
@@ -8,6 +7,9 @@ import * as action from "./../../../../Actions/index";
 class LoginForm extends Component {
   onChangeLogin = () => {
     this.props.onChangeLogin();
+  };
+  onLogged = (data) => {
+    this.props.onLogged(data);
   };
 
   render() {
@@ -19,19 +21,14 @@ class LoginForm extends Component {
         <div className="content-box">
           <div className="container-fluid">
             <div className="row">
-              {changeLogin ? (
-                <InputLogin
-                  onChangeLogin={this.onChangeLogin}
-                  url={url}
-                  slug={slug}
-                />
-              ) : (
-                <InputSignIn
-                  onChangeLogin={this.onChangeLogin}
-                  url={url}
-                  slug={slug}
-                />
-              )}
+              <InputLogin
+                onChangeLogin={this.onChangeLogin}
+                url={url}
+                slug={slug}
+                logged={this.props.logged}
+                onLogged={this.onLogged}
+                history={this.props.history}
+              />
             </div>
           </div>
         </div>
@@ -43,6 +40,7 @@ class LoginForm extends Component {
 const mapStateToProps = (state) => {
   return {
     changeLogin: state.changeLogin,
+    logged: state.logged,
   };
 };
 
@@ -50,6 +48,9 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     onChangeLogin: () => {
       dispatch(action.onChangeLogin());
+    },
+    onLogged: (username) => {
+      dispatch(action.acOnLogged(username));
     },
   };
 };

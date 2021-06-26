@@ -6,9 +6,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Router>
-          {this.showContentMenus(routes)}
-        </Router>
+        <Router>{this.showContentMenus(routes)}</Router>
       </Fragment>
     );
   }

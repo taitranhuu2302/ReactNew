@@ -10,7 +10,7 @@ export default class HomePage extends Component {
   render() {
     return (
       <Fragment>
-        <HeaderPage />
+        <HeaderPage history={this.props.history} />
         <Banner />
         <GearSlide />
         <Explore />

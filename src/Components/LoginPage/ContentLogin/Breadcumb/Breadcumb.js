@@ -10,25 +10,17 @@ class Breadcumb extends Component {
   };
 
   render() {
-    var { changeLogin, match } = this.props;
-    var url = match.url;
-    var slug = changeLogin ? "register" : "login";
+    var { to, current, toBack } = this.props;
     return (
       <div className="container-fluid" id="breadcumb">
         <div className="container h-100">
           <nav aria-label="breadcrumb" className="h-100">
             <ol className="breadcrumb h-100 align-items-center d-flex">
               <li className="breadcrumb-item">
-                {changeLogin ? (
-                  <Link to="/">HOME</Link>
-                ) : (
-                  <Link to={`${url}/${slug}`} onClick={this.onChangeLogin}>
-                    My Acounnt
-                  </Link>
-                )}
+                <Link to={to}>{toBack}</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
-                {changeLogin ? "LOG IN " : "CREATE YOUR ACCOUNT"}
+                {current}
               </li>
             </ol>
           </nav>

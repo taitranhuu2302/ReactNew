@@ -8,12 +8,7 @@ class InputSignIn extends Component {
 
     this.state = {
       info: {},
-      err: {
-        email: "",
-        username: "",
-        password: "",
-        repassword: "",
-      },
+      err: {},
     };
   }
 
@@ -30,40 +25,71 @@ class InputSignIn extends Component {
     });
   };
 
-  onRegister = () => {
-    var { info, err } = this.state;
+  handleErr = () => {
+    var { info } = this.state;
+    var err = {};
+    var check = true;
     // Check Email
-    if (
-      !info.email ||
+    if (!info.email) {
+      err.email = "The Email field is required";
+      check = false;
+    } else if (
       info.email.lastIndexOf("@") === -1 ||
       info.email.lastIndexOf(".") === -1
     ) {
       err.email = "The Email must be a valid email address";
-    } else err.email = "";
+      check = false;
+    }
 
-    // Check Username
+    //Check NickName
     if (!info.username) {
-      err.username = "The nickname field is required";
-    } else err.username = "";
+      err.username = "The NickName field is required";
+      check = false;
+    } else if (info.username.indexOf(" ") >= 0) {
+      err.username = "Space is not allowed";
+      check = false;
+    } else if (info.username.length >= 30) {
+      err.username = "Nickname must be widthin 30 characters";
+      check = false;
+    }
 
     //Check Password
     if (!info.password) {
-      err.password = `Password must be 8 to 20 characters, with a least one numeric
-      character [0-9] and one letter. Space is not allowed.`;
-    } else err.password = "";
+      err.password = "The Password field is required";
+      check = false;
+    } else if (info.password.indexOf(" ") >= 0) {
+      err.password = "Space is not allowed";
+      check = false;
+    } else if (info.password.length < 8 || info.password.length > 20) {
+      err.password = "Password must be 8 to 20 characters";
+      check = false;
+    }
 
-    //Check Re-Password
+    // Check Re-Password
     if (!info.repassword) {
-      err.repassword = "The Re-Password field is requied";
+      err.repassword = "The Re-Enter Password field is required";
+      check = false;
     } else if (info.repassword !== info.password) {
-      err.repassword = "Re-Password does not match";
-    } else err.repassword = "";
+      err.repassword = "Enter back not match password";
+      check = false;
+    }
+
+    this.setState({
+      err,
+    });
+    return check;
+  };
+
+  onRegister = () => {
+    if (!this.handleErr()) {
+      return;
+    } else {
+      this.props.onRegister(this.state.info);
+    }
   };
 
   render() {
-    var { url, slug } = this.props;
     var { err } = this.state;
-    console.log(err.email);
     return (
       <>
         <div className="col-12 text-center">
@@ -144,17 +170,23 @@ class InputSignIn extends Component {
             </div>
           </div>
         </div>
-        {/* <div className="col-12 mb-4 py-2 color-orange active-border font-family-Ti">
-          asdoijaoisdjio
-        </div> */}
+
+        {err.email || err.username || err.password || err.repassword ? (
+          <div className="col-12 mb-4 py-2 color-orange active-border font-family-Ti">
+            {err.email ? err.email : ""} <br />
+            {err.username ? err.username : ""} <br />
+            {err.password ? err.password : ""}
+            <br />
+            {err.repassword ? err.repassword : ""}
+          </div>
+        ) : (
+          ""
+        )}
         <div className="col-12">
           <div className="row">
             <div className="col-12 col-sm-7 mt-2 text-center">
-              <Link to={`${url}/${slug}`}>
-                <button
-                  onClick={this.props.onChangeLogin}
-                  className="btn shadow-none button-create w-100 text-white"
-                >
+              <Link to="/global/login">
+                <button className="btn shadow-none button-create w-100 text-white">
                   I'm already a member
                 </button>
               </Link>

@@ -9,8 +9,13 @@ class LoginPage extends Component {
     return (
       <>
         <Header match={this.props.match} />
-        <Breadcumb match={this.props.match} />
-        <LoginForm match={this.props.match} />
+        <Breadcumb
+          match={this.props.match}
+          to="/"
+          toBack="HOME"
+          current="LOGIN"
+        />
+        <LoginForm match={this.props.match} history={this.props.history} />
         <Footer />
       </>
     );

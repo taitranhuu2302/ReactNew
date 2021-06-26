@@ -8,7 +8,11 @@ class Footer extends Component {
     var result = null;
 
     result = list.map((item, index) => {
-      return <Link to={item.to}>{item.item}</Link>;
+      return (
+        <Link key={index} to={item.to}>
+          {item.item}
+        </Link>
+      );
     });
 
     return result;
@@ -19,7 +23,7 @@ class Footer extends Component {
 
     result = list.map((item, index) => {
       return (
-        <li className="nav-item">
+        <li key={index} className="nav-item">
           <Link to={item.to} className="nav-link ps-0  ">
             {item.label}
           </Link>
@@ -34,7 +38,7 @@ class Footer extends Component {
 
     result = nav.map((item, index) => {
       return (
-        <div className="col">
+        <div key={index} className="col">
           <div className="h5 text-white text-center text-md-start">
             {item.navItem}
           </div>

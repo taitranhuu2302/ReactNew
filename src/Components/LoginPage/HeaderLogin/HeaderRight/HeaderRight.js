@@ -7,7 +7,7 @@ class HeaderRight extends Component {
     return (
       <ul className="list-icon justify-content-end">
         <li className="list-item">
-          <Link to="/login">
+          <Link to="/global/login">
             <i className="fas fa-user"></i>
           </Link>
         </li>

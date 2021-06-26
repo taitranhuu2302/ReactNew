@@ -4,6 +4,8 @@ import navItem from "./navItem";
 import gearSlides from "./gearSlides";
 import exploreSlides from "./exploreSlides";
 import changeLogin from "./changeLogin";
+import register from "./register";
+import logged from "./logged";
 
 const myReducers = combineReducers({
   slider,
@@ -11,6 +13,8 @@ const myReducers = combineReducers({
   gearSlides,
   exploreSlides,
   changeLogin,
+  register,
+  logged,
 });
 
 export default myReducers;

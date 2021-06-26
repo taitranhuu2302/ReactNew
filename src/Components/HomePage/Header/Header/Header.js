@@ -13,7 +13,7 @@ class Header extends Component {
               <HeaderLeft />
             </div>
             <div className="col-xl-3 col-4 header-right text-end">
-              <HeaderRight />
+              <HeaderRight history={this.props.history} />
             </div>
           </div>
         </div>

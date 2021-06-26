@@ -18,7 +18,7 @@ class join extends Component {
             <div className="row">
               <div className="col-12 col-md-6 mb-3 text-md-end text-center">
                 <Link
-                  to="/global"
+                  to="/global/register"
                   className="btn caption-btn signup rounded-0 shadow-none"
                 >
                   SIGN UP
@@ -26,7 +26,7 @@ class join extends Component {
               </div>
               <div className="col-12 col-md-6 text-md-start text-center">
                 <Link
-                  to="/global"
+                  to="/global/login"
                   className="btn caption-btn login rounded-0 shadow-none"
                 >
                   LOG IN
