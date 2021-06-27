@@ -4,10 +4,41 @@
         background-color: #000;
         .slides {
             .slide-item {
-                padding: 0 50px;
-                .img {
-                    height: 320px;
-                    width: 320px;
+                padding: 30px;
+                &:hover {
+                    .bgr {
+                        .img {
+                            img {
+                                transform: scale(1.2);
+                            }
+                        }
+                    }
+                }
+                .bgr {
+                    position: relative;
+                    background: linear-gradient(180deg, #000, hsla(0, 0%, 100%, 0.3));
+                    .img {
+                        overflow: hidden;
+                        img {
+                            transition: transform 0.3s;
+                        }
+                    }
+                    .slide-title {
+                        position: absolute;
+                        width: 100%;
+                        height: 60px;
+                        padding: 15px;
+                        top: 40%;
+                        left: calc(-50% + 30px);
+                        transform: rotate(-90deg);
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 18px;
+                        line-height: 13px;
+                        letter-spacing: -0.05em;
+                        color: rgba(0, 0, 0, 0.5);
+                        text-transform: uppercase;
+                    }
                 }
             }
         }
