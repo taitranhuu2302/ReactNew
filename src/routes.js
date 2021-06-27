@@ -3,7 +3,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignPage from "./Pages/LoginPage/SignPage";
-import StorePage from "./Pages/StorePage/StorePage";
+import GraphicsCards from "./Pages/StorePage/GraphicsCards";
 import FinishRegister from "./Pages/LoginPage/FinishRegister";
 
 const routes = [
@@ -13,9 +13,9 @@ const routes = [
     main: ({ history }) => <HomePage history={history} />,
   },
   {
-    path: "/store",
+    path: "/GraphicsCard",
     exact: false,
-    main: () => <StorePage />,
+    main: () => <GraphicsCards />,
   },
   {
     path: "/global/login",

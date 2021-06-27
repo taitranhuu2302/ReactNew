@@ -11,7 +11,7 @@ var inititalState = [
         exact: false,
       },
       {
-        to: "/",
+        to: "/GraphicsCard",
         image: "/assets/image/Graphics.6ca7d8bf.png",
         label: "GRAPHICS CARDS",
         exact: false,

@@ -1,0 +1,15 @@
+#graphics-card {
+    padding: 70px 0;
+    .title {
+        background-color: #000;
+        .slides {
+            .slide-item {
+                padding: 0 50px;
+                .img {
+                    height: 320px;
+                    width: 320px;
+                }
+            }
+        }
+    }
+}

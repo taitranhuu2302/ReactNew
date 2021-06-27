@@ -64,7 +64,7 @@ class Footer extends Component {
                 alt=""
               />
             </div>
-            <div className="col-12 my-3 size-18 text-white text-center">
+            <div className="col-12 my-3 size-18 text-white text-center glitch">
               TEAM UP. FIGHT ON.
             </div>
             <div className="col-12 text-center">
