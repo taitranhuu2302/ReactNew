@@ -6,3 +6,4 @@ export const CHANGE_LOGIN_SIGNIN = "CHANGE_LOGIN_SIGNIN";
 export const REGISTER = "REGISTER";
 export const LOGGED = "LOGGED";
 export const PRODUCTS = "PRODUCTS";
+export const GET_USERS = "GET_USERS";

@@ -31,11 +31,19 @@ export const onChangeLogin = () => {
   };
 };
 
-export const acOnRegister = (info) => {
+export const acOnRegister = (user) => {
   return {
     type: types.REGISTER,
-    info,
+    user,
   };
+};
+
+export const acRegisterRequest = (user) => {
+  return dispatch => {
+    return callApi('users', "POST", user).then(res => {
+      return dispatch(acOnRegister(res.data));
+    })
+  }
 };
 
 export const acOnLogged = (username) => {
@@ -44,12 +52,33 @@ export const acOnLogged = (username) => {
     username,
   };
 };
+
+export const acGetUsersRequest = () => {
+  return dispatch => {
+    return callApi('users', "GET", null).then(res => {
+      if (res.data) {
+        return dispatch(acGetUsers(res.data));
+      }
+    })
+  };
+};
+
+export const acGetUsers = (users) => {
+  return {
+    type: types.GET_USERS,
+    users
+  }
+}
+
+
 // List Products
 
 export const acFetchProductsRequest = () => {
   return (dispatch) => {
     return callApi("products", "GET", null).then((res) => {
-      dispatch(acFetchProducts(res.data));
+      if (res.data) {
+        return dispatch(acFetchProducts(res.data))
+      }
     });
   };
 };

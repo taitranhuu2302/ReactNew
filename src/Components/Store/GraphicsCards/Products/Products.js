@@ -11,7 +11,7 @@ class Products extends Component {
   render() {
     var { products } = this.props;
     return (
-      <div className="row row-cols-4 products">
+      <div className="row row-cols-xl-4 row-cols-sm-2 row-cols-1 products">
         {this.ProductList(products)}
       </div>
     );

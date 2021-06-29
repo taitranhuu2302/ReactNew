@@ -24,9 +24,7 @@ class InputLogin extends Component {
 
   handleErr = () => {
     var { email, password, err } = this.state;
-    var listAccount = localStorage.getItem("info")
-      ? JSON.parse(localStorage.getItem("info"))
-      : [];
+    var users = this.props.users;
     var check = true;
 
     if (!password) {
@@ -39,12 +37,12 @@ class InputLogin extends Component {
       check = false;
     }
 
-    if (listAccount.every((item) => item.email !== email)) {
+    if (users.every((item) => item.email !== email)) {
       err.email = "Email is not correct";
       check = false;
     }
 
-    if (listAccount.every((item) => item.password !== password)) {
+    if (users.every((item) => item.password !== password)) {
       err.password = "Password is not correct";
       check = false;
     }

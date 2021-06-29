@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import * as action from './../../../../Actions/index'
 
 class FinishForm extends Component {
+  componentDidMount() {
+    this.props.onGetUsers();
+  }
   render() {
-    var { listRegister } = this.props;
-    var email = listRegister[listRegister.length - 1].email;
-    var username = listRegister[listRegister.length - 1].username;
+    var { users } = this.props;
+    console.log(users);
+    var email = users[users.length - 1].email;
+    var username = users[users.length - 1].username;
     return (
       <div className="container-fluid px-0 py-5" id="wapper-login">
         <div className="content-box">
@@ -65,8 +70,16 @@ class FinishForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    listRegister: state.register,
+    users: state.users,
   };
 };
 
-export default connect(mapStateToProps, null)(FinishForm);
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    onGetUsers: () => {
+      dispatch(action.acGetUsersRequest())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FinishForm);

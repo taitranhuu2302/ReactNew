@@ -4,26 +4,32 @@ import Category from "./GCCategory/Category";
 import BarFilter from "./GCBarFilter/BarFilter";
 import TaskBar from "./TaskBar/TaskBar";
 import Products from "./Products/Products";
+import Gallery from "./Gallery/Gallery";
 
 class GraphicsCard extends Component {
   render() {
     return (
-      <div className="container-fluid p-0" id="graphics-card">
-        <Category listCard={listCard} />
-        <BarFilter taskBar={taskBar} />
-        <div className="container-fluid mt-4">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-2 d-none d-lg-block task-bar">
-                <TaskBar taskBar={taskBar} />
-              </div>
-              <div className="col-lg-10 col-12">
-                <Products />
+      <>
+        <div className="container-fluid p-0" id="graphics-card">
+          <Category listCard={listCard} />
+          <BarFilter taskBar={taskBar} />
+          <div className="container-fluid mt-4">
+            <div className="container">
+              <div className="row">
+                <div className="col-xl-2 d-none d-xl-block task-bar">
+                  <TaskBar taskBar={taskBar} />
+                </div>
+                <div className="col-xl-10 col-12">
+                  <Products />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <div className="container-fluid" id="gallery">
+          <Gallery />
+        </div>
+      </>
     );
   }
 }
@@ -53,9 +59,11 @@ const taskBar = [
     list: [
       {
         name: "AORUS",
+        active: true,
       },
       {
         name: "GIGABYTE",
+        active: false,
       },
     ],
   },
@@ -64,12 +72,15 @@ const taskBar = [
     list: [
       {
         name: "GeForce® GTX TITAN Z",
+        active: false,
       },
       {
         name: " GeForce RTX™ 3090",
+        active: false,
       },
       {
         name: "GeForce® GTX 1660 Ti",
+        active: false,
       },
     ],
   },
@@ -78,12 +89,15 @@ const taskBar = [
     list: [
       {
         name: "Radeon™ RX 6900 XT",
+        active: false,
       },
       {
         name: " Radeon™ RX 5700 XT",
+        active: false,
       },
       {
         name: "Radeon R9 NANO",
+        active: false,
       },
     ],
   },
@@ -92,30 +106,39 @@ const taskBar = [
     list: [
       {
         name: "16GB",
+        active: false,
       },
       {
         name: "12GB",
+        active: false,
       },
       {
         name: "11GB",
+        active: false,
       },
       {
         name: "8GB",
+        active: false,
       },
       {
         name: "6GB",
+        active: false,
       },
       {
         name: "4GB",
+        active: false,
       },
       {
         name: "3GB",
+        active: false,
       },
       {
         name: "2GB",
+        active: false,
       },
       {
         name: "1GB",
+        active: false,
       },
     ],
   },

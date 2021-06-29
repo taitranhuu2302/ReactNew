@@ -5,6 +5,11 @@ import { connect } from "react-redux";
 import * as action from "./../../../../Actions/index";
 
 class LoginForm extends Component {
+
+  componentDidMount() {
+    this.props.onGetUsers();
+  }
+
   onChangeLogin = () => {
     this.props.onChangeLogin();
   };
@@ -13,8 +18,9 @@ class LoginForm extends Component {
   };
 
   render() {
-    var { changeLogin, match } = this.props;
+    var { changeLogin, match, users } = this.props;
     var url = match.url;
+    console.log(users);
     var slug = changeLogin ? "register" : "login";
     return (
       <div className="container-fluid px-0 py-5" id="wapper-login">
@@ -25,6 +31,7 @@ class LoginForm extends Component {
                 onChangeLogin={this.onChangeLogin}
                 url={url}
                 slug={slug}
+                users = {users}
                 logged={this.props.logged}
                 onLogged={this.onLogged}
                 history={this.props.history}
@@ -41,6 +48,7 @@ const mapStateToProps = (state) => {
   return {
     changeLogin: state.changeLogin,
     logged: state.logged,
+    users: state.users,
   };
 };
 
@@ -52,6 +60,9 @@ const mapDispatchToProps = (dispatch, props) => {
     onLogged: (username) => {
       dispatch(action.acOnLogged(username));
     },
+    onGetUsers: () => {
+      dispatch(action.acGetUsersRequest())
+    }
   };
 };
 

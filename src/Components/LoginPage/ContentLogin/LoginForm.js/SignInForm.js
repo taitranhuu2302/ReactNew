@@ -12,6 +12,10 @@ class SignInForm extends Component {
       check: false,
     };
   }
+  componentDidMount() {
+    this.props.onGetUsers();
+  }
+
   onChangeLogin = () => {
     this.props.onChangeLogin();
   };
@@ -40,7 +44,7 @@ class SignInForm extends Component {
                 url={url}
                 slug={slug}
                 onRegister={this.onRegister}
-                list={this.props.listRegister}
+                list={this.props.users}
               />
             </div>
           </div>
@@ -53,15 +57,18 @@ class SignInForm extends Component {
 const mapStateToProps = (state) => {
   return {
     changeLogin: state.changeLogin,
-    listRegister: state.register,
+    users: state.users,
   };
 };
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
     onRegister: (info) => {
-      dispatch(action.acOnRegister(info));
+      dispatch(action.acRegisterRequest(info));
     },
+    onGetUsers: () => {
+      dispatch(action.acGetUsersRequest());
+    }
   };
 };
 

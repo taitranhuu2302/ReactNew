@@ -23,7 +23,7 @@ class BarFilter extends Component {
       <div className="container-fluid" id="filter">
         <div className="container h-100">
           <div className="row h-100 align-items-center">
-            <div className="col-12 d-lg-none d-block">
+            <div className="col-12 d-xl-none d-block">
               <button
                 onClick={this.toggleCanvas}
                 className="btn btn-filter shadow-none"
@@ -49,7 +49,7 @@ class BarFilter extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 d-lg-flex d-none filter-left">
+            <div className="col-xl-6 d-xl-flex d-none filter-left">
               <div className="left-icon d-flex align-items-center">
                 <img
                   src="https://www.aorus.com/assets/img/filter.919a5d61.svg"
@@ -64,7 +64,7 @@ class BarFilter extends Component {
                 </button>
               </div>
             </div>
-            <div className="col-lg-6 d-lg-flex d-none justify-content-end align-items-center filter-right d-flex">
+            <div className="col-xl-6 d-xl-flex d-none justify-content-end align-items-center filter-right d-flex">
               <div className="amount-item text-white font-family-Ti">
                 12 items
               </div>
