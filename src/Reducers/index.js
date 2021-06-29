@@ -6,6 +6,7 @@ import exploreSlides from "./exploreSlides";
 import changeLogin from "./changeLogin";
 import register from "./register";
 import logged from "./logged";
+import products from "./products";
 
 const myReducers = combineReducers({
   slider,
@@ -15,6 +16,7 @@ const myReducers = combineReducers({
   changeLogin,
   register,
   logged,
+  products,
 });
 
 export default myReducers;

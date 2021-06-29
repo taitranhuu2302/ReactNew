@@ -1,4 +1,5 @@
 import * as types from "./../Constant/ActionTypes";
+import callApi from "./../utils/apiCaller";
 
 export const acShowSlide = () => {
   return {
@@ -41,5 +42,21 @@ export const acOnLogged = (username) => {
   return {
     type: types.LOGGED,
     username,
+  };
+};
+// List Products
+
+export const acFetchProductsRequest = () => {
+  return (dispatch) => {
+    return callApi("products", "GET", null).then((res) => {
+      dispatch(acFetchProducts(res.data));
+    });
+  };
+};
+
+export const acFetchProducts = (products) => {
+  return {
+    type: types.PRODUCTS,
+    products,
   };
 };

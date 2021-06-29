@@ -4,18 +4,14 @@ import "./styles.scss";
 
 class Product extends Component {
   render() {
+    var { item } = this.props;
     return (
       <div className="col product-item">
         <div className="bgr">
-          <img
-            src="https://static.gigabyte.com/StaticFile/Image/Global/dc6d65bfcf598b6ce39dbd9fc0b3ffdb/Product/26609/webp/400"
-            alt=""
-          />
-          <div className="item-caption font-family-Ti">
-            AORUS GeForce RTX™ 3090 XTREME WATERFORCE 24G
-          </div>
+          <img src={item.image} alt="" />
+          <div className="item-caption font-family-Ti">{item.name}</div>
           <div className="button-task">
-            <Link to="/Graphics-Card">
+            <Link to={item.to}>
               <button className="btn rounded-0 button-link shadow-none me-3 font-family-Ti">
                 Learn More
               </button>

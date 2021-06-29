@@ -1,0 +1,38 @@
+{
+    "products": [{
+            "to": "/GraphicsCard",
+            "name": "AORUS GeForce RTX™ 3090 XTREME WATERFORCE 24G",
+            "image": "https://static.gigabyte.com/StaticFile/Image/Global/dc6d65bfcf598b6ce39dbd9fc0b3ffdb/Product/26609/webp/400"
+        },
+        {
+            "to": "/GraphicsCard",
+            "name": "AORUS GeForce RTX™ 3080 Ti XTREME WATERFORCE 12G",
+            "image": "https://static.gigabyte.com/StaticFile/Image/Global/d048de6674eee9e2c3414a43e65acca2/Product/29194/webp/400"
+        },
+        {
+            "to": "/GraphicsCard",
+            "name": "AORUS GeForce RTX™ 3080 Ti XTREME WATERFORCE WB 12G",
+            "image": "https://static.gigabyte.com/StaticFile/Image/Global/5fb12f96af9b8658d45e16d2868f4fb5/Product/29205/webp/400"
+        },
+        {
+            "to": "/GraphicsCard",
+            "name": "AORUS GeForce RTX™ 3090 XTREME WATERFORCE WB 24G",
+            "image": "https://static.gigabyte.com/StaticFile/Image/Global/9282703ce0521bedb4fb4acef48c8acf/Product/26599/webp/400"
+        },
+        {
+            "to": "/GraphicsCard",
+            "name": "AORUS GeForce RTX™ 3090 XTREME 24G",
+            "image": "https://static.gigabyte.com/StaticFile/Image/Global/bca9c8f7bd6517cefc26df54eb3ba2dc/Product/26279/webp/400"
+        },
+        {
+            "to": "/GraphicsCard",
+            "name": "AORUS GeForce RTX™ 3060 ELITE 12G",
+            "image": "https://static.gigabyte.com/StaticFile/Image/Global/e73b243e883d2af16d1808b1e4142b29/Product/28094/web[/400"
+        },
+        {
+            "to": "/GraphicsCard",
+            "name": "AORUS GeForce RTX NVLINK™ BRIDGE FOR 30 SERIES",
+            "image": "https://static.gigabyte.com/StaticFile/Image/Global/e0ea0c1a48b315be53f2ea759ffbb909/Product/26172/web[/400"
+        }
+    ]
+}
