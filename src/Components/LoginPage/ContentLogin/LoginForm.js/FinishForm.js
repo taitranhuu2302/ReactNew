@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import * as action from './../../../../Actions/index'
+import * as action from "./../../../../Actions/index";
 
 class FinishForm extends Component {
   componentDidMount() {
@@ -9,7 +9,6 @@ class FinishForm extends Component {
   }
   render() {
     var { users } = this.props;
-    console.log(users);
     var email = users[users.length - 1].email;
     var username = users[users.length - 1].username;
     return (
@@ -77,9 +76,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, props) => {
   return {
     onGetUsers: () => {
-      dispatch(action.acGetUsersRequest())
-    }
-  }
-}
+      dispatch(action.acGetUsersRequest());
+    },
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(FinishForm);

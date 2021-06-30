@@ -5,9 +5,33 @@ import BarFilter from "./GCBarFilter/BarFilter";
 import TaskBar from "./TaskBar/TaskBar";
 import Products from "./Products/Products";
 import Gallery from "./Gallery/Gallery";
+import Support from "./Support/Support";
+import Pagination from "./Pagination/Pagination";
+import { connect } from "react-redux";
+import * as actions from "./../../../Actions/index";
 
 class GraphicsCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: 1,
+      postsPerPage: 5,
+      posts: [],
+    };
+  }
+
+  componentDidMount() {
+    this.props.acProductsRequest();
+  }
+
   render() {
+    const { products } = this.props;
+    var { currentPage, postsPerPage, posts } = this.state;
+    posts = [...products];
+    var indexOfLastPost = currentPage * postsPerPage;
+    var indexOfFistPost = indexOfLastPost - postsPerPage;
+    var currentPosts = posts.splice(indexOfFistPost, indexOfLastPost);
+    var paginate = (number) => this.setState({ currentPage: number });
     return (
       <>
         <div className="container-fluid p-0" id="graphics-card">
@@ -20,14 +44,24 @@ class GraphicsCard extends Component {
                   <TaskBar taskBar={taskBar} />
                 </div>
                 <div className="col-xl-10 col-12">
-                  <Products />
+                  <Products products={currentPosts} />
                 </div>
+              </div>
+              <div className="row">
+                <Pagination
+                  postsPerPage={postsPerPage}
+                  totalPosts={products.length}
+                  paginate={paginate}
+                />
               </div>
             </div>
           </div>
         </div>
         <div className="container-fluid" id="gallery">
           <Gallery />
+        </div>
+        <div className="container-fluid" id="support">
+          <Support />
         </div>
       </>
     );
@@ -144,4 +178,18 @@ const taskBar = [
   },
 ];
 
-export default GraphicsCard;
+const mapStateToProps = (state) => {
+  return {
+    products: state.products,
+  };
+};
+
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    acProductsRequest: () => {
+      dispatch(actions.acFetchProductsRequest());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GraphicsCard);

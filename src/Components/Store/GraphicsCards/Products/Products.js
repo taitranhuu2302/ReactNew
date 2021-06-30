@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import "./styles.scss";
 import Product from "./Product/Product";
-import { connect } from "react-redux";
-import * as actions from "./../../../../Actions/index";
 
 class Products extends Component {
-  componentDidMount() {
-    this.props.acProductsRequest();
-  }
   render() {
     var { products } = this.props;
+    console.log(products);
     return (
       <div className="row row-cols-xl-4 row-cols-sm-2 row-cols-1 products">
         {this.ProductList(products)}
@@ -19,27 +15,11 @@ class Products extends Component {
 
   ProductList = (list) => {
     var result = null;
-
     result = list.map((item, index) => {
       return <Product key={index} item={item} />;
     });
-
     return result;
   };
 }
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.products,
-  };
-};
-
-const mapDispatchToProps = (dispatch, props) => {
-  return {
-    acProductsRequest: () => {
-      dispatch(actions.acFetchProductsRequest());
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default Products;

@@ -1,0 +1,21 @@
+#support {
+    background-color: #000;
+    .support-div {
+        position: relative;
+        width: 100%;
+        margin: 50px 0;
+        padding: 60px 180px;
+        .box {
+            position: relative;
+            width: 100%;
+            background-image: url(https://www.aorus.com/assets/img/bg-1920.5a4ec219.jpg);
+            background-position: 50%;
+            background-size: cover;
+            text-align: center;
+            background-attachment: fixed;
+            .item {
+                height: 357px;
+            }
+        }
+    }
+}

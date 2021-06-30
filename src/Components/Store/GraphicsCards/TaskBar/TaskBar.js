@@ -42,7 +42,6 @@ class TaskBar extends Component {
             className="form-check-input shadow-none"
             type="radio"
             name="radio1"
-            checked= {item.active}
           />
           <label className="form-check-label">{item.name}</label>
         </div>

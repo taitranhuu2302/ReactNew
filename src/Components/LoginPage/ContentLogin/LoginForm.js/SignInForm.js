@@ -68,7 +68,7 @@ const mapDispatchToProps = (dispatch, props) => {
     },
     onGetUsers: () => {
       dispatch(action.acGetUsersRequest());
-    }
+    },
   };
 };
 
