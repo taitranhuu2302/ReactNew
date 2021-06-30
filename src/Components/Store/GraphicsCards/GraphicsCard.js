@@ -15,8 +15,7 @@ class GraphicsCard extends Component {
     super(props);
     this.state = {
       currentPage: 1,
-      postsPerPage: 5,
-      posts: [],
+      postsPerPage: 12,
     };
   }
 
@@ -24,14 +23,16 @@ class GraphicsCard extends Component {
     this.props.acProductsRequest();
   }
 
+  paginate = (number) => {
+    this.setState({ currentPage: number });
+  };
+
   render() {
     const { products } = this.props;
-    var { currentPage, postsPerPage, posts } = this.state;
-    posts = [...products];
-    var indexOfLastPost = currentPage * postsPerPage;
-    var indexOfFistPost = indexOfLastPost - postsPerPage;
-    var currentPosts = posts.splice(indexOfFistPost, indexOfLastPost);
-    var paginate = (number) => this.setState({ currentPage: number });
+    const { currentPage, postsPerPage } = this.state;
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
     return (
       <>
         <div className="container-fluid p-0" id="graphics-card">
@@ -43,16 +44,18 @@ class GraphicsCard extends Component {
                 <div className="col-xl-2 d-none d-xl-block task-bar">
                   <TaskBar taskBar={taskBar} />
                 </div>
-                <div className="col-xl-10 col-12">
+                <div className="col-xl-10 col-12" id="product-list">
                   <Products products={currentPosts} />
                 </div>
               </div>
               <div className="row">
-                <Pagination
-                  postsPerPage={postsPerPage}
-                  totalPosts={products.length}
-                  paginate={paginate}
-                />
+                <div className="col-12">
+                  <Pagination
+                    postsPerPage={postsPerPage}
+                    totalPosts={products.length}
+                    paginate={this.paginate}
+                  />
+                </div>
               </div>
             </div>
           </div>
