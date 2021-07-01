@@ -1,126 +1,129 @@
 {
-    "products": [{
-            "id": 1,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 3090 XTREME WATERFORCE 24G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/dc6d65bfcf598b6ce39dbd9fc0b3ffdb/Product/26609/webp/400"
-        },
-        {
-            "id": 2,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 3080 Ti XTREME WATERFORCE 12G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/d048de6674eee9e2c3414a43e65acca2/Product/29194/webp/400"
-        },
-        {
-            "id": 3,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 3080 Ti XTREME WATERFORCE WB 12G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/5fb12f96af9b8658d45e16d2868f4fb5/Product/29205/webp/400"
-        },
-        {
-            "id": 4,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 3090 XTREME WATERFORCE WB 24G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/9282703ce0521bedb4fb4acef48c8acf/Product/26599/webp/400"
-        },
-        {
-            "id": 5,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 3090 XTREME 24G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/bca9c8f7bd6517cefc26df54eb3ba2dc/Product/26279/webp/400"
-        },
-        {
-            "id": 6,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 3060 ELITE 12G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/e73b243e883d2af16d1808b1e4142b29/Product/28094/web[/400"
-        },
-        {
-            "id": 7,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX NVLINK™ BRIDGE FOR 30 SERIES",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/e0ea0c1a48b315be53f2ea759ffbb909/Product/26172/web[/400"
-        },
-        {
-            "id": 8,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 2080 XTREME WATERFORCE 8G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/51d0e73b898a0486193b70682191b31b/Product/23199/web[/400"
-        },
-        {
-            "id": 9,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 2080 Ti XTREME WATERFORCE WB 11G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/7d245cd13fae1bb0959dd7eb0b91baa4/Product/23137/web[/400"
-        },
-        {
-            "id": 10,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce RTX™ 2080 Ti XTREME 11G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/56142838dcbd4551b6341417c97a9d58/Product/23134/web[/400"
-        },
-        {
-            "id": 11,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce® RTX 2060 SUPER™ 8G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/e543cc96b1f52a2fed37e5af60e4646a/Product/26044/web[/400"
-        },
-        {
-            "id": 12,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce® RTX 2080 SUPER™ WATERFORCE WB 8G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/6517bc228ca2f9c3f006c5aef58bd0ad/Product/23231/web[/400"
-        },
-        {
-            "id": 13,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce® GTX 1070 8G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/23e4d2eecf0078cf71696f5df069abf2/Product/17936/web[/400"
-        },
-        {
-            "id": 14,
-            "to": "/GraphicsCard",
-            "name": "AORUS GeForce® GTX 1080 8G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/c64797df64027f08675047bfc5dba720/Product/17734/web[/400"
-        },
-        {
-            "id": 15,
-            "to": "/GraphicsCard",
-            "name": "GeForce RTX™ 3080 TURBO 10G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/bfe7bcacbbe003df3e49bcb286f1a76a/Product/26827/webp/400"
-        },
-        {
-            "id": 16,
-            "to": "/GraphicsCard",
-            "name": "GeForce RTX™ 3080 GAMING OC WATERFORCE WB 10G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/6b3ea70063c6f0a4514c14a0dbd5516c/Product/27322/webp/400"
-        },
-        {
-            "id": 17,
-            "to": "/GraphicsCard",
-            "name": "GeForce RTX™ 3090 GAMING OC 24G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/a9904def4f50f769cf5fd48e3d238e7b/Product/25965/webp/400"
-        },
-        {
-            "id": 18,
-            "to": "/GraphicsCard",
-            "name": "GeForce RTX™ 3060 Ti GAMING OC PRO 8G",
-            "image": "https://static.gigabyte.com/StaticFile/Image/Global/6deabdc46df3e103eb67073c6b94d237/Product/27154/webp/400"
-        }
-    ],
-    "users": [{
-            "email": "tai.tranhuu@phuxuan.edu.vn",
-            "username": "nhocvodanh1982",
-            "password": "qweqweqwe",
-            "repassword": "qweqweqwe",
-            "id": 1
-        },
-        {
-            "email": "emlacuaanh1908@gmail.com",
-            "username": "tai2002",
-            "password": "qweqweqwe",
-            "repassword": "qweqweqwe",
-            "id": 2
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 3090 XTREME WATERFORCE 24G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/dc6d65bfcf598b6ce39dbd9fc0b3ffdb/Product/26609/webp/400"
+    },
+    {
+      "id": 2,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 3080 Ti XTREME WATERFORCE 12G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/d048de6674eee9e2c3414a43e65acca2/Product/29194/webp/400"
+    },
+    {
+      "id": 3,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 3080 Ti XTREME WATERFORCE WB 12G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/5fb12f96af9b8658d45e16d2868f4fb5/Product/29205/webp/400"
+    },
+    {
+      "id": 4,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 3090 XTREME WATERFORCE WB 24G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/9282703ce0521bedb4fb4acef48c8acf/Product/26599/webp/400"
+    },
+    {
+      "id": 5,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 3090 XTREME 24G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/bca9c8f7bd6517cefc26df54eb3ba2dc/Product/26279/webp/400"
+    },
+    {
+      "id": 6,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 3060 ELITE 12G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/e73b243e883d2af16d1808b1e4142b29/Product/28094/web[/400"
+    },
+    {
+      "id": 7,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX NVLINK™ BRIDGE FOR 30 SERIES",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/e0ea0c1a48b315be53f2ea759ffbb909/Product/26172/web[/400"
+    },
+    {
+      "id": 8,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 2080 XTREME WATERFORCE 8G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/51d0e73b898a0486193b70682191b31b/Product/23199/web[/400"
+    },
+    {
+      "id": 9,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 2080 Ti XTREME WATERFORCE WB 11G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/7d245cd13fae1bb0959dd7eb0b91baa4/Product/23137/web[/400"
+    },
+    {
+      "id": 10,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce RTX™ 2080 Ti XTREME 11G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/56142838dcbd4551b6341417c97a9d58/Product/23134/web[/400"
+    },
+    {
+      "id": 11,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce® RTX 2060 SUPER™ 8G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/e543cc96b1f52a2fed37e5af60e4646a/Product/26044/web[/400"
+    },
+    {
+      "id": 12,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce® RTX 2080 SUPER™ WATERFORCE WB 8G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/6517bc228ca2f9c3f006c5aef58bd0ad/Product/23231/web[/400"
+    },
+    {
+      "id": 13,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce® GTX 1070 8G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/23e4d2eecf0078cf71696f5df069abf2/Product/17936/web[/400"
+    },
+    {
+      "id": 14,
+      "to": "/GraphicsCard",
+      "name": "AORUS GeForce® GTX 1080 8G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/c64797df64027f08675047bfc5dba720/Product/17734/web[/400"
+    },
+    {
+      "id": 15,
+      "to": "/GraphicsCard",
+      "name": "GeForce RTX™ 3080 TURBO 10G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/bfe7bcacbbe003df3e49bcb286f1a76a/Product/26827/webp/400"
+    },
+    {
+      "id": 16,
+      "to": "/GraphicsCard",
+      "name": "GeForce RTX™ 3080 GAMING OC WATERFORCE WB 10G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/6b3ea70063c6f0a4514c14a0dbd5516c/Product/27322/webp/400"
+    },
+    {
+      "id": 17,
+      "to": "/GraphicsCard",
+      "name": "GeForce RTX™ 3090 GAMING OC 24G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/a9904def4f50f769cf5fd48e3d238e7b/Product/25965/webp/400"
+    },
+    {
+      "id": 18,
+      "to": "/GraphicsCard",
+      "name": "GeForce RTX™ 3060 Ti GAMING OC PRO 8G",
+      "image": "https://static.gigabyte.com/StaticFile/Image/Global/6deabdc46df3e103eb67073c6b94d237/Product/27154/webp/400"
+    }
+  ],
+  "users": [
+    {
+      "email": "tai.tranhuu@phuxuan.edu.vn",
+      "username": "nhocvodanh1982",
+      "password": "qweqweqwe",
+      "repassword": "qweqweqwe",
+      "id": 1
+    },
+    {
+      "email": "emlacuaanh1908@gmail.com",
+      "username": "tai2002",
+      "password": "qweqweqwe",
+      "repassword": "qweqweqwe",
+      "id": 2
+    }
+  ],
+  "carts": []
 }

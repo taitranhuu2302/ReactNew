@@ -7,3 +7,6 @@ export const REGISTER = "REGISTER";
 export const LOGGED = "LOGGED";
 export const PRODUCTS = "PRODUCTS";
 export const GET_USERS = "GET_USERS";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const GET_ALL_CART = "GET_ALL_CART";
+export const DELETE_CART = "DELETE_CART";

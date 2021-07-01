@@ -21,7 +21,6 @@ class Pagination extends Component {
   render() {
     var { postsPerPage, totalPosts, paginate } = this.props;
     var { active } = this.state;
-    console.log(active);
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
       pageNumbers.push(i);

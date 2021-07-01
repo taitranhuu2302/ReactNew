@@ -15,7 +15,9 @@ class Products extends Component {
   ProductList = (list) => {
     var result = null;
     result = list.map((item, index) => {
-      return <Product key={index} item={item} />;
+      return (
+        <Product key={index} item={item} onAddToCart={this.props.onAddToCart} />
+      );
     });
     return result;
   };

@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 
 class Product extends Component {
+  onAddToCart = (item) => {
+    this.props.onAddToCart(item);
+  };
+
   render() {
     var { item } = this.props;
     return (
@@ -16,7 +20,10 @@ class Product extends Component {
                 Learn More
               </button>
             </Link>
-            <button className="btn rounded-0 button-add shadow-none font-family-Ti">
+            <button
+              onClick={() => this.onAddToCart(item)}
+              className="btn rounded-0 button-add shadow-none font-family-Ti"
+            >
               Compare
             </button>
           </div>

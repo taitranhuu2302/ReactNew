@@ -9,6 +9,7 @@ import Support from "./Support/Support";
 import Pagination from "./Pagination/Pagination";
 import { connect } from "react-redux";
 import * as actions from "./../../../Actions/index";
+import Cart from "./Cart/Cart";
 
 class GraphicsCard extends Component {
   constructor(props) {
@@ -21,14 +22,27 @@ class GraphicsCard extends Component {
 
   componentDidMount() {
     this.props.acProductsRequest();
+    this.props.getProductCart();
   }
 
   paginate = (number) => {
     this.setState({ currentPage: number });
   };
 
+  onAddToCart = (product) => {
+    const { carts } = this.props;
+    if (carts.some((item) => item.id === product.id)) {
+      return;
+    }
+    this.props.onAddToCart(product);
+  };
+
+  onDeleteCart = (id) => {
+    this.props.onDeleteCart(id);
+  };
+
   render() {
-    const { products } = this.props;
+    const { products, carts } = this.props;
     const { currentPage, postsPerPage } = this.state;
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -45,7 +59,10 @@ class GraphicsCard extends Component {
                   <TaskBar taskBar={taskBar} />
                 </div>
                 <div className="col-xl-10 col-12" id="product-list">
-                  <Products products={currentPosts} />
+                  <Products
+                    products={currentPosts}
+                    onAddToCart={this.onAddToCart}
+                  />
                 </div>
               </div>
               <div className="row">
@@ -66,6 +83,13 @@ class GraphicsCard extends Component {
         <div className="container-fluid" id="support">
           <Support />
         </div>
+        {carts.length != 0 ? (
+          <div className="container-fluid" id="cart">
+            <Cart cart={carts} onDeleteCart={this.onDeleteCart} />
+          </div>
+        ) : (
+          ""
+        )}
       </>
     );
   }
@@ -184,6 +208,7 @@ const taskBar = [
 const mapStateToProps = (state) => {
   return {
     products: state.products,
+    carts: state.cart,
   };
 };
 
@@ -191,6 +216,15 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     acProductsRequest: () => {
       dispatch(actions.acFetchProductsRequest());
+    },
+    onAddToCart: (product) => {
+      dispatch(actions.acAddToCartRequest(product));
+    },
+    getProductCart: () => {
+      dispatch(actions.acGetAllProductCartRequest());
+    },
+    onDeleteCart: (id) => {
+      dispatch(actions.acDeleteProductCartRequest(id));
     },
   };
 };
