@@ -5,6 +5,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignPage from "./Pages/LoginPage/SignPage";
 import GraphicsCards from "./Pages/StorePage/GraphicsCards";
 import FinishRegister from "./Pages/LoginPage/FinishRegister";
+import AdminPage from "./Pages/AdminPage/AdminPage";
 
 const routes = [
   {
@@ -16,6 +17,11 @@ const routes = [
     path: "/GraphicsCard",
     exact: false,
     main: () => <GraphicsCards />,
+  },
+  {
+    path: "/admin",
+    exact: false,
+    main: () => <AdminPage />,
   },
   {
     path: "/global/login",

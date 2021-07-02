@@ -1,0 +1,22 @@
+* {
+    font-family: var(--font-family-Ti);
+}
+
+#header-admin {
+    .header-top {
+        height: 56px;
+        .nav {
+            .nav-item {
+                margin-right: 36px;
+                a {
+                    color: rgb(133, 133, 133);
+                }
+                &:hover {
+                    a {
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+}
