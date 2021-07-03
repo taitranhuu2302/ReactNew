@@ -27,7 +27,7 @@ class Pagination extends Component {
     }
     return (
       <nav className="nav justify-content-center">
-        <ul className="pagination">
+        <ul className="pagination pagi-list">
           {pageNumbers.map((number) => (
             <li key={number} className="page-item">
               <button

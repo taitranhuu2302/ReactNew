@@ -1,0 +1,20 @@
+#home {
+    .list-products {
+        min-height: 641px;
+        img {
+            height: 103px;
+        }
+        .label-status {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+    }
+    .pagi-admin {
+        cursor: pointer;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        min-width: 32px;
+        padding: 2px 6px;
+    }
+}
