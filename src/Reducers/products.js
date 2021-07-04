@@ -26,6 +26,10 @@ const products = (state = initialState, action) => {
       index = findIndex(state, action.id);
       state.splice(index, 1);
       return [...state];
+    case types.UPDATE_PRODUCT:
+      index = findIndex(state, action.product.id);
+      state[index] = action.product;
+      return [...state];
     default:
       return [...state];
   }

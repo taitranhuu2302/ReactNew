@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class AdminProduct extends Component {
   render() {
@@ -12,7 +13,6 @@ class AdminProduct extends Component {
         <td className="fw-bold">{product.name}</td>
         <td className="">
           <span
-            onClick={() => this.props.onChangeStatus(product.id)}
             className={
               product.status
                 ? "label-status bg-success rounded text-white p-1"
@@ -23,9 +23,12 @@ class AdminProduct extends Component {
           </span>
         </td>
         <td>
-          <button className="btn shadow-none me-3 bg-warning text-white">
+          <Link
+            to={`/admin/${product.id}/edit-product`}
+            className="btn shadow-none me-3 bg-warning text-white"
+          >
             Update
-          </button>
+          </Link>
           <button
             onClick={() => this.props.onDeleteProduct(product.id)}
             className="btn shadow-none bg-danger text-white"

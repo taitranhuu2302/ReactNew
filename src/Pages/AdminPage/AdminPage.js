@@ -36,7 +36,12 @@ const routes = [
   {
     path: "/admin/add-products",
     exact: false,
-    main: () => <Functions />,
+    main: ({ match, history }) => <Functions match={match} history={history} />,
+  },
+  {
+    path: "/admin/:id/edit-product",
+    exact: false,
+    main: ({ match, history }) => <Functions match={match} history={history} />,
   },
   {
     path: "/admin",

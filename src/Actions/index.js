@@ -92,8 +92,7 @@ export const acFetchProducts = (products) => {
 export const acUpProductRequest = (product) => {
   return (dispatch) => {
     return callApi("products", "POST", product).then((res) => {
-      console.log(res);
-      return dispatch(acUpProducts(product));
+      return dispatch(acUpProducts(res.data));
     });
   };
 };
@@ -116,6 +115,21 @@ export const acDeleteProduct = (id) => {
   return {
     type: types.DELETE_PRODUCT,
     id,
+  };
+};
+
+export const acUpdateProductRequest = (product) => {
+  return (dispatch) => {
+    return callApi(`products/${product.id}`, "PUT", product).then((res) => {
+      return dispatch(acUpdateProduct(product));
+    });
+  };
+};
+
+export const acUpdateProduct = (product) => {
+  return {
+    type: types.UPDATE_PRODUCT,
+    product,
   };
 };
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles.scss";
+import callApi from "./../../../../utils/apiCaller";
 import { connect } from "react-redux";
 import * as actions from "./../../../../Actions/index";
 
@@ -7,12 +8,29 @@ class Functions extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: "",
       name: "",
       price: "",
       des: "",
       image: "",
-      status: false,
+      status: true,
     };
+  }
+
+  componentDidMount() {
+    var { match } = this.props;
+    var id = match.params.id;
+    if (id) {
+      callApi(`products/${id}`, "GET", null).then((res) => {
+        var product = res.data;
+        this.setState({
+          id: product.id,
+          name: product.name,
+          image: product.image,
+          status: product.status,
+        });
+      });
+    }
   }
 
   onChange = (e) => {
@@ -26,15 +44,31 @@ class Functions extends Component {
 
   onSave = (e) => {
     e.preventDefault();
-    var product = {
-      name: this.state.name,
-      price: this.state.price,
-      des: this.state.des,
-      image: this.state.image,
-      status: this.state.status,
-    };
-    // console.log(product);
-    // this.props.onUpProduct(this.state);
+    var { history } = this.props;
+    var { id, name, price, des, image, status } = this.state;
+    var product = {};
+    if (id) {
+      product = {
+        id: id,
+        name: name,
+        price: price,
+        des: des,
+        image: image,
+        status: status,
+      };
+      this.props.onUpdateProduct(product);
+      history.goBack();
+    } else {
+      product = {
+        name: name,
+        price: price,
+        des: des,
+        image: image,
+        status: status,
+      };
+      this.props.onUpProduct(product);
+      history.goBack();
+    }
   };
 
   render() {
@@ -75,7 +109,6 @@ class Functions extends Component {
               Description:
             </label>
             <textarea
-              name="description"
               id=""
               className="w-100"
               cols="30"
@@ -109,6 +142,7 @@ class Functions extends Component {
               value={this.state.status}
               onChange={this.onChange}
               id="status"
+              checked={this.state.status}
             />
           </div>
           <div className="mb-3">
@@ -126,6 +160,9 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     onUpProduct: (product) => {
       dispatch(actions.acUpProductRequest(product));
+    },
+    onUpdateProduct: (product) => {
+      dispatch(actions.acUpdateProductRequest(product));
     },
   };
 };
