@@ -2,6 +2,7 @@ import * as types from "./../Constant/ActionTypes";
 
 var initialState = [];
 
+
 const products = (state = initialState, action) => {
   switch (action.type) {
     case types.PRODUCTS:

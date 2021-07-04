@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
 class AdminProduct extends Component {
+
   render() {
-    var { product, index } = this.props;
+    var { product } = this.props;
     return (
       <tr>
         <td>{product.id}</td>
@@ -11,8 +12,8 @@ class AdminProduct extends Component {
         </td>
         <td className="fw-bold">{product.name}</td>
         <td className="">
-          <span className="label-status bg-success rounded text-white p-1">
-            {product.status ? "Stocking" : "Sold out"}
+          <span onClick={() => this.props.onChangeStatus(product.id)} className={product.status ? "label-status bg-success rounded text-white p-1" : "label-status bg-danger rounded text-white p-1"}>
+            {product.status ? "Active" : "Blocked"}
           </span>
         </td>
         <td>

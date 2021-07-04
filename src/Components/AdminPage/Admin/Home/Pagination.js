@@ -24,16 +24,13 @@ class Pagination extends Component {
   };
 
   render() {
-    console.log(this.state.pageNumber);
     var { postsPerPage, totalProduct } = this.props;
     var pageNumber = [];
     for (let i = 1; i <= Math.ceil(totalProduct / postsPerPage); i++) {
       pageNumber.push(i);
     }
     return (
-      <nav aria-label="Page navigation example" className="">
-        <ul className="pagination">{this.liElement(pageNumber)}</ul>
-      </nav>
+      <ul className="pagination">{this.liElement(pageNumber)}</ul>
     );
   }
 }

@@ -83,7 +83,7 @@ class GraphicsCard extends Component {
         <div className="container-fluid" id="support">
           <Support />
         </div>
-        {carts.length != 0 ? (
+        {carts.length > 0 ? (
           <div className="container-fluid" id="cart">
             <Cart cart={carts} onDeleteCart={this.onDeleteCart} />
           </div>

@@ -22,9 +22,11 @@ class Home extends Component {
     this.setState({ currentPage: number });
   };
 
+ 
+
   listProduct = (products) => {
     return products.map((product, index) => {
-      return <AdminProduct product={product} key={index} index={index} />;
+      return <AdminProduct product={product} onChangeStatus={this.onChangeStatus} key={index} index={index} />;
     });
   };
 
@@ -50,12 +52,12 @@ class Home extends Component {
           <tbody className="list-products ">
             {this.listProduct(currentList)}
           </tbody>
+        </table>
           <Pagination
             totalProduct={products.length}
             postsPerPage={postsPerPage}
             paginate={this.paginate}
           />
-        </table>
       </div>
     );
   }
