@@ -32,17 +32,37 @@ class SideNavigation extends Component {
         <ul className="nav nav-content w-100">
           <li className="nav-item w-100">
             <Link to="/admin" className="nav-link text-decoration-none">
-              Add products
+              Dashboard
             </Link>
           </li>
           <li className="nav-item w-100">
             <Link to="/admin" className="nav-link text-decoration-none">
-              Update products
+              Profile
             </Link>
           </li>
           <li className="nav-item w-100">
             <Link to="/admin" className="nav-link text-decoration-none">
-              Delete products
+              Basic Table
+            </Link>
+          </li>
+          <li className="nav-item w-100">
+            <Link to="/admin" className="nav-link text-decoration-none">
+              Icons
+            </Link>
+          </li>
+          <li className="nav-item w-100">
+            <Link to="/admin" className="nav-link text-decoration-none">
+              Google Map
+            </Link>
+          </li>
+          <li className="nav-item w-100">
+            <Link to="/admin" className="nav-link text-decoration-none">
+              Blank Page
+            </Link>
+          </li>
+          <li className="nav-item w-100">
+            <Link to="/admin" className="nav-link text-decoration-none">
+              Error 404
             </Link>
           </li>
         </ul>

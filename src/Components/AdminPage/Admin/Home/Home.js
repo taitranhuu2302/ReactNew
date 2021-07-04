@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import AdminProduct from "./AdminProduct";
 import * as actions from "./../../../../Actions/index";
 import Pagination from "./Pagination";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
@@ -22,11 +23,21 @@ class Home extends Component {
     this.setState({ currentPage: number });
   };
 
- 
+  onDeleteProduct = (id) => {
+    this.props.onDeleteProduct(id);
+  };
 
   listProduct = (products) => {
     return products.map((product, index) => {
-      return <AdminProduct product={product} onChangeStatus={this.onChangeStatus} key={index} index={index} />;
+      return (
+        <AdminProduct
+          product={product}
+          onChangeStatus={this.onChangeStatus}
+          key={index}
+          index={index}
+          onDeleteProduct={this.onDeleteProduct}
+        />
+      );
     });
   };
 
@@ -36,10 +47,12 @@ class Home extends Component {
     var indexOfLast = currentPage * postsPerPage;
     var indexOfFirst = indexOfLast - postsPerPage;
     var currentList = products.slice(indexOfFirst, indexOfLast);
-
     return (
       <div className="container" id="home">
-        <table className="table table-home table-striped table-hover">
+        <div className="title text-center font-family-Ad  my-4">
+          <h1 className="">LIST OF PRODUCTS</h1>
+        </div>
+        <table className="table border table-home table-striped table-hover">
           <thead>
             <tr>
               <th>STT</th>
@@ -53,11 +66,20 @@ class Home extends Component {
             {this.listProduct(currentList)}
           </tbody>
         </table>
+
+        <div className="bottom d-flex justify-content-between">
           <Pagination
             totalProduct={products.length}
             postsPerPage={postsPerPage}
             paginate={this.paginate}
           />
+          <Link
+            to="/admin/add-products"
+            className="btn add-product bg-primary text-white"
+          >
+            Add Product
+          </Link>
+        </div>
       </div>
     );
   }
@@ -73,6 +95,9 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     onGetProducts: () => {
       dispatch(actions.acFetchProductsRequest());
+    },
+    onDeleteProduct: (id) => {
+      dispatch(actions.acDeleteProductRequest(id));
     },
   };
 };

@@ -89,6 +89,35 @@ export const acFetchProducts = (products) => {
   };
 };
 
+export const acUpProductRequest = (product) => {
+  return (dispatch) => {
+    return callApi("products", "POST", product).then((res) => {
+      console.log(res);
+      return dispatch(acUpProducts(product));
+    });
+  };
+};
+
+export const acUpProducts = (product) => {
+  return {
+    type: types.UPPRODUCT,
+    product,
+  };
+};
+export const acDeleteProductRequest = (id) => {
+  return (dispatch) => {
+    return callApi(`products/${id}`, "DELETE", null).then((res) => {
+      return dispatch(acDeleteProduct(id));
+    });
+  };
+};
+
+export const acDeleteProduct = (id) => {
+  return {
+    type: types.DELETE_PRODUCT,
+    id,
+  };
+};
 
 // Cart
 

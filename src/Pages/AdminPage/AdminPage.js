@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import Header from "./../../Components/AdminPage/Admin/Header/Header";
 import { Route, Switch } from "react-router-dom";
 import Home from "./../../Components/AdminPage/Admin/Home/Home";
-import AddProducts from "./../../Components/AdminPage/Admin/AddProducts/AddProducts";
+import Functions from "../../Components/AdminPage/Admin/AddProducts/Functions";
 
 class AdminPage extends Component {
   render() {
@@ -36,7 +36,7 @@ const routes = [
   {
     path: "/admin/add-products",
     exact: false,
-    main: () => <AddProducts />,
+    main: () => <Functions />,
   },
   {
     path: "/admin",
