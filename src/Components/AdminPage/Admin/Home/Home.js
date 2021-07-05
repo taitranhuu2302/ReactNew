@@ -5,6 +5,7 @@ import AdminProduct from "./AdminProduct";
 import * as actions from "./../../../../Actions/index";
 import Pagination from "./Pagination";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 class Home extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Home extends Component {
   };
 
   render() {
-    var { products } = this.props;
+    const { products } = this.props;
     var { currentPage, postsPerPage } = this.state;
     var indexOfLast = currentPage * postsPerPage;
     var indexOfFirst = indexOfLast - postsPerPage;
@@ -53,6 +54,7 @@ class Home extends Component {
           <h1 className="">LIST OF PRODUCTS</h1>
         </div>
         <div className="table-content">
+          <SearchBar />
           <table className="table border table-home table-striped table-hover">
             <thead>
               <tr>
