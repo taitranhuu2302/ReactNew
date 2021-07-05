@@ -25,13 +25,13 @@ class AdminProduct extends Component {
         <td>
           <Link
             to={`/admin/${product.id}/edit-product`}
-            className="btn shadow-none me-3 bg-warning text-white"
+            className="btn shadow-none me-3 mb-3 bg-warning text-white"
           >
             Update
           </Link>
           <button
             onClick={() => this.props.onDeleteProduct(product.id)}
-            className="btn shadow-none bg-danger text-white"
+            className="btn shadow-none mb-3 bg-danger text-white"
           >
             Delete
           </button>

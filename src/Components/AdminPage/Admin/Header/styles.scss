@@ -19,6 +19,7 @@
                 height: 40px;
             }
             .side-navigation {
+                z-index: 3;
                 width: 0;
                 transition: width 0.5s;
                 overflow: hidden;

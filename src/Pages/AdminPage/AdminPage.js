@@ -3,6 +3,7 @@ import Header from "./../../Components/AdminPage/Admin/Header/Header";
 import { Route, Switch } from "react-router-dom";
 import Home from "./../../Components/AdminPage/Admin/Home/Home";
 import Functions from "../../Components/AdminPage/Admin/AddProducts/Functions";
+import Login from "../../Components/AdminPage/Login/Login";
 
 class AdminPage extends Component {
   render() {
@@ -45,7 +46,7 @@ const routes = [
   },
   {
     path: "/admin",
-    exact: false,
+    exact: true,
     main: () => <Home />,
   },
 ];

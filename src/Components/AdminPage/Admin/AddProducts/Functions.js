@@ -3,6 +3,8 @@ import "./styles.scss";
 import callApi from "./../../../../utils/apiCaller";
 import { connect } from "react-redux";
 import * as actions from "./../../../../Actions/index";
+import axios from "axios";
+import { bold } from "jest-matcher-utils/node_modules/chalk";
 
 class Functions extends Component {
   constructor(props) {
@@ -12,8 +14,10 @@ class Functions extends Component {
       name: "",
       price: "",
       des: "",
-      image: "",
+      image: null,
+      imageLink: "",
       status: true,
+      preview: "",
     };
   }
 
@@ -26,7 +30,9 @@ class Functions extends Component {
         this.setState({
           id: product.id,
           name: product.name,
-          image: product.image,
+          // image: product.image,
+          preview: product.image,
+          imageLink: product.image,
           status: product.status,
         });
       });
@@ -42,32 +48,79 @@ class Functions extends Component {
     });
   };
 
+  onUpFiles = (e) => {
+    this.setState({
+      image: e.target.files[0],
+    });
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onloadend = () => {
+      this.setState({ preview: reader.result });
+    };
+  };
+
   onSave = (e) => {
     e.preventDefault();
     var { history } = this.props;
     var { id, name, price, des, image, status } = this.state;
     var product = {};
+    let reader = new FileReader();
     if (id) {
-      product = {
-        id: id,
-        name: name,
-        price: price,
-        des: des,
-        image: image,
-        status: status,
+      try {
+        reader.readAsDataURL(image);
+      } catch (err) {}
+      reader.onloadend = () => {
+        product = {
+          id: id,
+          name: name,
+          price: price,
+          des: des,
+          image: reader.result,
+          status: status,
+        };
+        this.props.onUpdateProduct(product);
+        history.goBack();
       };
-      this.props.onUpdateProduct(product);
-      history.goBack();
+      if (image === null) {
+        product = {
+          id: id,
+          name: name,
+          price: price,
+          des: des,
+          image: this.state.imageLink,
+          status: status,
+        };
+        this.props.onUpdateProduct(product);
+        history.goBack();
+      }
     } else {
-      product = {
-        name: name,
-        price: price,
-        des: des,
-        image: image,
-        status: status,
+      try {
+        reader.readAsDataURL(image);
+      } catch (err) {}
+      reader.onloadend = () => {
+        product = {
+          id: id,
+          name: name,
+          price: price,
+          des: des,
+          image: reader.result,
+          status: status,
+        };
+        this.props.onUpProduct(product);
+        history.goBack();
       };
-      this.props.onUpProduct(product);
-      history.goBack();
+      if (image === null) {
+        product = {
+          id: id,
+          name: name,
+          price: price,
+          des: des,
+          image: this.state.imageLink,
+          status: status,
+        };
+        this.props.onUpProduct(product);
+        history.goBack();
+      }
     }
   };
 
@@ -123,14 +176,28 @@ class Functions extends Component {
               Image Address:
             </label>
             <input
+              type="file"
+              id="img-product"
+              className="shadow-none form-control"
+              multiple
+              onChange={this.onUpFiles}
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="img-product">
+              Image Address:
+            </label>
+            <input
               type="text"
               id="img-product"
               className="shadow-none form-control"
-              name="image"
-              value={this.state.image}
+              name="imageLink"
+              multiple
+              value={this.state.imageLink}
               onChange={this.onChange}
             />
           </div>
+          <img src={this.state.preview} alt="" />
           <div className="mb-3">
             <label className="label-add me-2" htmlFor="status">
               Status

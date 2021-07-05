@@ -52,20 +52,22 @@ class Home extends Component {
         <div className="title text-center font-family-Ad  my-4">
           <h1 className="">LIST OF PRODUCTS</h1>
         </div>
-        <table className="table border table-home table-striped table-hover">
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Image</th>
-              <th>Name Product</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody className="list-products ">
-            {this.listProduct(currentList)}
-          </tbody>
-        </table>
+        <div className="table-content">
+          <table className="table border table-home table-striped table-hover">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Image</th>
+                <th>Name Product</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody className="list-products ">
+              {this.listProduct(currentList)}
+            </tbody>
+          </table>
+        </div>
 
         <div className="bottom d-flex justify-content-between">
           <Pagination
