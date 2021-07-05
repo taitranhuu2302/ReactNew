@@ -3,8 +3,6 @@ import "./styles.scss";
 import callApi from "./../../../../utils/apiCaller";
 import { connect } from "react-redux";
 import * as actions from "./../../../../Actions/index";
-import axios from "axios";
-import { bold } from "jest-matcher-utils/node_modules/chalk";
 
 class Functions extends Component {
   constructor(props) {
@@ -125,10 +123,11 @@ class Functions extends Component {
   };
 
   render() {
+    var {id} = this.state;
     return (
       <div className="container mt-3" id="functions">
         <div className="title text-center">
-          <h2>Add Product</h2>
+          <div className="display-5 font-family-Ad">{id ? "UPDATE PRODUCT" : "ADD PRODUCT"}</div>
         </div>
         <form action="" onSubmit={this.onSave} className="form-control">
           <div className="mb-3">

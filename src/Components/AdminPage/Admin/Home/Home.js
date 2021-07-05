@@ -13,6 +13,7 @@ class Home extends Component {
     this.state = {
       currentPage: 1,
       postsPerPage: 5,
+      keyword: '',
     };
   }
 
@@ -47,6 +48,7 @@ class Home extends Component {
     var { currentPage, postsPerPage } = this.state;
     var indexOfLast = currentPage * postsPerPage;
     var indexOfFirst = indexOfLast - postsPerPage;
+    
     var currentList = products.slice(indexOfFirst, indexOfLast);
     return (
       <div className="container" id="home">
@@ -54,7 +56,7 @@ class Home extends Component {
           <h1 className="">LIST OF PRODUCTS</h1>
         </div>
         <div className="table-content">
-          <SearchBar />
+          <SearchBar  />
           <table className="table border table-home table-striped table-hover">
             <thead>
               <tr>

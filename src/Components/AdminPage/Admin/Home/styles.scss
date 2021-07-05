@@ -2,6 +2,19 @@
     .table-content {
         min-height: 641px;
         margin-bottom: 16px;
+        .search-bar {
+            position: relative;
+            .input-search {
+                padding-right: 40px;
+            }
+            .btn-search {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                z-index: 5;
+                transform: translateY(-50%);
+            }
+        }
         .list-products {
             img {
                 height: 103px;
