@@ -6,6 +6,7 @@ import SignPage from "./Pages/LoginPage/SignPage";
 import GraphicsCards from "./Pages/StorePage/GraphicsCards";
 import FinishRegister from "./Pages/LoginPage/FinishRegister";
 import AdminPage from "./Pages/AdminPage/AdminPage";
+import LoginAdminPage from "./Pages/AdminPage/LoginPage";
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     path: "/admin",
     exact: false,
     main: () => <AdminPage />,
+  },
+  {
+    path: "/login-admin",
+    exact: false,
+    main: () => <LoginAdminPage />,
   },
   {
     path: "/global/login",

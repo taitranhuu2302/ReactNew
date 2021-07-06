@@ -5,7 +5,7 @@ import AdminProduct from "./AdminProduct";
 import * as actions from "./../../../../Actions/index";
 import Pagination from "./Pagination";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import FilterTable from "./FilterTable";
 
 class Home extends Component {
   constructor(props) {
@@ -13,7 +13,11 @@ class Home extends Component {
     this.state = {
       currentPage: 1,
       postsPerPage: 5,
-      keyword: '',
+      keyword: "",
+      filter: {
+        filterName: "",
+        filterStatus: 0,
+      },
     };
   }
 
@@ -27,6 +31,15 @@ class Home extends Component {
 
   onDeleteProduct = (id) => {
     this.props.onDeleteProduct(id);
+  };
+
+  onFilter = (filterName, filterStatus) => {
+    this.setState({
+      filter: {
+        filterName: filterName.toLowerCase(),
+        filterStatus: parseInt(filterStatus),
+      },
+    });
   };
 
   listProduct = (products) => {
@@ -44,11 +57,29 @@ class Home extends Component {
   };
 
   render() {
-    const { products } = this.props;
-    var { currentPage, postsPerPage } = this.state;
+    var { products } = this.props;
+    var { currentPage, postsPerPage, filter } = this.state;
+    console.log(filter.filterStatus);
+    if (filter) {
+      if (filter.filterName) {
+        products = products.filter((product) => {
+          return product.name.toLowerCase().indexOf(filter.filterName) !== -1;
+        });
+      }
+      if (filter.filterStatus) {
+        products = products.filter((product) => {
+          if (filter.filterStatus === 0) {
+            return products;
+          } else {
+            return (
+              product.status === (filter.filterStatus === 1 ? true : false)
+            );
+          }
+        });
+      }
+    }
     var indexOfLast = currentPage * postsPerPage;
     var indexOfFirst = indexOfLast - postsPerPage;
-    
     var currentList = products.slice(indexOfFirst, indexOfLast);
     return (
       <div className="container" id="home">
@@ -56,7 +87,6 @@ class Home extends Component {
           <h1 className="">LIST OF PRODUCTS</h1>
         </div>
         <div className="table-content">
-          <SearchBar  />
           <table className="table border table-home table-striped table-hover">
             <thead>
               <tr>
@@ -67,7 +97,8 @@ class Home extends Component {
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody className="list-products ">
+            <tbody className="list-products">
+              <FilterTable onFilter={this.onFilter} />
               {this.listProduct(currentList)}
             </tbody>
           </table>

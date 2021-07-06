@@ -5,6 +5,9 @@ import Product from "./Product/Product";
 class Products extends Component {
   render() {
     var { products } = this.props;
+    products = products.filter((product) => {
+      return product.status === true;
+    });
     return (
       <div className="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 products">
         {this.ProductList(products)}

@@ -16,6 +16,13 @@
             }
         }
         .list-products {
+            .filter-table {
+                input[name="filterName"] {
+                    background-color: #fff;
+                    height: 40px;
+                    color: #333;
+                }
+            }
             img {
                 height: 103px;
             }

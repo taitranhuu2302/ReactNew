@@ -123,11 +123,13 @@ class Functions extends Component {
   };
 
   render() {
-    var {id} = this.state;
+    var { id } = this.state;
     return (
       <div className="container mt-3" id="functions">
         <div className="title text-center">
-          <div className="display-5 font-family-Ad">{id ? "UPDATE PRODUCT" : "ADD PRODUCT"}</div>
+          <div className="display-5 font-family-Ad">
+            {id ? "UPDATE PRODUCT" : "ADD PRODUCT"}
+          </div>
         </div>
         <form action="" onSubmit={this.onSave} className="form-control">
           <div className="mb-3">
@@ -212,7 +214,13 @@ class Functions extends Component {
             />
           </div>
           <div className="mb-3">
-            <button type="submit" className="btn btn-success">
+            <button
+              onClick={() => this.props.history.push("/admin")}
+              className="btn btn-primary me-3 mb-3"
+            >
+              Go Back
+            </button>
+            <button type="submit" className="btn btn-success mb-3">
               Save
             </button>
           </div>

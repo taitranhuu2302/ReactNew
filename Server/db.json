@@ -2,8 +2,9 @@
   "products": [
     {
       "id": 1,
-      "to": "/GraphicsCard",
       "name": "AORUS GeForce RTX™ 3090 XTREME WATERFORCE 24G",
+      "price": "",
+      "des": "",
       "image": "https://static.gigabyte.com/StaticFile/Image/Global/dc6d65bfcf598b6ce39dbd9fc0b3ffdb/Product/26609/webp/400",
       "status": true
     },
