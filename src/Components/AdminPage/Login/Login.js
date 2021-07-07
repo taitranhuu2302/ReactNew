@@ -43,22 +43,16 @@ class Login extends Component {
                 <div className="forgot-1 mt-2">
                   <span>
                     Forgot{" "}
-                    <Link
-                      className="text-decoration-none"
-                      to="/admin/login-admin"
-                    >
+                    <Link className="text-decoration-none" to="/login-admin">
                       Username/{" "}
                     </Link>
-                    <Link
-                      className="text-decoration-none"
-                      to="/admin/login-admin"
-                    >
+                    <Link className="text-decoration-none" to="/login-admin">
                       Password?
                     </Link>
                   </span>
                 </div>
                 <Link
-                  to="/admin/login-admin"
+                  to="/register-admin"
                   className="create-account d-block mt-5 text-decoration-none"
                 >
                   Create your Account <i className="fal fa-arrow-right" />

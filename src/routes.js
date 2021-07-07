@@ -7,6 +7,7 @@ import GraphicsCards from "./Pages/StorePage/GraphicsCards";
 import FinishRegister from "./Pages/LoginPage/FinishRegister";
 import AdminPage from "./Pages/AdminPage/AdminPage";
 import LoginAdminPage from "./Pages/AdminPage/LoginPage";
+import RegisterAdmin from "./Pages/AdminPage/RegisPage";
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: "/login-admin",
     exact: false,
     main: () => <LoginAdminPage />,
+  },
+  {
+    path: "/register-admin",
+    exact: false,
+    main: ({ history }) => <RegisterAdmin history={history} />,
   },
   {
     path: "/global/login",

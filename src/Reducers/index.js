@@ -8,6 +8,7 @@ import logged from "./logged";
 import products from "./products";
 import users from "./users";
 import cart from "./cart";
+import usersAdmin from "./usersAdmin";
 
 const myReducers = combineReducers({
   slider,
@@ -19,6 +20,7 @@ const myReducers = combineReducers({
   products,
   users,
   cart,
+  usersAdmin,
 });
 
 export default myReducers;

@@ -234,5 +234,12 @@
       "id": 2
     }
   ],
-  "carts": []
+  "carts": [],
+  "usersAdmin": [
+    {
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "id": 1
+    }
+  ]
 }

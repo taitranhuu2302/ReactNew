@@ -179,3 +179,35 @@ export const acDeleteProductCart = (id) => {
     id,
   };
 };
+
+// Login - Register (Admin)
+
+export const acRegisterAdminRequest = (user) => {
+  return (dispatch) => {
+    return callApi("usersAdmin", "POST", user).then((res) => {
+      return dispatch(acRegisterAdmin(res.data));
+    });
+  };
+};
+
+export const acRegisterAdmin = (user) => {
+  return {
+    type: types.REGISTER,
+    user,
+  };
+};
+
+export const acGetUserAdminRequest = () => {
+  return (dispatch) => {
+    return callApi("usersAdmin", "GET", null).then((res) => {
+      return dispatch(acGetUserAdmin(res.data));
+    });
+  };
+};
+
+export const acGetUserAdmin = (users) => {
+  return {
+    type: types.GET_USERS,
+    users,
+  };
+};
