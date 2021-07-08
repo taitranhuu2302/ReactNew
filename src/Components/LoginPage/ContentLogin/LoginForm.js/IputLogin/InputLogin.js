@@ -37,15 +37,13 @@ class InputLogin extends Component {
       check = false;
     }
 
-    if (users.every((item) => item.email !== email)) {
-      err.email = "Email is not correct";
+    if (
+      users.every((item) => item.email !== email || item.password !== password)
+    ) {
+      err.email = "Email or password is incorrect";
       check = false;
     }
 
-    if (users.every((item) => item.password !== password)) {
-      err.password = "Password is not correct";
-      check = false;
-    }
     this.setState({
       err,
     });

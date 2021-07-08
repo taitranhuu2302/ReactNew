@@ -211,3 +211,17 @@ export const acGetUserAdmin = (users) => {
     users,
   };
 };
+
+export const acUpdateUserAdminRequest = (user) => {
+  return (dispatch) => {
+    return callApi(`usersAdmin/${user.id}`, "PUT", user).then((res) => {
+      return dispatch(acUpdateUserAdmin(res.data));
+    });
+  };
+};
+export const acUpdateUserAdmin = (user) => {
+  return {
+    type: types.UPDATE_USER,
+    user,
+  };
+};

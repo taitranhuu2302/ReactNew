@@ -15,11 +15,13 @@ class HeaderLeft extends Component {
             ></button>
           </div>
           <div className="col">
-            <img
-              src="https://logodix.com/logo/1789832.png"
-              className="logo-sm"
-              alt=""
-            />
+            <Link to="/">
+              <img
+                src="https://logodix.com/logo/1789832.png"
+                className="logo-sm"
+                alt=""
+              />
+            </Link>
           </div>
         </div>
         <SideNavigation

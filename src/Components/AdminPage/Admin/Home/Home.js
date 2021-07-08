@@ -59,7 +59,6 @@ class Home extends Component {
   render() {
     var { products } = this.props;
     var { currentPage, postsPerPage, filter } = this.state;
-    console.log(filter.filterStatus);
     if (filter) {
       if (filter.filterName) {
         products = products.filter((product) => {

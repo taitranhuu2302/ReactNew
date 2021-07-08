@@ -12,6 +12,7 @@ export const DELETE_PRODUCT = "DELETE_PRODUCT";
 export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
 //USERS
 export const GET_USERS = "GET_USERS";
+export const UPDATE_USER = "UPDATE_USER";
 // CART
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_ALL_CART = "GET_ALL_CART";

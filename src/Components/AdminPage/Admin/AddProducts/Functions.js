@@ -28,7 +28,6 @@ class Functions extends Component {
         this.setState({
           id: product.id,
           name: product.name,
-          // image: product.image,
           preview: product.image,
           imageLink: product.image,
           status: product.status,

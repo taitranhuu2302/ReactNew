@@ -8,7 +8,7 @@ class AdminPage extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
+        <Route render={({ match }) => <Header match={match} />} />
         {this.showContentMenus(routes)}
       </Fragment>
     );
@@ -44,7 +44,7 @@ const routes = [
     main: ({ match, history }) => <Functions match={match} history={history} />,
   },
   {
-    path: "/admin",
+    path: "/admin/:id",
     exact: true,
     main: () => <Home />,
   },

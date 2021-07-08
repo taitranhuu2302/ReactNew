@@ -33,11 +33,7 @@ class HeaderLeft extends Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <button
-                    className="btn shadow-none"
-                    to="/"
-                    onClick={this.onLogOut}
-                  >
+                  <button className="btn shadow-none" onClick={this.onLogOut}>
                     LOG OUT
                   </button>
                 </li>

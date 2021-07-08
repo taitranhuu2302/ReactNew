@@ -8,6 +8,8 @@ import FinishRegister from "./Pages/LoginPage/FinishRegister";
 import AdminPage from "./Pages/AdminPage/AdminPage";
 import LoginAdminPage from "./Pages/AdminPage/LoginPage";
 import RegisterAdmin from "./Pages/AdminPage/RegisPage";
+import AvatarPage from "./Pages/AdminPage/AvatarPage";
+import { Redirect } from "react-router-dom";
 
 const routes = [
   {
@@ -21,9 +23,19 @@ const routes = [
     main: () => <GraphicsCards />,
   },
   {
-    path: "/admin",
+    path: "/admin/:id",
     exact: false,
-    main: () => <AdminPage />,
+    main: () =>
+      localStorage.getItem("user") ? (
+        <AdminPage />
+      ) : (
+        <Redirect to="/login-admin" />
+      ),
+  },
+  {
+    path: "/choose-avatar/:id",
+    exact: false,
+    main: ({ match }) => <AvatarPage match={match} />,
   },
   {
     path: "/login-admin",
@@ -43,9 +55,7 @@ const routes = [
   {
     path: "/global/register",
     exact: true,
-    main: ({ match, history, redirect }) => (
-      <SignPage match={match} history={history} redirect={redirect} />
-    ),
+    main: ({ match, history }) => <SignPage match={match} history={history} />,
   },
   {
     path: "/global/register/complete",
