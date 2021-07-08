@@ -12,28 +12,28 @@ class Header extends Component {
     this.state = {
       toggleNav: false,
       avatar: "",
+      id: "",
     };
   }
 
   componentDidMount() {
     this.props.onGetUsers();
-    var { match } = this.props;
-    var id = match.params.id;
+    var id = JSON.parse(localStorage.getItem("uid"));
     if (id) {
       callApi(`usersAdmin/${id}`, "GET", null).then((res) => {
         var user = res.data;
-        console.log(res);
         this.setState({
           avatar: user.avatar,
+          id: id,
         });
       });
     }
+    console.log(this.state);
   }
 
   findIndex = (item, list) => {
     var result = -1;
     list.forEach((user, index) => {
-      console.log(user.email);
       if (user.email === item) {
         console.log(index);
         return (result = index);

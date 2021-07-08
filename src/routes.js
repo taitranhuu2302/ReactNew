@@ -23,7 +23,7 @@ const routes = [
     main: () => <GraphicsCards />,
   },
   {
-    path: "/admin/:id",
+    path: "/admin",
     exact: false,
     main: () =>
       localStorage.getItem("user") ? (
@@ -33,9 +33,14 @@ const routes = [
       ),
   },
   {
-    path: "/choose-avatar/:id",
+    path: "/choose-avatar",
     exact: false,
-    main: ({ match }) => <AvatarPage match={match} />,
+    main: ({ match }) =>
+      localStorage.getItem("uid") ? (
+        <AvatarPage match={match} />
+      ) : (
+        <Redirect to="/login-admin" />
+      ),
   },
   {
     path: "/login-admin",

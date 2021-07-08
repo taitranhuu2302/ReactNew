@@ -44,7 +44,7 @@ const routes = [
     main: ({ match, history }) => <Functions match={match} history={history} />,
   },
   {
-    path: "/admin/:id",
+    path: "/admin",
     exact: true,
     main: () => <Home />,
   },

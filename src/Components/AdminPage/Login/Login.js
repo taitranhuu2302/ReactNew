@@ -82,17 +82,14 @@ class Login extends Component {
     if (this.handleErr()) {
       this.setState({ check: users[index].id });
       localStorage.setItem("user", JSON.stringify(users[index].email));
-      localStorage.setItem(
-        "avatar",
-        JSON.stringify(users[index].avatar ? index : -1)
-      );
+      localStorage.setItem("uid", JSON.stringify(users[index].id));
     }
   };
 
   render() {
     var { err, check } = this.state;
     if (check) {
-      return <Redirect to={`/admin/${check}`} />;
+      return <Redirect to={`/admin`} />;
     }
     return (
       <div className="container-fluid" id="login-form">

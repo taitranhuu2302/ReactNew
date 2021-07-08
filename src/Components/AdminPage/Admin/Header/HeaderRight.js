@@ -12,6 +12,7 @@ class HeaderRight extends Component {
   logOut = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("avatar");
+    localStorage.removeItem("uid");
     this.setState({ check: true });
   };
 
@@ -41,7 +42,7 @@ class HeaderRight extends Component {
               </button>
               <ul className="nav menu-sub ">
                 <li className="sub-item">
-                  <Link to={`/choose-avatar/${id}`} className="btn shadow-none">
+                  <Link to={`/choose-avatar`} className="btn shadow-none">
                     <i className="far fa-user text-dark me-2" />
                     <span>Profile</span>
                   </Link>

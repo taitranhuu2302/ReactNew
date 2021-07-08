@@ -23,8 +23,7 @@ class Avatar extends Component {
 
   componentDidMount() {
     this.props.onGetUsers();
-    var { match } = this.props;
-    var id = match.params.id;
+    var id = JSON.parse(localStorage.getItem("uid"));
     if (id !== -1) {
       callApi(`usersAdmin/${id}`, "GET", null).then((res) => {
         var user = res.data;
@@ -113,7 +112,7 @@ class Avatar extends Component {
     var { firstName, check, lastName, address, dob, phone, srcImage } =
       this.state;
     if (check) {
-      return <Redirect to={`/admin/${check}`} />;
+      return <Redirect to={`/admin`} />;
     }
     return (
       <div className="container-fluid avatar-page" id="login-form">

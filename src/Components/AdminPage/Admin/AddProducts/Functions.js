@@ -29,6 +29,7 @@ class Functions extends Component {
           id: product.id,
           name: product.name,
           preview: product.image,
+          image: product.image,
           imageLink: product.image,
           status: product.status,
         });
@@ -52,72 +53,37 @@ class Functions extends Component {
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onloadend = () => {
-      this.setState({ preview: reader.result });
+      this.setState({ preview: reader.result, image: reader.result });
     };
   };
 
   onSave = (e) => {
     e.preventDefault();
     var { history } = this.props;
-    var { id, name, price, des, image, status } = this.state;
+    var { id, name, price, des, image, status, imageLink } = this.state;
     var product = {};
-    let reader = new FileReader();
     if (id) {
-      try {
-        reader.readAsDataURL(image);
-      } catch (err) {}
-      reader.onloadend = () => {
-        product = {
-          id: id,
-          name: name,
-          price: price,
-          des: des,
-          image: reader.result,
-          status: status,
-        };
-        this.props.onUpdateProduct(product);
-        history.goBack();
+      product = {
+        id: id,
+        name: name,
+        price: price,
+        des: des,
+        image: image ? image : imageLink,
+        status: status,
       };
-      if (image === null) {
-        product = {
-          id: id,
-          name: name,
-          price: price,
-          des: des,
-          image: this.state.imageLink,
-          status: status,
-        };
-        this.props.onUpdateProduct(product);
-        history.goBack();
-      }
+      this.props.onUpdateProduct(product);
+      history.goBack();
     } else {
-      try {
-        reader.readAsDataURL(image);
-      } catch (err) {}
-      reader.onloadend = () => {
-        product = {
-          id: id,
-          name: name,
-          price: price,
-          des: des,
-          image: reader.result,
-          status: status,
-        };
-        this.props.onUpProduct(product);
-        history.goBack();
+      product = {
+        id: id,
+        name: name,
+        price: price,
+        des: des,
+        image: image ? image : imageLink,
+        status: status,
       };
-      if (image === null) {
-        product = {
-          id: id,
-          name: name,
-          price: price,
-          des: des,
-          image: this.state.imageLink,
-          status: status,
-        };
-        this.props.onUpProduct(product);
-        history.goBack();
-      }
+      this.props.onUpProduct(product);
+      history.goBack();
     }
   };
 
