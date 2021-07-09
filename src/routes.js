@@ -9,6 +9,7 @@ import AdminPage from "./Pages/AdminPage/AdminPage";
 import LoginAdminPage from "./Pages/AdminPage/LoginPage";
 import RegisterAdmin from "./Pages/AdminPage/RegisPage";
 import AvatarPage from "./Pages/AdminPage/AvatarPage";
+import DetailPage from "./Pages/DetailPage/DetailPage";
 import { Redirect } from "react-router-dom";
 
 const routes = [
@@ -67,6 +68,13 @@ const routes = [
     exact: false,
     main: ({ match, history }) => (
       <FinishRegister match={match} history={history} />
+    ),
+  },
+  {
+    path: "/product",
+    exact: false,
+    main: ({ match, history }) => (
+      <DetailPage match={match} history={history} />
     ),
   },
   {

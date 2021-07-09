@@ -13,9 +13,9 @@ var inititalState = [
       "Beginners 101 - PC and Console Gaming: Which Is the Choice for Me",
   },
   {
-    image: "https://global.aorus.com/upload/Product/F_20210531112199ic7mrR.JPG",
+    image: "https://global.aorus.com/upload/Product/F_2021062816307466YEPH.JPG",
     tag: "Event",
-    caption: "See The Passion of Creation",
+    caption: "Swtich Between Wrok n'Plau with KVM",
   },
   {
     image: "https://global.aorus.com/upload/Product/F_20210409115685JhyVsj.JPG",

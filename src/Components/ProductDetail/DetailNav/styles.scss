@@ -1,0 +1,24 @@
+#detail-product {
+    .detail-nav {
+        background: #000;
+        height: 62px;
+        .name-product {
+            font-size: 25px;
+        }
+        .nav-list {
+            ul {
+                li {
+                    &:hover {
+                        a {
+                            color: var(--color-orange);
+                        }
+                    }
+                    a {
+                        color: #fff;
+                        font-size: 19px;
+                    }
+                }
+            }
+        }
+    }
+}

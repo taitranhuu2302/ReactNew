@@ -1,7 +1,3 @@
-* {
-    font-family: var(--font-family-Ti);
-}
-
 .active-navigation {
     width: 300px !important;
 }
@@ -11,6 +7,7 @@
 }
 
 #header-admin {
+    font-family: var(--font-family-Ti);
     .header-top {
         height: 56px;
         border-bottom: 1px solid #ddd;

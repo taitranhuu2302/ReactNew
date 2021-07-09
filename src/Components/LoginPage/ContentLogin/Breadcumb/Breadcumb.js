@@ -10,15 +10,23 @@ class Breadcumb extends Component {
   };
 
   render() {
-    var { to, current, toBack } = this.props;
+    var { to, current, toBack, to1, toBack1, bgr } = this.props;
     return (
-      <div className="container-fluid" id="breadcumb">
+      <div
+        className={bgr ? `container-fluid ${bgr}` : "container-fluid"}
+        id="breadcumb"
+      >
         <div className="container h-100">
           <nav aria-label="breadcrumb" className="h-100">
             <ol className="breadcrumb h-100 align-items-center d-flex">
               <li className="breadcrumb-item">
                 <Link to={to}>{toBack}</Link>
               </li>
+              {toBack1 ? (
+                <li className="breadcrumb-item">
+                  <Link to={to1}>{toBack1}</Link>
+                </li>
+              ) : null}
               <li className="breadcrumb-item active" aria-current="page">
                 {current}
               </li>
