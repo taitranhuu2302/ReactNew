@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import ProductDetail from "./../../Components/ProductDetail/ProductDetail";
 import Header from "./../../Components/LoginPage/HeaderLogin/Header/Header";
 import Breadcumb from "./../../Components/LoginPage/ContentLogin/Breadcumb/Breadcumb";
+import Footer from "./../../Components/HomePage/Footer/Footer";
 
 class DetailPage extends Component {
   render() {
@@ -17,6 +18,7 @@ class DetailPage extends Component {
           bgr="bgr-black"
         />
         <ProductDetail />
+        <Footer />
       </Fragment>
     );
   }

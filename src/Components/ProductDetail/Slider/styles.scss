@@ -30,10 +30,10 @@
             }
             .crs-list {
                 .item {
-                    min-height: 100vh;
-                    padding: 0 10vw;
+                    min-height: calc(100vh - 92px);
+                    padding: 4vh 10vw;
                     .item-row {
-                        min-height: 100vh;
+                        min-height: calc(100vh - 92px);
                         .item-img {
                             height: 100%;
                             position: relative;

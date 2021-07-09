@@ -18,7 +18,7 @@ class HeaderRight extends Component {
 
   render() {
     var { check } = this.state;
-    var { avatar, id } = this.props;
+    var { avatar } = this.props;
     if (check) {
       return <Redirect to="/login-admin" />;
     }

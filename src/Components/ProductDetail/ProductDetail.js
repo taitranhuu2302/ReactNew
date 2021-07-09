@@ -3,19 +3,41 @@ import "./styles.scss";
 import DetailNav from "./DetailNav/DetailNav";
 import SliderDetail from "./Slider/SliderDetail";
 import Robot from "./Robot/Robot";
+import CoolSystem from "./CoolSystem/CoolSystem";
 
 class ProductDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sticky: false,
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.sticky);
+  }
+
+  sticky = () => {
+    // console.log(window.scrollY);
+    if (window.scrollY > 172) {
+      this.setState({ sticky: true });
+    } else {
+      this.setState({ sticky: false });
+    }
+  };
+
   render() {
+    var { sticky } = this.state;
     return (
       <div className="container-fluid p-0" id="detail-product">
-        <DetailNav />
+        <DetailNav sticky={sticky} />
         <div className="slides-detail">
           <div className="slide-item">
             <video
               loop
               autoPlay
               muted
-              src="assets\video\30903080waterforce.mp4"
+              src="assets/video/30903080waterforce.mp4"
               className="d-xl-block d-none"
             ></video>
             <img
@@ -34,6 +56,9 @@ class ProductDetail extends Component {
           </div>
           <div className="slide-item">
             <Robot />
+          </div>
+          <div className="slide-item">
+            <CoolSystem />
           </div>
         </div>
       </div>
