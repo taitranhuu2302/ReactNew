@@ -1,19 +1,11 @@
 import React, { Component } from "react";
 import "./styles.scss";
 import DetailNav from "./DetailNav/DetailNav";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import SliderDetail from "./Slider/SliderDetail";
+import Robot from "./Robot/Robot";
 
 class ProductDetail extends Component {
   render() {
-    const settings = {
-      dots: false,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
     return (
       <div className="container-fluid p-0" id="detail-product">
         <DetailNav />
@@ -38,78 +30,83 @@ class ProductDetail extends Component {
               src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/kf-img-bg.jpg"
               alt=""
             />
-            <Slider {...settings} className="crs-list">
-              <div className="item">
-                <div className="row h-100 p-0">
-                  <div className="col  flex flex-column item-img col-text">
-                    <div className="mb-3">
-                      <img
-                        src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/title-line.png"
-                        alt=""
-                      />
-                    </div>
-                    <div>
-                      <h3>KEY FEATURE</h3>
-                      <div>
-                        <p className="m-0">
-                          NVIDIA Ampere Streaming Multiporcessors
-                        </p>
-                        <p className="m-0">2nd Generation RT Cores</p>
-                        <p className="m-0">3rd Generation Tensor Cores </p>
-                        <p className="m-0">Powered by GeForce RTX™ 3090 </p>
-                        <p className="m-0">
-                          Integrated with 24GB GDDR6X 384-bit memory interface
-                        </p>
-                        <p className="m-0">
-                          WATERFORCE all-in-one cooling system{" "}
-                        </p>
-                        <p className="m-0">
-                          240mm radiator with 2x 120mm ARGB fans{" "}
-                        </p>
-                        <p className="m-0">RGB Fusion 2.0 </p>
-                        <p className="m-0">6 Outputs </p>
-                        <p className="m-0">Protection metal back plate </p>
-                        <p className="m-0">
-                          4 Years Warranty (Online registration required){" "}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="mt-5">
-                      <h3>CORE CLOCK</h3>
-                      <div className="icon-logo d-flex">
-                        <img
-                          src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/waterforce.png"
-                          alt=""
-                        />
-                        <img
-                          src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/4years.png"
-                          alt=""
-                        />
-                        <img
-                          src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/nv-rtx.jpg"
-                          alt=""
-                        />
-                        <img
-                          src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/rgb-logo.png"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col item-img">
-                    <img
-                      src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/kf-img.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </Slider>
+            <SliderDetail list={listSlider} />
+          </div>
+          <div className="slide-item">
+            <Robot />
           </div>
         </div>
       </div>
     );
   }
 }
+
+const listSlider = [
+  {
+    titleTop: "KEY FEATURE",
+    listCaption: [
+      "NVIDIA Ampere Streaming Multiporcessors",
+      "2nd Generation RT Cores",
+      "3rd Generation Tensor Cores",
+      "Powered by GeForce RTX™ 3090",
+      "Integrated with 24GB GDDR6X 384-bit memory interface",
+      "WATERFORCE all-in-one cooling system",
+      "240mm radiator with 2x 120mm ARGB fans",
+      "RGB Fusion 2.0",
+      "6 Outputs",
+      "Protection metal back plate",
+      "4 Years Warranty (Online registration required)",
+    ],
+    titleBottom: "CORE CLOCK",
+    listIcon: [
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/waterforce.png",
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/4years.png",
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/nv-rtx.jpg",
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/rgb-logo.png",
+    ],
+    imageTitle:
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/kf-img.png",
+  },
+  {
+    titleTop: "NVIDIA Ampere Architecture",
+    listCaption: [
+      "The all-new NVIDIA Ampere architecture delivers the ultimate play, featuring advanced 2nd generation Ray Tracing Cores and 3rd generation Tensor Cores with greater throughput.",
+    ],
+    titleBottom: "",
+    listIcon: [],
+    imageTitle:
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/slide-img-1.jpg",
+  },
+  {
+    titleTop: "RTX. IT’S ON.",
+    listCaption: [
+      "Experience today’s biggest blockbusters like never before with the visual fidelity of real-time ray tracing and the ultimate performance of AI-powered DLSS.",
+    ],
+    titleBottom: "",
+    listIcon: [],
+    imageTitle:
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/slide-img-2.jpg",
+  },
+  {
+    titleTop: "VICTORY MEASURED IN MILLISECONDS",
+    listCaption: [
+      "NVIDIA Reflex delivers the ultimate competitive advantage. The lowest latency. The best responsiveness. Powered by GeForce RTX 30 Series GPUs and NVIDIA® G-SYNC® monitors. Acquire targets faster, react quicker, and increase aim precision through a revolutionary suite of technologies to measure and optimize system latency for competitive games.",
+    ],
+    titleBottom: "",
+    listIcon: [],
+    imageTitle:
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/slide-img-4.jpg",
+  },
+  {
+    titleTop: "VICTORY MEASURED IN MILLISECONDS",
+    listCaption: [
+      "Take your creative projects to a new level with GeForce RTX 30 Series GPUs. Delivering AI-acceleration in top creative apps. Backed by the NVIDIA Studio platform of dedicated drivers and exclusive tools. And built to perform in record time. Whether you’re rendering complex 3D scenes, editing 8K video, or livestreaming with the best encoding and image quality, GeForce RTX GPUs give you the performance to create your best.",
+    ],
+    titleBottom: "",
+    listIcon: [],
+    imageTitle:
+      "https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/slide-img-5.jpg",
+  },
+];
 
 export default ProductDetail;
