@@ -28,7 +28,6 @@ class Header extends Component {
         });
       });
     }
-    console.log(this.state);
   }
 
   findIndex = (item, list) => {

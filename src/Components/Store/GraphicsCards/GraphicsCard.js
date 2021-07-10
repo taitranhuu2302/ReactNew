@@ -42,7 +42,7 @@ class GraphicsCard extends Component {
   };
 
   render() {
-    const { products, carts } = this.props;
+    const { products, match, carts } = this.props;
     const { currentPage, postsPerPage } = this.state;
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -62,6 +62,7 @@ class GraphicsCard extends Component {
                   <Products
                     products={currentPosts}
                     onAddToCart={this.onAddToCart}
+                    match={match}
                   />
                 </div>
               </div>

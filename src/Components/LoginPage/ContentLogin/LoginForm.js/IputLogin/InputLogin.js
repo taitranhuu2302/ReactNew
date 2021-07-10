@@ -79,7 +79,7 @@ class InputLogin extends Component {
             type="text"
             id="email"
             name="email"
-            alue={this.state.email}
+            value={this.state.email}
             onChange={this.onChange}
             className="w-100 form-control border-0 shadow-none rounded"
           />

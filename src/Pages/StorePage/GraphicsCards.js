@@ -12,7 +12,7 @@ class GraphicsCards extends Component {
         <Header />
         <Breadcumb to="/" toBack="Home" current="Graphics Cards" />
         <Banner />
-        <GraphicsCard />
+        <GraphicsCard match={this.props.match} />
         <Footer />
       </>
     );

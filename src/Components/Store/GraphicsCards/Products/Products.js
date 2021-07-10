@@ -16,10 +16,16 @@ class Products extends Component {
   }
 
   ProductList = (list) => {
+    var { match } = this.props;
     var result = null;
     result = list.map((item, index) => {
       return (
-        <Product key={index} item={item} onAddToCart={this.props.onAddToCart} />
+        <Product
+          key={index}
+          item={item}
+          match={match}
+          onAddToCart={this.props.onAddToCart}
+        />
       );
     });
     return result;

@@ -1,24 +1,35 @@
 import React, { Component, Fragment } from "react";
+import { Route, Switch } from "react-router-dom";
 import ProductDetail from "./../../Components/ProductDetail/ProductDetail";
 import Header from "./../../Components/LoginPage/HeaderLogin/Header/Header";
-import Breadcumb from "./../../Components/LoginPage/ContentLogin/Breadcumb/Breadcumb";
 import Footer from "./../../Components/HomePage/Footer/Footer";
 import Specification from "../../Components/ProductDetail/Specification/Specification";
 
 class DetailPage extends Component {
+  showRoute = (routes) => {
+    var result = null;
+
+    if (routes.length > 0) {
+      result = routes.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            component={route.main}
+          />
+        );
+      });
+    }
+
+    return <Switch>{result}</Switch>;
+  };
+
   render() {
     return (
       <Fragment>
         <Header />
-        <Breadcumb
-          to="/"
-          toBack="Home"
-          to1="/GraphicsCard"
-          toBack1="Graphics Cards"
-          current="AORUS GeForce RTX™ 3090 XTREME WATERFORCE 24G"
-          bgr="bgr-black"
-        />
-        <ProductDetail />
+        {this.showRoute(routes)}
         <Footer />
       </Fragment>
     );
@@ -27,15 +38,15 @@ class DetailPage extends Component {
 
 const routes = [
   {
-    path: '/product/KeyFeatures',
-    exact: false,
-    main: () => <ProductDetail />
+    path: "/GraphicsCard/:id/KeyFeatures",
+    exact: true,
+    main: ({ match }) => <ProductDetail match={match} />,
   },
   {
-    path: '/product/Specification',
-    exact: false,
-    main: () => <Specification />
+    path: "/GraphicsCard/:id/Specification",
+    exact: true,
+    main: ({ match }) => <Specification match={match} />,
   },
-]
+];
 
 export default DetailPage;

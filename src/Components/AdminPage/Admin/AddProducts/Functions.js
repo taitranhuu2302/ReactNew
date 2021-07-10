@@ -16,6 +16,25 @@ class Functions extends Component {
       imageLink: "",
       status: true,
       preview: "",
+      gp: "",
+      cc: "",
+      ss: "",
+      o: "",
+      pc: "",
+      rp: "",
+      op: "",
+      d: "",
+      pf: "",
+      cs: "",
+      mv: "",
+      dmr: "",
+      cb: "",
+      mbGB: "",
+      mb: "",
+      mt: "",
+      msize: "",
+      mc: "",
+      ccores: "",
     };
   }
 
@@ -32,6 +51,25 @@ class Functions extends Component {
           image: product.image,
           imageLink: product.image,
           status: product.status,
+          gp: product.gp,
+          cc: product.cc,
+          ss: product.ss,
+          o: product.o,
+          pc: product.pc,
+          rp: product.rp,
+          op: product.op,
+          d: product.d,
+          pf: product.pf,
+          cs: product.cs,
+          mv: product.mv,
+          dmr: product.dmr,
+          cb: product.cb,
+          mbGB: product.mbGB,
+          mb: product.mb,
+          mt: product.mt,
+          msize: product.msize,
+          mc: product.mc,
+          ccores: product.ccores,
         });
       });
     }
@@ -60,7 +98,34 @@ class Functions extends Component {
   onSave = (e) => {
     e.preventDefault();
     var { history } = this.props;
-    var { id, name, price, des, image, status, imageLink } = this.state;
+    var {
+      id,
+      name,
+      price,
+      des,
+      image,
+      status,
+      imageLink,
+      gp,
+      cc,
+      ss,
+      o,
+      pc,
+      rp,
+      op,
+      d,
+      pf,
+      cs,
+      mv,
+      dmr,
+      cb,
+      mbGB,
+      mb,
+      mt,
+      msize,
+      mc,
+      ccores,
+    } = this.state;
     var product = {};
     if (id) {
       product = {
@@ -70,6 +135,25 @@ class Functions extends Component {
         des: des,
         image: image ? image : imageLink,
         status: status,
+        gp: gp,
+        cc: cc,
+        ss: ss,
+        o: o,
+        pc: pc,
+        rp: rp,
+        op: op,
+        d: d,
+        pf: pf,
+        cs: cs,
+        mv: mv,
+        dmr: dmr,
+        cb: cb,
+        mbGB: mbGB,
+        mb: mb,
+        mt: mt,
+        msize: msize,
+        mc: mc,
+        ccores: ccores,
       };
       this.props.onUpdateProduct(product);
       history.goBack();
@@ -81,6 +165,25 @@ class Functions extends Component {
         des: des,
         image: image ? image : imageLink,
         status: status,
+        gp: gp,
+        cc: cc,
+        ss: ss,
+        o: o,
+        pc: pc,
+        rp: rp,
+        op: op,
+        d: d,
+        pf: pf,
+        cs: cs,
+        mv: mv,
+        dmr: dmr,
+        cb: cb,
+        mbGB: mbGB,
+        mb: mb,
+        mt: mt,
+        msize: msize,
+        mc: mc,
+        ccores: ccores,
       };
       this.props.onUpProduct(product);
       history.goBack();
@@ -88,7 +191,28 @@ class Functions extends Component {
   };
 
   render() {
-    var { id } = this.state;
+    var {
+      id,
+      gp,
+      cc,
+      ss,
+      o,
+      pc,
+      rp,
+      op,
+      d,
+      pf,
+      cs,
+      mv,
+      dmr,
+      cb,
+      mbGB,
+      mb,
+      mt,
+      msize,
+      mc,
+      ccores,
+    } = this.state;
     return (
       <div className="container mt-3" id="functions">
         <div className="title text-center">
@@ -124,6 +248,234 @@ class Functions extends Component {
             />
           </div>
           <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Graphics processing:
+            </label>
+            <input
+              type="text"
+              name="gp"
+              value={gp}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Core Clock:
+            </label>
+            <input
+              type="text"
+              name="cc"
+              value={cc}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              SLI Support:
+            </label>
+            <input
+              type="text"
+              name="ss"
+              value={ss}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Output:
+            </label>
+            <input
+              type="text"
+              name="o"
+              value={o}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Power Connectors:
+            </label>
+            <input
+              type="text"
+              name="pc"
+              value={pc}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Recommended PSU:
+            </label>
+            <input
+              type="text"
+              name="rp"
+              value={rp}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              OpenGL:
+            </label>
+            <input
+              type="text"
+              name="op"
+              value={op}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              DirectX:
+            </label>
+            <input
+              type="text"
+              name="d"
+              value={d}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              PCB Form:
+            </label>
+            <input
+              type="text"
+              name="pf"
+              value={pf}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Card Size:
+            </label>
+            <input
+              type="text"
+              name="cs"
+              value={cs}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Multi-view:
+            </label>
+            <input
+              type="text"
+              name="mv"
+              value={mv}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Digital max resolution:
+            </label>
+            <input
+              type="text"
+              name="dmr"
+              value={dmr}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Card Bus:
+            </label>
+            <input
+              type="text"
+              name="cb"
+              value={cb}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Memory Bandwidth (GB/sec):
+            </label>
+            <input
+              type="text"
+              name="mbGB"
+              value={mbGB}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Memory Bus:
+            </label>
+            <input
+              type="text"
+              name="mb"
+              value={mb}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Memory Type:
+            </label>
+            <input
+              type="text"
+              name="mt"
+              value={mt}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Memory Size:
+            </label>
+            <input
+              type="text"
+              name="msize"
+              value={msize}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              Memory Clock:
+            </label>
+            <input
+              type="text"
+              name="mc"
+              value={mc}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="label-add" htmlFor="price-product">
+              CUDA® Cores:
+            </label>
+            <input
+              type="text"
+              name="ccores"
+              value={ccores}
+              onChange={this.onChange}
+              className="shadow-none form-control"
+            />
+          </div>
+          <div className="mb-3">
             <label className="label-add" htmlFor="description-product">
               Description:
             </label>
@@ -151,7 +503,7 @@ class Functions extends Component {
           </div>
           <div className="mb-3">
             <label className="label-add" htmlFor="img-product">
-              Image Address:
+              Image Link:
             </label>
             <input
               type="text"
@@ -194,6 +546,89 @@ class Functions extends Component {
     );
   }
 }
+
+// const specification = [
+//   {
+//     label: "Graphics Processing",
+//     name: "gp",
+//   },
+//   {
+//     label: "Core Clock",
+//     name: "cc",
+//   },
+//   {
+//     label: "SLI Support",
+//     name: "ss",
+//   },
+//   {
+//     label: "Output",
+//     name: "o",
+//   },
+//   {
+//     label: "Power Connectors",
+//     name: "pc",
+//   },
+//   {
+//     label: "Recommended PSU",
+//     name: "rp",
+//   },
+//   {
+//     label: "OpenGL",
+//     name: "op",
+//   },
+//   {
+//     label: "DirectX",
+//     name: "d",
+//   },
+//   {
+//     label: "PCB Form",
+//     name: "pf",
+//   },
+//   {
+//     label: "Card Size",
+//     name: "cs",
+//   },
+//   {
+//     label: "Multi-view",
+//     name: "mv",
+//   },
+//   {
+//     label: "Digital max resolution",
+//     name: "dmr",
+//   },
+//   {
+//     label: "Card Bus",
+//     name: "cb",
+//   },
+//   {
+//     label: "Memory Bandwidth (GB/sec)",
+//     name: "mbGB",
+//   },
+//   {
+//     label: "Memory Bus",
+//     name: "mb",
+//   },
+//   {
+//     label: "Memory Type",
+//     name: "mt",
+//   },
+//   {
+//     label: "Memory Size",
+//     name: "msize",
+//   },
+//   {
+//     label: "Memory Clock",
+//     name: "mc",
+//   },
+//   {
+//     label: "CUDA® Cores",
+//     name: "ccores",
+//   },
+//   {
+//     label: "Accessories",
+//     name: "a",
+//   },
+// ];
 
 const mapDispatchToProps = (dispatch, props) => {
   return {

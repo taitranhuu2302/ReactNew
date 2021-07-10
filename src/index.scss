@@ -54,7 +54,13 @@
     --color-orange: #ff6400;
     --font-family-Ti: "Titillium Web", sans-serif !important;
     --font-family-Ad: "Aldrich", sans-serif !important;
-    --font-ubun: Ubuntu ", sans-serif !important" !important;
+    --font-ubun: "Ubuntu ", sans-serif !important;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
 @keyframes glitch-anim {

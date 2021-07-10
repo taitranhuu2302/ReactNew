@@ -45,7 +45,6 @@ class CoolSystem extends Component {
   };
 
   render() {
-    console.log(this.state.number);
     return (
       <div className="container-fluid p-0" id="cool">
         <div className="row h-100 m-0 cool-row align-items-center justify-content-start">

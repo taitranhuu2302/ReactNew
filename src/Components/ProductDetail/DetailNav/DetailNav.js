@@ -3,6 +3,41 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 
 class DetailNav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: 0,
+    };
+  }
+
+  active = (number) => {
+    this.setState({ active: number });
+  };
+
+  listNav = (list) => {
+    var { match } = this.props;
+    return list.map((item, index) => {
+      return (
+        <li
+          key={index}
+          onClick={() => this.active(index)}
+          className={
+            match.url === `/GraphicsCard/${match.params.id}/${item.label}`
+              ? "nav-item activeNumber"
+              : "nav-item"
+          }
+        >
+          <Link
+            to={`/GraphicsCard/${match.params.id}/${item.label}`}
+            className="nav-link"
+          >
+            {item.label}
+          </Link>
+        </li>
+      );
+    });
+  };
+
   render() {
     var { sticky } = this.props;
     return (
@@ -20,26 +55,7 @@ class DetailNav extends Component {
             </div>
             <div className="col-lg-6 col-12 nav-list">
               <ul className="nav justify-content-start justify-content-lg-end">
-                <li className="nav-item">
-                  <Link to="/product" className="nav-link ">
-                    Key Features
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/product" className="nav-link ">
-                    Specification
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/product" className="nav-link ">
-                    Gallery
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/product" className="nav-link ">
-                    Buy
-                  </Link>
-                </li>
+                {this.listNav(listNav)}
               </ul>
             </div>
           </div>
@@ -48,5 +64,20 @@ class DetailNav extends Component {
     );
   }
 }
+
+const listNav = [
+  {
+    label: "KeyFeatures",
+  },
+  {
+    label: "Specification",
+  },
+  {
+    label: "Gallery",
+  },
+  {
+    label: "Buy",
+  },
+];
 
 export default DetailNav;

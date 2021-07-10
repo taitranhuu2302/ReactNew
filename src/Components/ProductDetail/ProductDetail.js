@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./styles.scss";
 import DetailNav from "./DetailNav/DetailNav";
 import SliderDetail from "./Slider/SliderDetail";
+import Breadcumb from "./../LoginPage/ContentLogin/Breadcumb/Breadcumb";
 import Robot from "./Robot/Robot";
 import CoolSystem from "./CoolSystem/CoolSystem";
 
@@ -18,7 +19,6 @@ class ProductDetail extends Component {
   }
 
   sticky = () => {
-    // console.log(window.scrollY);
     if (window.scrollY > 172) {
       this.setState({ sticky: true });
     } else {
@@ -30,14 +30,22 @@ class ProductDetail extends Component {
     var { sticky } = this.state;
     return (
       <div className="container-fluid p-0" id="detail-product">
-        <DetailNav sticky={sticky} />
+        <Breadcumb
+          to="/"
+          toBack="Home"
+          to1="/GraphicsCard"
+          toBack1="Graphics Cards"
+          current="AORUS GeForce RTX™ 3090 XTREME WATERFORCE 24G"
+          bgr="bgr-black"
+        />
+        <DetailNav sticky={sticky} match={this.props.match} />
         <div className="slides-detail">
           <div className="slide-item">
             <video
               loop
               autoPlay
               muted
-              src="assets/video/30903080waterforce.mp4"
+              src="https://www.gigabyte.com/FileUpload/global/Other/3/Video/30903080waterforce.mp4"
               className="d-xl-block d-none"
             ></video>
             <img
@@ -65,17 +73,33 @@ class ProductDetail extends Component {
               <div className="row ">
                 <div className="col-12 mb-5 d-flex justify-content-center">
                   <div className="logo-footer">
-                    <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/esrb.jpg" alt="" />
+                    <img
+                      src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/esrb.jpg"
+                      alt=""
+                    />
                   </div>
                   <div className="logo-footer">
-                    <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/RTX.png" alt="" />
+                    <img
+                      src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/RTX.png"
+                      alt=""
+                    />
                   </div>
                   <div className="logo-footer">
-                    <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/HDMI.png" alt="" />
+                    <img
+                      src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/HDMI.png"
+                      alt=""
+                    />
                   </div>
                 </div>
                 <div className="col-12 mb-4 text-center">
-                  <p>© 2020 NVIDIA Corporation. NVIDIA, the NVIDIA logo, GeForce, GeForce Experience, GeForce RTX, G-SYNC, NVLink, and ShadowPlay are registered trademarks and/or trademarks of NVIDIA Corporation in the United States and other countries. All other trademarks and copyrights are the property of their respective owners.</p>
+                  <p>
+                    © 2020 NVIDIA Corporation. NVIDIA, the NVIDIA logo, GeForce,
+                    GeForce Experience, GeForce RTX, G-SYNC, NVLink, and
+                    ShadowPlay are registered trademarks and/or trademarks of
+                    NVIDIA Corporation in the United States and other countries.
+                    All other trademarks and copyrights are the property of
+                    their respective owners.
+                  </p>
                 </div>
                 <div className="col-12 text-center">
                   * All the images in this page are for illustration only.

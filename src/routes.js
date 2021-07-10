@@ -20,8 +20,8 @@ const routes = [
   },
   {
     path: "/GraphicsCard",
-    exact: false,
-    main: () => <GraphicsCards />,
+    exact: true,
+    main: ({ match }) => <GraphicsCards match={match} />,
   },
   {
     path: "/admin",
@@ -71,7 +71,7 @@ const routes = [
     ),
   },
   {
-    path: "/product",
+    path: "/GraphicsCard/:id",
     exact: false,
     main: ({ match, history }) => (
       <DetailPage match={match} history={history} />

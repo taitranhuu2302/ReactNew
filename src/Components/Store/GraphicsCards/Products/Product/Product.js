@@ -8,17 +8,18 @@ class Product extends Component {
   };
 
   render() {
-    var { item } = this.props;
+    var { item, match } = this.props;
     return (
       <div className="col product-item">
         <div className="bgr">
           <img src={item.image} alt="" />
           <div className="item-caption font-family-Ti">{item.name}</div>
           <div className="button-task">
-            <Link to={item.to}>
-              <button className="btn rounded-0 button-link shadow-none me-3 font-family-Ti">
-                Learn More
-              </button>
+            <Link
+              to={`${match.path}/${item.id}/KeyFeatures`}
+              className="btn rounded-0 button-link shadow-none me-3 font-family-Ti"
+            >
+              Learn More
             </Link>
             <button
               onClick={() => this.onAddToCart(item)}
