@@ -3,6 +3,7 @@ import ProductDetail from "./../../Components/ProductDetail/ProductDetail";
 import Header from "./../../Components/LoginPage/HeaderLogin/Header/Header";
 import Breadcumb from "./../../Components/LoginPage/ContentLogin/Breadcumb/Breadcumb";
 import Footer from "./../../Components/HomePage/Footer/Footer";
+import Specification from "../../Components/ProductDetail/Specification/Specification";
 
 class DetailPage extends Component {
   render() {
@@ -23,5 +24,18 @@ class DetailPage extends Component {
     );
   }
 }
+
+const routes = [
+  {
+    path: '/product/KeyFeatures',
+    exact: false,
+    main: () => <ProductDetail />
+  },
+  {
+    path: '/product/Specification',
+    exact: false,
+    main: () => <Specification />
+  },
+]
 
 export default DetailPage;

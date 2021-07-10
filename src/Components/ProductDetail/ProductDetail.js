@@ -60,6 +60,29 @@ class ProductDetail extends Component {
           <div className="slide-item">
             <CoolSystem />
           </div>
+          <div className="container-fluid slide-item nvidia-footer">
+            <div className="container ">
+              <div className="row ">
+                <div className="col-12 mb-5 d-flex justify-content-center">
+                  <div className="logo-footer">
+                    <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/esrb.jpg" alt="" />
+                  </div>
+                  <div className="logo-footer">
+                    <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/RTX.png" alt="" />
+                  </div>
+                  <div className="logo-footer">
+                    <img src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/1682/innergigabyteimages/logo/HDMI.png" alt="" />
+                  </div>
+                </div>
+                <div className="col-12 mb-4 text-center">
+                  <p>© 2020 NVIDIA Corporation. NVIDIA, the NVIDIA logo, GeForce, GeForce Experience, GeForce RTX, G-SYNC, NVLink, and ShadowPlay are registered trademarks and/or trademarks of NVIDIA Corporation in the United States and other countries. All other trademarks and copyrights are the property of their respective owners.</p>
+                </div>
+                <div className="col-12 text-center">
+                  * All the images in this page are for illustration only.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
