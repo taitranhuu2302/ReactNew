@@ -3,13 +3,35 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 
 class HeaderRight extends Component {
+  onLogOut = () => {
+    localStorage.removeItem("username");
+    this.props.history.push("/global/login");
+  };
   render() {
+    var checkUser = localStorage.getItem("username") ? true : false;
+    var userValue = JSON.parse(localStorage.getItem("username"));
     return (
       <ul className="list-icon justify-content-end">
-        <li className="list-item">
+        <li className="list-item user">
           <Link to="/global/login">
             <i className="fas fa-user"></i>
           </Link>
+          {checkUser ? (
+            <ul className="nav sub rounded">
+              <li className="nav-item">
+                <Link className=" " to="/">
+                  {userValue}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <button className="btn shadow-none" onClick={this.onLogOut}>
+                  LOG OUT
+                </button>
+              </li>
+            </ul>
+          ) : (
+            ""
+          )}
         </li>
         <li className="list-item d-none d-md-block">
           <Link to="/">

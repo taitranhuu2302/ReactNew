@@ -154,7 +154,7 @@ class InputSignIn extends Component {
         </div>
         <div className="col-12 input-regis">
           <label
-            className={err.password ? "regis-tite" : ""}
+            className={err.password ? "regis-title" : ""}
             htmlFor="password"
           >
             Password*

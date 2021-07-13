@@ -21,7 +21,9 @@ const routes = [
   {
     path: "/GraphicsCard",
     exact: true,
-    main: ({ match }) => <GraphicsCards match={match} />,
+    main: ({ match, history }) => (
+      <GraphicsCards match={match} history={history} />
+    ),
   },
   {
     path: "/admin",

@@ -9,7 +9,7 @@ class GraphicsCards extends Component {
   render() {
     return (
       <>
-        <Header />
+        <Header history={this.props.history} />
         <Breadcumb to="/" toBack="Home" current="Graphics Cards" />
         <Banner />
         <GraphicsCard match={this.props.match} />

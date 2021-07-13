@@ -19,7 +19,7 @@ class SideNavigation extends Component {
           >
             <i className="fas fa-times" />
           </button>
-          <Link to="/admin" className="nav-link">
+          <Link to="/" className="nav-link">
             <img
               src="https://www.aorus.com/assets/img/logo.acad5b52.png"
               alt=""
@@ -32,36 +32,31 @@ class SideNavigation extends Component {
         <ul className="nav nav-content w-100">
           <li className="nav-item w-100">
             <Link to="/admin" className="nav-link text-decoration-none">
-              Dashboard
+              <i className="fas fa-home me-3" />
+              Home
             </Link>
           </li>
           <li className="nav-item w-100">
-            <Link to="/admin" className="nav-link text-decoration-none">
+            <Link to="/choose-avatar" className="nav-link text-decoration-none">
+              <i className="far fa-id-card me-3" />
               Profile
             </Link>
           </li>
           <li className="nav-item w-100">
+            <Link to="/admin/users" className="nav-link text-decoration-none">
+              <i className="fas fa-users me-3" />
+              Users
+            </Link>
+          </li>
+          <li className="nav-item w-100">
             <Link to="/admin" className="nav-link text-decoration-none">
+              <i className="fas fa-table me-3" />
               Basic Table
             </Link>
           </li>
           <li className="nav-item w-100">
-            <Link to="/admin" className="nav-link text-decoration-none">
-              Icons
-            </Link>
-          </li>
-          <li className="nav-item w-100">
-            <Link to="/admin" className="nav-link text-decoration-none">
-              Google Map
-            </Link>
-          </li>
-          <li className="nav-item w-100">
-            <Link to="/admin" className="nav-link text-decoration-none">
-              Blank Page
-            </Link>
-          </li>
-          <li className="nav-item w-100">
-            <Link to="/admin" className="nav-link text-decoration-none">
+            <Link to="/404-error" className="nav-link text-decoration-none">
+              <i className="fas fa-exclamation-triangle me-3" />
               Error 404
             </Link>
           </li>

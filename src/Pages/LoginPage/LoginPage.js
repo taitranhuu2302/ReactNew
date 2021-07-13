@@ -8,7 +8,7 @@ class LoginPage extends Component {
   render() {
     return (
       <>
-        <Header match={this.props.match} />
+        <Header match={this.props.match} history={this.props.history} />
         <Breadcumb
           match={this.props.match}
           to="/"
