@@ -9,8 +9,12 @@ class FinishForm extends Component {
   }
   render() {
     var { users } = this.props;
-    var email = users[users.length - 1].email;
-    var username = users[users.length - 1].username;
+    var { email, username } = "";
+    if (users.length > 0) {
+      email = users[users.length - 1].email;
+      username = users[users.length - 1].username;
+    }
+
     return (
       <div className="container-fluid px-0 py-5" id="wapper-login">
         <div className="content-box">

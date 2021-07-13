@@ -113,7 +113,7 @@ class InputLogin extends Component {
             <div className="col-sm-6 col-12 mb-3 text-center text-sm-end">
               <div className="text-white label-in-width">Or Log in with</div>
             </div>
-            <div className="col-sm-6 col-12 text-center">
+            <div className="col-sm-6 mb-3 col-12 text-center text-sm-start">
               <Link to="/" className="icon text-center">
                 <i className="fab fa-facebook-f"></i>
               </Link>

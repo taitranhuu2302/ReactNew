@@ -14,6 +14,7 @@ class Avatar extends Component {
       address: "",
       dob: "",
       phone: "",
+      role: "",
       avatar: null,
       srcImage: null,
       check: null,
@@ -33,6 +34,7 @@ class Avatar extends Component {
           avatar: user.avatar,
           srcImage: user.avatar,
           address: user.address,
+          role: user.role,
           dob: user.dob,
           phone: user.phone,
         });
@@ -75,7 +77,7 @@ class Avatar extends Component {
 
   handleInfo = () => {
     var { users } = this.props;
-    var { firstName, lastName, address, dob, phone, avatar } = this.state;
+    var { firstName, lastName, address, dob, phone, avatar, role } = this.state;
     var userMail = JSON.parse(localStorage.getItem("user"));
     var index = this.findIndex(userMail, users);
 
@@ -87,6 +89,7 @@ class Avatar extends Component {
       password: users[index].password,
       firstName: firstName,
       lastName: lastName,
+      role: role,
       avatar: avatar ? avatar : "",
       address: address,
       dob: dob,

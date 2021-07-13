@@ -11,6 +11,7 @@ class Register extends Component {
       email: "",
       password: "",
       rePassword: "",
+      role: "admin",
       check: false,
     };
   }
@@ -46,12 +47,12 @@ class Register extends Component {
   onRegister = (e) => {
     e.preventDefault();
     if (!this.handleCheck()) {
-      console.log("object");
       return;
     } else {
-      var user = {
+      const user = {
         email: this.state.email,
         password: this.state.password,
+        role: this.state.role,
       };
       this.props.onRegister(user);
       this.setState({ check: true });

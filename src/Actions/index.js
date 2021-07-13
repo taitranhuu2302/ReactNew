@@ -207,7 +207,7 @@ export const acGetUserAdminRequest = () => {
 
 export const acGetUserAdmin = (users) => {
   return {
-    type: types.GET_USERS,
+    type: types.GET_USERS_ADMIN,
     users,
   };
 };
@@ -221,7 +221,51 @@ export const acUpdateUserAdminRequest = (user) => {
 };
 export const acUpdateUserAdmin = (user) => {
   return {
+    type: types.UPDATE_USER_ADMIN,
+    user,
+  };
+};
+
+export const acUpdateUserRequest = (user) => {
+  return (dispatch) => {
+    return callApi(`users/${user.id}`, "PUT", user).then((res) => {
+      return dispatch(acUpdateUser(res.data));
+    });
+  };
+};
+export const acUpdateUser = (user) => {
+  return {
     type: types.UPDATE_USER,
     user,
+  };
+};
+
+export const DeleteUserAdminRequest = (id) => {
+  return (dispatch) => {
+    return callApi(`usersAdmin/${id}`, "Delete", null).then((res) => {
+      return dispatch(DeleteUserAdmin(id));
+    });
+  };
+};
+export const DeleteUserAdmin = (id) => {
+  return {
+    type: types.DELETE_USER_ADMIN,
+    id,
+  };
+};
+
+// Delete Customer
+
+export const DeleteUserRequest = (id) => {
+  return (dispatch) => {
+    return callApi(`users/${id}`, "Delete", null).then((res) => {
+      return dispatch(DeleteUser(id));
+    });
+  };
+};
+export const DeleteUser = (id) => {
+  return {
+    type: types.DELETE_USER,
+    id,
   };
 };
