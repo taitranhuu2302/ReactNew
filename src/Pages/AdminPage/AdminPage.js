@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./../../Components/AdminPage/Admin/Home/Home";
 import Functions from "../../Components/AdminPage/Admin/AddProducts/Functions";
 import Users from "./../../Components/AdminPage/Users";
+import HightChartsPage from "./HightChartsPage";
 
 class AdminPage extends Component {
   render() {
@@ -48,6 +49,11 @@ const routes = [
     path: "/admin/users",
     exact: false,
     main: () => <Users />,
+  },
+  {
+    path: "/admin/hightcharts",
+    exact: false,
+    main: () => <HightChartsPage />,
   },
   {
     path: "/admin",

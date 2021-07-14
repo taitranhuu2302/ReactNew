@@ -49,6 +49,15 @@ class SideNavigation extends Component {
             </Link>
           </li>
           <li className="nav-item w-100">
+            <Link
+              to="/admin/hightcharts"
+              className="nav-link text-decoration-none"
+            >
+              <i className="far fa-chart-bar me-3" />
+              HightCharts
+            </Link>
+          </li>
+          <li className="nav-item w-100">
             <Link to="/admin" className="nav-link text-decoration-none">
               <i className="fas fa-table me-3" />
               Basic Table

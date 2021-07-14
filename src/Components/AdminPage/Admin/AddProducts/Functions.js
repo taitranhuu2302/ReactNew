@@ -15,6 +15,9 @@ class Functions extends Component {
       image: null,
       imageLink: "",
       status: true,
+      aorus: false,
+      nvidia: false,
+      amd: false,
       preview: "",
       gp: "",
       cc: "",
@@ -51,6 +54,9 @@ class Functions extends Component {
           image: product.image,
           imageLink: product.image,
           status: product.status,
+          aorus: product.aorus ? product.aorus : false,
+          nvidia: product.nvidia ? product.nvidia : false,
+          amd: product.amd ? product.amd : false,
           gp: product.gp,
           cc: product.cc,
           ss: product.ss,
@@ -105,6 +111,9 @@ class Functions extends Component {
       des,
       image,
       status,
+      aorus,
+      nvidia,
+      amd,
       imageLink,
       gp,
       cc,
@@ -135,6 +144,9 @@ class Functions extends Component {
         des: des,
         image: image ? image : imageLink,
         status: status,
+        aorus: aorus,
+        nvidia: nvidia,
+        amd: amd,
         gp: gp,
         cc: cc,
         ss: ss,
@@ -165,6 +177,9 @@ class Functions extends Component {
         des: des,
         image: image ? image : imageLink,
         status: status,
+        aorus: aorus,
+        nvidia: nvidia,
+        amd: amd,
         gp: gp,
         cc: cc,
         ss: ss,
@@ -529,6 +544,53 @@ class Functions extends Component {
               id="status"
               checked={this.state.status}
             />
+          </div>
+          <div className="mb-3 d-flex justify-content-start">
+            <label className="label-add me-2" htmlFor="">
+              Category:
+            </label>
+            <div className="input-group d-flex align-items-center">
+              <label htmlFor="aorus" className="label-add me-2">
+                AORUS
+              </label>
+              <input
+                type="checkbox"
+                className=""
+                name="aorus"
+                value={this.state.aorus}
+                onChange={this.onChange}
+                id="aorus"
+                checked={this.state.aorus}
+              />
+            </div>
+            <div className="input-group d-flex align-items-center">
+              <label htmlFor="nvidia" className="label-add me-2">
+                NVIDIA
+              </label>
+              <input
+                type="checkbox"
+                className=""
+                name="nvidia"
+                value={this.state.nvidia}
+                onChange={this.onChange}
+                id="nvidia"
+                checked={this.state.nvidia}
+              />
+            </div>
+            <div className="input-group d-flex align-items-center">
+              <label htmlFor="amd" className="label-add me-2">
+                AMD
+              </label>
+              <input
+                type="checkbox"
+                className=""
+                name="amd"
+                value={this.state.amd}
+                onChange={this.onChange}
+                id="amd"
+                checked={this.state.amd}
+              />
+            </div>
           </div>
           <div className="mb-3">
             <button
