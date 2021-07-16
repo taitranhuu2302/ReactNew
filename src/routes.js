@@ -48,7 +48,12 @@ const routes = [
   {
     path: "/login-admin",
     exact: false,
-    main: () => <LoginAdminPage />,
+    main: () =>
+      localStorage.getItem("user") ? (
+        <Redirect to="/admin" />
+      ) : (
+        <LoginAdminPage />
+      ),
   },
   {
     path: "/register-admin",

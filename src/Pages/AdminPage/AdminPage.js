@@ -1,19 +1,10 @@
 import React, { Component, Fragment } from "react";
-import Header from "./../../Components/AdminPage/Admin/Header/Header";
 import { Route, Switch } from "react-router-dom";
-import Home from "./../../Components/AdminPage/Admin/Home/Home";
-import Functions from "../../Components/AdminPage/Admin/AddProducts/Functions";
-import Users from "./../../Components/AdminPage/Users";
-import HightChartsPage from "./HightChartsPage";
+import Home from "./../../Containers/Admin/Home";
 
 class AdminPage extends Component {
   render() {
-    return (
-      <Fragment>
-        <Route render={({ match }) => <Header match={match} />} />
-        {this.showContentMenus(routes)}
-      </Fragment>
-    );
+    return <Fragment>{this.showContentMenus(routes)}</Fragment>;
   }
   showContentMenus = (routes) => {
     var result = null;
@@ -35,26 +26,26 @@ class AdminPage extends Component {
 }
 
 const routes = [
-  {
-    path: "/admin/add-products",
-    exact: false,
-    main: ({ match, history }) => <Functions match={match} history={history} />,
-  },
-  {
-    path: "/admin/:id/edit-product",
-    exact: false,
-    main: ({ match, history }) => <Functions match={match} history={history} />,
-  },
-  {
-    path: "/admin/users",
-    exact: false,
-    main: () => <Users />,
-  },
-  {
-    path: "/admin/hightcharts",
-    exact: false,
-    main: () => <HightChartsPage />,
-  },
+  // {
+  //   path: "/admin/add-products",
+  //   exact: false,
+  //   main: ({ match, history }) => <Functions match={match} history={history} />,
+  // },
+  // {
+  //   path: "/admin/:id/edit-product",
+  //   exact: false,
+  //   main: ({ match, history }) => <Functions match={match} history={history} />,
+  // },
+  // {
+  //   path: "/admin/users",
+  //   exact: false,
+  //   main: () => <Users />,
+  // },
+  // {
+  //   path: "/admin/hightcharts",
+  //   exact: false,
+  //   main: () => <HightChartsPage />,
+  // },
   {
     path: "/admin",
     exact: true,

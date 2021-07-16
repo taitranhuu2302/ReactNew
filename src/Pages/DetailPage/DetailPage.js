@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 import ProductDetail from "./../../Components/ProductDetail/ProductDetail";
 import Header from "./../../Components/LoginPage/HeaderLogin/Header/Header";
-import Footer from "./../../Components/HomePage/Footer/Footer";
+import Footer from "../../Components/HomePage/Footer/Footer";
 import Specification from "../../Components/ProductDetail/Specification/Specification";
 
 class DetailPage extends Component {

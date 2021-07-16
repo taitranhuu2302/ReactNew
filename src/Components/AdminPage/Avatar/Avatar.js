@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../../Actions";
 import "./styles.scss";
-import callApi from "./../../../utils/apiCaller";
+import callApi from "../../../utils/apiCaller";
 
 class Avatar extends Component {
   constructor(props) {

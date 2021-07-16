@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "./../../../Actions";
+import * as actions from "../../../Actions";
 import "./styles.scss";
 
 class Login extends Component {
