@@ -10,6 +10,8 @@ class InputSignIn extends Component {
       info: {},
       err: {},
     };
+
+    this.date = new Intl.DateTimeFormat("en");
   }
 
   onChange = (e) => {
@@ -103,7 +105,6 @@ class InputSignIn extends Component {
 
   render() {
     var { err } = this.state;
-    // var { list } = this.props;
     return (
       <>
         <div className="col-12 text-center">
