@@ -29,14 +29,15 @@ export default function HeaderNav(props) {
         className="bgr-admin px-3"
         alignItems="center"
       >
-        <Grid item xs="6">
+        <Grid item xs={6}>
           <Button href="/admin" className="header-nav-title color-black">
             Dashboard
           </Button>
         </Grid>
         <Hidden mdUp={true}>
           <Grid
-            xs="6"
+            item
+            xs={6}
             className="d-flex"
             flexDirection="row"
             alignItems="center"
@@ -61,7 +62,7 @@ export default function HeaderNav(props) {
         <Hidden mdDown={true}>
           <Grid
             item
-            xs="6"
+            xs={6}
             className="d-flex"
             flexDirection="row"
             alignItems="center"
