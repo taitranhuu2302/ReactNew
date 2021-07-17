@@ -20,7 +20,7 @@ export default function Header() {
     "https://demos.creative-tim.com/material-dashboard-react/static/media/sidebar-1.0a127c58.jpg"
   );
   const [bgrColor, setBgrColor] = useState("badge-purple");
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
 
   const onToggleSide = () => {
     setToggleSide(!toggleSide);
@@ -35,7 +35,7 @@ export default function Header() {
   };
 
   return (
-    <>
+    <header className="header-admin">
       <Box className={toggleSide ? "side-bar active-side" : "side-bar"}>
         <SideBar image={image} bgrColor={bgrColor} />
       </Box>
@@ -90,7 +90,7 @@ export default function Header() {
           </Box>
         </Box>
       </Box>
-    </>
+    </header>
   );
 }
 const imageBgr = [

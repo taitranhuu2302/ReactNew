@@ -5,10 +5,10 @@ import Footer from "./../../../Components/AdminPage/Footer";
 
 export default function HomeContainer() {
   return (
-    <>
+    <div className="bgr-admin">
       <Header />
-      {/* <Home /> */}
+      <Home />
       {/* <Footer /> */}
-    </>
+    </div>
   );
 }
