@@ -22,3 +22,8 @@ export const DELETE_USER_ADMIN = "DELETE_USER_ADMIN";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_ALL_CART = "GET_ALL_CART";
 export const DELETE_CART = "DELETE_CART";
+// List Work
+export const GET_WORK = "GET_WORK";
+export const ADD_WORK = "ADD_WORK";
+export const DELETE_WORK = "DELETE_WORK";
+export const UPDATE_WORK = "UPDATE_WORK";

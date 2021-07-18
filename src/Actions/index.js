@@ -269,3 +269,47 @@ export const DeleteUser = (id) => {
     id,
   };
 };
+
+// WORK
+
+export const getWorkRequest = () => {
+  return (dispatch) => {
+    return callApi(`works`, "GET", null).then((res) => {
+      dispatch(getWork(res.data));
+    });
+  };
+};
+export const getWork = (works) => {
+  return {
+    type: types.GET_WORK,
+    works,
+  };
+};
+
+export const addWorkRequest = (work) => {
+  return (dispatch) => {
+    return callApi(`works`, "POST", work).then((res) => {
+      dispatch(addWork(res.data));
+    });
+  };
+};
+export const addWork = (work) => {
+  return {
+    type: types.ADD_WORK,
+    work,
+  };
+};
+
+export const deleteWorkRequest = (id) => {
+  return (dispatch) => {
+    return callApi(`works/${id}`, "DELETE", null).then((res) => {
+      dispatch(deleteWork(id));
+    });
+  };
+};
+export const deleteWork = (id) => {
+  return {
+    type: types.DELETE_WORK,
+    id,
+  };
+};

@@ -1,19 +1,15 @@
 import React from "react";
 import {
-  Table,
-  TableHead,
   TableRow,
   TableCell,
-  TableBody,
   Checkbox,
   Typography,
   Button,
   Tooltip,
 } from "@material-ui/core";
-import CreateIcon from "@material-ui/icons/Create";
 import CloseIcon from "@material-ui/icons/Close";
 
-export default function TabelTaskItem() {
+export default function TabelTaskItem(props) {
   return (
     <>
       <TableRow>
@@ -21,21 +17,11 @@ export default function TabelTaskItem() {
           <Checkbox color="secondary" />
         </TableCell>
         <TableCell>
-          <Typography variant="body1">
-            Flooded: One year later, assessing what was lost and what was found
-            when a ravaging rain swept through metro Detroit
-          </Typography>
+          <Typography variant="body1">{props.work.work}</Typography>
         </TableCell>
-        <TableCell>
-          <Tooltip title="Update" placement="top">
-            <Button>
-              <CreateIcon color="secondary" />
-            </Button>
-          </Tooltip>
-        </TableCell>
-        <TableCell>
+        <TableCell align="right">
           <Tooltip title="Delete" placement="top">
-            <Button>
+            <Button onClick={() => props.deleteWork(props.work.id)}>
               <CloseIcon color="error" />
             </Button>
           </Tooltip>

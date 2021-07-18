@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "./../../../../../../Actions";
 import {
   Table,
   TableBody,
@@ -22,12 +24,31 @@ import TableTaskItem from "./TableTaskItem";
 export default function TableTask() {
   const [open, setOpen] = useState(false);
   const [keyAdd, setKeyAdd] = useState("");
+  const works = useSelector((state) => state.works);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(actions.getWorkRequest());
+  }, []);
+
+  const addWork = () => {
+    var workObj = {
+      work: keyAdd,
+      role: "Doing",
+    };
+    dispatch(actions.addWorkRequest(workObj));
+    setKeyAdd("");
+  };
+
+  const deleteWork = (id) => {
+    dispatch(actions.deleteWorkRequest(id));
+  };
 
   return (
     <Table sx={{ position: "relative" }}>
       <TableHead>
         <TableRow>
-          <TableCell colSpan={4}>
+          <TableCell colSpan={3}>
             <Collapse timeout="auto" unmountOnExit in={open}>
               <FormControl variant="standard" className="w-100">
                 <InputLabel>Add Work</InputLabel>
@@ -38,7 +59,7 @@ export default function TableTask() {
                   onChange={(e) => setKeyAdd(e.target.value)}
                   endAdornment={
                     <InputAdornment position="end">
-                      <Button>
+                      <Button onClick={() => addWork()}>
                         <AddIcon />
                       </Button>
                     </InputAdornment>
@@ -50,7 +71,11 @@ export default function TableTask() {
         </TableRow>
       </TableHead>
       <TableBody>
-        <TableTaskItem />
+        {works.map((work, index) => {
+          return (
+            <TableTaskItem key={index} work={work} deleteWork={deleteWork} />
+          );
+        })}
       </TableBody>
       <Tooltip title="Add" placement="top">
         <Fab
