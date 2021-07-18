@@ -636,14 +636,46 @@
   ],
   "works": [
     {
-      "work": "Ok kia`",
+      "id": 1,
+      "work": "Building a website optimization plan",
       "role": "Doing",
-      "id": 1
+      "date": "22:6 PM, 18/7/2021"
     },
     {
-      "work": "Ơ kìa",
+      "work": "Administer and update the Website interface",
       "role": "Doing",
+      "date": "22:6 PM, 18/7/2021",
       "id": 2
+    },
+    {
+      "work": "Regular management of Hosting and data backup",
+      "role": "Doing",
+      "date": "22:6 PM, 18/7/2021",
+      "id": 3
+    },
+    {
+      "work": "Evaluate the website's performance regularly",
+      "role": "Doing",
+      "date": "22:6 PM, 18/7/2021",
+      "id": 4
+    },
+    {
+      "work": "Create content, edit content accordingly",
+      "role": "Doing",
+      "date": "22:6 PM, 18/7/2021",
+      "id": 5
+    },
+    {
+      "work": "Website Promotion",
+      "role": "Doing",
+      "date": "22:6 PM, 18/7/2021",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "work": "Check the status and fix any errors",
+      "role": "Doing",
+      "date": "22:6 PM, 18/7/2021"
     }
   ]
 }

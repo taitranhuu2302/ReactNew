@@ -307,9 +307,25 @@ export const deleteWorkRequest = (id) => {
     });
   };
 };
+
 export const deleteWork = (id) => {
   return {
     type: types.DELETE_WORK,
     id,
+  };
+};
+
+export const updateWorkRequest = (work) => {
+  return (dispatch) => {
+    return callApi(`works/${work.id}`, "PUT", work).then((res) => {
+      dispatch(updateWork(work));
+    });
+  };
+};
+
+export const updateWork = (work) => {
+  return {
+    type: types.UPDATE_WORK,
+    work,
   };
 };

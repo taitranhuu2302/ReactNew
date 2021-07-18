@@ -14,10 +14,22 @@ export default function TabelTaskItem(props) {
     <>
       <TableRow>
         <TableCell>
-          <Checkbox color="secondary" />
+          <Checkbox
+            value={props.checkFinish}
+            onChange={(e) => props.onCheck(e, props.work)}
+            color="secondary"
+          />
         </TableCell>
         <TableCell>
-          <Typography variant="body1">{props.work.work}</Typography>
+          <Typography
+            variant="body1"
+            className={props.work.role === "Doing" ? null : "text-through"}
+          >
+            {props.work.work}
+          </Typography>
+          <Typography variant="caption" color="#999">
+            {props.work.date}
+          </Typography>
         </TableCell>
         <TableCell align="right">
           <Tooltip title="Delete" placement="top">

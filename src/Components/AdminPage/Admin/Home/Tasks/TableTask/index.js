@@ -27,6 +27,16 @@ export default function TableTask() {
   const works = useSelector((state) => state.works);
   const dispatch = useDispatch();
 
+  const date = new Date();
+  const getDate = `${date.getDate()}/${
+    date.getMonth() + 1
+  }/${date.getFullYear()}`;
+  const getTime = `${date.getHours()}:${date.getMinutes()} ${
+    date.getHours() < 12 ? "AM" : "PM"
+  }`;
+
+  const dateTime = `${getTime}, ${getDate}`;
+
   useEffect(() => {
     dispatch(actions.getWorkRequest());
   }, []);
@@ -35,7 +45,11 @@ export default function TableTask() {
     var workObj = {
       work: keyAdd,
       role: "Doing",
+      date: dateTime,
     };
+    if (!workObj.work) {
+      return;
+    }
     dispatch(actions.addWorkRequest(workObj));
     setKeyAdd("");
   };
@@ -44,39 +58,68 @@ export default function TableTask() {
     dispatch(actions.deleteWorkRequest(id));
   };
 
+  const onCheck = (e, work) => {
+    var check = e.target.checked;
+    var workNew = {};
+    if (check) {
+      workNew = {
+        id: work.id,
+        work: work.work,
+        role: "Done",
+        date: work.date,
+      };
+      dispatch(actions.updateWorkRequest(workNew));
+    } else {
+      workNew = {
+        id: work.id,
+        work: work.work,
+        role: "Doing",
+        date: work.date,
+      };
+      dispatch(actions.updateWorkRequest(workNew));
+    }
+  };
+
   return (
-    <Table sx={{ position: "relative" }}>
-      <TableHead>
-        <TableRow>
-          <TableCell colSpan={3}>
-            <Collapse timeout="auto" unmountOnExit in={open}>
-              <FormControl variant="standard" className="w-100">
-                <InputLabel>Add Work</InputLabel>
-                <Input
-                  type="text"
-                  value={keyAdd}
-                  className="w-100"
-                  onChange={(e) => setKeyAdd(e.target.value)}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <Button onClick={() => addWork()}>
-                        <AddIcon />
-                      </Button>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
-            </Collapse>
-          </TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {works.map((work, index) => {
-          return (
-            <TableTaskItem key={index} work={work} deleteWork={deleteWork} />
-          );
-        })}
-      </TableBody>
+    <Box sx={{ position: "relative" }}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell colSpan={3}>
+              <Collapse timeout="auto" unmountOnExit in={open}>
+                <FormControl variant="standard" className="w-100">
+                  <InputLabel>Add Work</InputLabel>
+                  <Input
+                    type="text"
+                    value={keyAdd}
+                    className="w-100"
+                    onChange={(e) => setKeyAdd(e.target.value)}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <Button onClick={() => addWork()}>
+                          <AddIcon />
+                        </Button>
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </Collapse>
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {works.map((work, index) => {
+            return (
+              <TableTaskItem
+                key={index}
+                onCheck={onCheck}
+                work={work}
+                deleteWork={deleteWork}
+              />
+            );
+          })}
+        </TableBody>
+      </Table>
       <Tooltip title="Add" placement="top">
         <Fab
           color="secondary"
@@ -88,6 +131,6 @@ export default function TableTask() {
           <AddIcon />
         </Fab>
       </Tooltip>
-    </Table>
+    </Box>
   );
 }

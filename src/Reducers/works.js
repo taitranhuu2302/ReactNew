@@ -28,6 +28,12 @@ const works = (state = initialState, action) => {
         state.splice(index, 1);
       }
       return [...state];
+    case types.UPDATE_WORK:
+      index = findIndex(state, action.work.id);
+      if (index !== -1) {
+        state[index] = action.work;
+      }
+      return [...state];
     default:
       return [...state];
   }

@@ -7,20 +7,18 @@ export default function HeaderTask() {
   return (
     <>
       <Box className="box badge-purple py-3" sx={{ marginTop: "-30px" }}>
-        <Box sx={{ display: "flex", alignItems: "center", color: "white" }}>
-          <Typography variant="subtitle1" className="me-3">
-            Task:
-          </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "white",
+          }}
+        >
           <Button sx={{ color: "white" }}>
             <WorkOutlineIcon />
-            <Typography variant="body2" className="ms-2">
-              Doing
-            </Typography>
-          </Button>
-          <Button sx={{ color: "white" }}>
-            <CheckCircleIcon />
-            <Typography variant="body2" className="ms-2">
-              Done
+            <Typography variant="subtitle1" className="ms-2">
+              TODO LIST
             </Typography>
           </Button>
         </Box>
