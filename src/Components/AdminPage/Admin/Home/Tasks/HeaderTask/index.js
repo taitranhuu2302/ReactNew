@@ -1,26 +1,36 @@
 import React from "react";
-import { Grid, Box, Typography, Button } from "@material-ui/core";
+import { Box, Typography, Button } from "@material-ui/core";
 import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 
-export default function HeaderTask() {
+export default function HeaderTask(props) {
   return (
     <>
-      <Box className="box badge-purple py-3" sx={{ marginTop: "-30px" }}>
+      <Box className={`box ${props.bgr} py-3`} sx={{ marginTop: "-30px" }}>
         <Box
           sx={{
             display: "flex",
-            alignItems: "center",
+            alignItems: `${props.position}`,
+            flexDirection: "column",
             justifyContent: "center",
             color: "white",
           }}
         >
           <Button sx={{ color: "white" }}>
-            <WorkOutlineIcon />
-            <Typography variant="subtitle1" className="ms-2">
-              TODO LIST
+            {props.title === "TODOLIST" ? <WorkOutlineIcon /> : null}
+            <Typography
+              component="p"
+              variant="subtitle1"
+              sx={{ fontSize: "20px " }}
+              className="ms-2"
+            >
+              {props.title}
             </Typography>
           </Button>
+          {props.caption ? (
+            <Typography component="p" variant="caption" className="ms-3">
+              Latest users in 24h
+            </Typography>
+          ) : null}
         </Box>
       </Box>
     </>

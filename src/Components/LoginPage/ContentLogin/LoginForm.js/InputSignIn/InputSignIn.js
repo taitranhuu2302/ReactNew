@@ -10,8 +10,6 @@ class InputSignIn extends Component {
       info: {},
       err: {},
     };
-
-    this.date = new Intl.DateTimeFormat("en");
   }
 
   onChange = (e) => {
@@ -96,10 +94,28 @@ class InputSignIn extends Component {
   };
 
   onRegister = () => {
+    const date = new Date();
+    const getDate = `${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()}`;
+    const getTime = `${date.getHours()}:${date.getMinutes()} ${
+      date.getHours() < 12 ? "AM" : "PM"
+    }`;
+
+    const dateTime = `${getTime}, ${getDate}`;
+    var { info } = this.state;
+
+    var user = {
+      email: info.email,
+      username: info.username,
+      password: info.password,
+      date: dateTime,
+      hours: date.getHours(),
+    };
     if (!this.handleErr()) {
       return;
     } else {
-      this.props.onRegister(this.state.info);
+      this.props.onRegister(user);
     }
   };
 

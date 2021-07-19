@@ -593,16 +593,18 @@
   "users": [
     {
       "email": "tai.tranhuu@phuxuan.edu.vn",
-      "username": "nhocvodanh1982",
-      "password": "123",
-      "repassword": "123123123",
+      "username": "nhocvodanh1908",
+      "password": "123123123",
+      "date": "17:20 PM, 19/7/2021",
+      "hours": 17,
       "id": 1
     },
     {
       "email": "emlacuaanh1908@gmail.com",
-      "username": "tai2002",
+      "username": "tairtanhuu",
       "password": "123123123",
-      "repassword": "123123123",
+      "date": "17:21 PM, 19/7/2021",
+      "hours": 17,
       "id": 2
     }
   ],
