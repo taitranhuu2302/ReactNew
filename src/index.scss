@@ -81,6 +81,10 @@
     background-color: #ff9800 !important;
 }
 
+.color-orange {
+    color: #ff9800 !important;
+}
+
 .text-through {
     text-decoration: line-through;
 }
@@ -89,6 +93,12 @@
     position: fixed;
     top: 0;
     z-index: 1000;
+}
+
+.body-admin {
+    width: calc(100% - 260px);
+    float: right;
+    overflow: hidden;
 }
 
 @keyframes glitch-anim {

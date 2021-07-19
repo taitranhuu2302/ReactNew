@@ -17,25 +17,23 @@ import {
   Input,
   InputAdornment,
   Button,
+  Stack,
+  Pagination,
 } from "@material-ui/core";
+import moment from "moment";
 import AddIcon from "@material-ui/icons/Add";
 import TableTaskItem from "./TableTaskItem";
 
 export default function TableTask() {
   const [open, setOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(5);
   const [keyAdd, setKeyAdd] = useState("");
   const works = useSelector((state) => state.works);
   const dispatch = useDispatch();
 
-  const date = new Date();
-  const getDate = `${date.getDate()}/${
-    date.getMonth() + 1
-  }/${date.getFullYear()}`;
-  const getTime = `${date.getHours()}:${date.getMinutes()} ${
-    date.getHours() < 12 ? "AM" : "PM"
-  }`;
-
-  const dateTime = `${getTime}, ${getDate}`;
+  const date = new moment();
+  const dateTime = date.format("L LTS");
 
   useEffect(() => {
     dispatch(actions.getWorkRequest());
@@ -63,6 +61,7 @@ export default function TableTask() {
     var workNew = {};
     if (check) {
       workNew = {
+        checked: check,
         id: work.id,
         work: work.work,
         role: "Done",
@@ -71,6 +70,7 @@ export default function TableTask() {
       dispatch(actions.updateWorkRequest(workNew));
     } else {
       workNew = {
+        checked: check,
         id: work.id,
         work: work.work,
         role: "Doing",
@@ -80,46 +80,70 @@ export default function TableTask() {
     }
   };
 
+  var pageNumber = 0;
+  for (let i = 1; i <= Math.ceil(works.length / postsPerPage); i++) {
+    pageNumber++;
+  }
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = works.slice(indexOfFirstPost, indexOfLastPost);
+
   return (
     <Box sx={{ position: "relative" }}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell colSpan={3}>
-              <Collapse timeout="auto" unmountOnExit in={open}>
-                <FormControl variant="standard" className="w-100">
-                  <InputLabel>Add Work</InputLabel>
-                  <Input
-                    type="text"
-                    value={keyAdd}
-                    className="w-100"
-                    onChange={(e) => setKeyAdd(e.target.value)}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <Button onClick={() => addWork()}>
-                          <AddIcon />
-                        </Button>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
-              </Collapse>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {works.map((work, index) => {
-            return (
-              <TableTaskItem
-                key={index}
-                onCheck={onCheck}
-                work={work}
-                deleteWork={deleteWork}
-              />
-            );
-          })}
-        </TableBody>
-      </Table>
+      <Box sx={{ minHeight: "422px" }}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell colSpan={3}>
+                <Collapse timeout="auto" unmountOnExit in={open}>
+                  <FormControl variant="standard" className="w-100">
+                    <InputLabel>Add Work</InputLabel>
+                    <Input
+                      type="text"
+                      value={keyAdd}
+                      className="w-100"
+                      onChange={(e) => setKeyAdd(e.target.value)}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <Button onClick={() => addWork()}>
+                            <AddIcon />
+                          </Button>
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
+                </Collapse>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {currentPosts.map((work, index) => {
+              return (
+                <TableTaskItem
+                  key={index}
+                  onCheck={onCheck}
+                  work={work}
+                  deleteWork={deleteWork}
+                />
+              );
+            })}
+          </TableBody>
+        </Table>
+      </Box>
+      <Box
+        sx={{ padding: "10px 0", display: "flex", justifyContent: "center" }}
+      >
+        <Stack spacing={2}>
+          <Pagination
+            count={pageNumber}
+            onClick={(e) => setCurrentPage(e.target.innerText)}
+            color="secondary"
+            hidePrevButton
+            hideNextButton
+          />
+        </Stack>
+      </Box>
       <Tooltip title="Add" placement="top">
         <Fab
           color="secondary"

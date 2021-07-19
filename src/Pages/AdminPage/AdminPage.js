@@ -1,10 +1,19 @@
 import React, { Component, Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./../../Containers/Admin/Home";
+import Header from "./../../Components/AdminPage/Header";
+import Home from "./../../Components/AdminPage/Admin/Home";
+import Profile from "./../../Components/AdminPage/Admin/Profile";
+import Footer from "./../../Components/AdminPage/Footer";
 
 class AdminPage extends Component {
   render() {
-    return <Fragment>{this.showContentMenus(routes)}</Fragment>;
+    return (
+      <Fragment>
+        <Header />
+        {this.showContentMenus(routes)}
+        <Footer />
+      </Fragment>
+    );
   }
   showContentMenus = (routes) => {
     var result = null;
@@ -50,6 +59,11 @@ const routes = [
     path: "/admin",
     exact: true,
     main: () => <Home />,
+  },
+  {
+    path: "/admin/profile",
+    exact: false,
+    main: () => <Profile />,
   },
 ];
 

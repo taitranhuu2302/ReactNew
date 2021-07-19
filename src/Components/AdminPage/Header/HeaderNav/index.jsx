@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import ViewQuiltIcon from "@material-ui/icons/ViewQuilt";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PersonIcon from "@material-ui/icons/Person";
 import MenuIcon from "@material-ui/icons/Menu";
+import { useLocation } from "react-router-dom";
 
 import {
   TextField,
@@ -20,6 +21,36 @@ export default function HeaderNav(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const [title, setTitle] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/admin":
+        setTitle("Dashboard");
+        break;
+      case "/admin/profile":
+        setTitle("Profile");
+        break;
+      case "/admin/table":
+        setTitle("table");
+        break;
+      case "/admin/typography":
+        setTitle("typography");
+        break;
+      case "/admin/icons":
+        setTitle("icons");
+        break;
+      case "/admin/maps":
+        setTitle("maps");
+        break;
+      case "/admin/notification":
+        setTitle("notification");
+        break;
+      default:
+        break;
+    }
+  }, [location]);
 
   return (
     <>
@@ -31,7 +62,7 @@ export default function HeaderNav(props) {
       >
         <Grid item xs={6}>
           <Button href="/admin" className="header-nav-title color-black">
-            Dashboard
+            {title}
           </Button>
         </Grid>
         <Hidden mdUp={true}>

@@ -28,7 +28,7 @@ export default function HeaderTask(props) {
           </Button>
           {props.caption ? (
             <Typography component="p" variant="caption" className="ms-3">
-              Latest users in 24h
+              {props.caption}
             </Typography>
           ) : null}
         </Box>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import {
@@ -8,6 +8,9 @@ import {
   TableRow,
   TableCell,
   Typography,
+  Box,
+  Stack,
+  Pagination,
 } from "@material-ui/core";
 import * as actions from "./../../../../../../Actions";
 
@@ -15,37 +18,84 @@ export default function TaskUsers() {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const now = new moment();
-  now.locale("en-au");
-  const dateNow = now.format("L");
-  console.log(now.format("L"));
-  console.log(dateNow);
-  console.log(moment("8/19/2021").isSame(now));
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(5);
+
+  const checkUsers = (users) => {
+    var result = null;
+    var count = 0;
+
+    users.map((user, index) => {
+      if (moment(user.date).fromNow().indexOf("hours ago") !== -1) {
+        count++;
+      }
+    });
+
+    count === 0 ? (result = false) : (result = true);
+    return result;
+  };
+
   useEffect(() => {
     dispatch(actions.acGetUsersRequest());
   }, []);
 
+  var pageNumber = 0;
+  for (let i = 1; i <= Math.ceil(users.length / postsPerPage); i++) {
+    pageNumber++;
+  }
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
+
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>ID</TableCell>
-          <TableCell>Email</TableCell>
-          <TableCell>Username</TableCell>
-          <TableCell>Date</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {users.map((user, index) => {
-          return (
-            <TableRow key={index}>
-              <TableCell>{user.id}</TableCell>
-              <TableCell>{user.email}</TableCell>
-              <TableCell>{user.username}</TableCell>
-              <TableCell>{user.date}</TableCell>
+    <Box>
+      <Box sx={{ minHeight: "400px" }}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Username</TableCell>
+              <TableCell>Date</TableCell>
             </TableRow>
-          );
-        })}
-      </TableBody>
-    </Table>
+          </TableHead>
+          <TableBody>
+            {checkUsers(users) ? (
+              users.map((user, index) => {
+                if (moment(user.date).fromNow().indexOf("hours ago") !== -1) {
+                  return (
+                    <TableRow key={index}>
+                      <TableCell>{user.id}</TableCell>
+                      <TableCell>{user.email}</TableCell>
+                      <TableCell>{user.username}</TableCell>
+                      <TableCell>{user.date}</TableCell>
+                    </TableRow>
+                  );
+                }
+              })
+            ) : (
+              <TableRow>
+                <TableCell colSpan={4}>
+                  No users have registered within the last 24 hours
+                </TableCell>
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </Box>
+      <Box
+        sx={{ padding: "10px 0", display: "flex", justifyContent: "center" }}
+      >
+        <Stack spacing={2}>
+          <Pagination
+            count={pageNumber}
+            onClick={(e) => setCurrentPage(e.target.innerText)}
+            hidePrevButton
+            hideNextButton
+          />
+        </Stack>
+      </Box>
+    </Box>
   );
 }

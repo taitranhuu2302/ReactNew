@@ -593,18 +593,16 @@
   "users": [
     {
       "email": "tai.tranhuu@phuxuan.edu.vn",
-      "username": "nhocvodanh1908",
+      "username": "tai2002",
       "password": "123123123",
-      "date": "17:20 PM, 19/7/2021",
-      "hours": 17,
+      "date": "07/19/2021 7:38:04 AM",
       "id": 1
     },
     {
       "email": "emlacuaanh1908@gmail.com",
-      "username": "tairtanhuu",
+      "username": "asd",
       "password": "123123123",
-      "date": "17:21 PM, 19/7/2021",
-      "hours": 17,
+      "date": "07/18/2021 7:38:04 AM",
       "id": 2
     }
   ],
@@ -641,43 +639,33 @@
       "id": 1,
       "work": "Building a website optimization plan",
       "role": "Doing",
-      "date": "22:6 PM, 18/7/2021"
+      "date": "07/19/2021 7:58:31 PM"
     },
     {
+      "id": 2,
       "work": "Administer and update the Website interface",
       "role": "Doing",
-      "date": "22:6 PM, 18/7/2021",
-      "id": 2
+      "date": "07/19/2021 7:58:37 PM"
     },
     {
       "work": "Regular management of Hosting and data backup",
       "role": "Doing",
-      "date": "22:6 PM, 18/7/2021",
+      "date": "07/19/2021 7:58:42 PM",
       "id": 3
     },
     {
+      "checked": true,
+      "id": 4,
       "work": "Evaluate the website's performance regularly",
-      "role": "Doing",
-      "date": "22:6 PM, 18/7/2021",
-      "id": 4
+      "role": "Done",
+      "date": "07/19/2021 7:58:46 PM"
     },
     {
+      "checked": true,
+      "id": 5,
       "work": "Create content, edit content accordingly",
-      "role": "Doing",
-      "date": "22:6 PM, 18/7/2021",
-      "id": 5
-    },
-    {
-      "work": "Website Promotion",
-      "role": "Doing",
-      "date": "22:6 PM, 18/7/2021",
-      "id": 6
-    },
-    {
-      "id": 7,
-      "work": "Check the status and fix any errors",
-      "role": "Doing",
-      "date": "22:6 PM, 18/7/2021"
+      "role": "Done",
+      "date": "07/19/2021 7:58:50 PM"
     }
   ]
 }

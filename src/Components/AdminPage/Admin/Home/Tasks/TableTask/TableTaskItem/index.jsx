@@ -15,7 +15,7 @@ export default function TabelTaskItem(props) {
       <TableRow>
         <TableCell>
           <Checkbox
-            value={props.checkFinish}
+            checked={props.work.checked ? true : false}
             onChange={(e) => props.onCheck(e, props.work)}
             color="secondary"
           />

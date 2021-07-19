@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
+import moment from "moment";
 
 class InputSignIn extends Component {
   constructor(props) {
@@ -94,23 +95,16 @@ class InputSignIn extends Component {
   };
 
   onRegister = () => {
-    const date = new Date();
-    const getDate = `${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}`;
-    const getTime = `${date.getHours()}:${date.getMinutes()} ${
-      date.getHours() < 12 ? "AM" : "PM"
-    }`;
+    const date = new moment();
+    const dateFormat = date.format("L LTS");
 
-    const dateTime = `${getTime}, ${getDate}`;
     var { info } = this.state;
 
     var user = {
       email: info.email,
       username: info.username,
       password: info.password,
-      date: dateTime,
-      hours: date.getHours(),
+      date: dateFormat,
     };
     if (!this.handleErr()) {
       return;

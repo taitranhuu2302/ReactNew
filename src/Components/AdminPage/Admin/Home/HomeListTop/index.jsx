@@ -65,7 +65,7 @@ const listTop = [
     iconCaption: <DateRangeIcon style={{ fontSize: "18px", color: "#999" }} />,
     body: "$34,245",
     colorCaption: "#999",
-    caption: "last 24 Hours",
+    caption: "Last 24 Hours",
   },
   {
     title: "Fixed Issues",
