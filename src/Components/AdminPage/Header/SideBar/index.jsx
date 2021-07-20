@@ -15,6 +15,8 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
 import RoomIcon from "@material-ui/icons/Room";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
+import TocIcon from "@material-ui/icons/Toc";
 import React from "react";
 
 export default function SideBar(props) {
@@ -71,9 +73,14 @@ const listSideItem = [
     to: "/admin/profile",
   },
   {
-    label: "Table",
-    icon: <BackupTableIcon />,
-    to: "/admin/table",
+    label: "Users",
+    icon: <PeopleAltIcon />,
+    to: "/admin/users",
+  },
+  {
+    label: "Products",
+    icon: <TocIcon />,
+    to: "/admin/list-products",
   },
   {
     label: "Typography",

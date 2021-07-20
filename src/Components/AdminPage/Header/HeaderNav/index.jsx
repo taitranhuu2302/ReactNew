@@ -4,7 +4,7 @@ import ViewQuiltIcon from "@material-ui/icons/ViewQuilt";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PersonIcon from "@material-ui/icons/Person";
 import MenuIcon from "@material-ui/icons/Menu";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 
 import {
   TextField,
@@ -21,6 +21,7 @@ export default function HeaderNav(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  let history = useHistory();
   const [title, setTitle] = useState("");
   const location = useLocation();
 
@@ -32,8 +33,11 @@ export default function HeaderNav(props) {
       case "/admin/profile":
         setTitle("Profile");
         break;
-      case "/admin/table":
-        setTitle("table");
+      case "/admin/users":
+        setTitle("users");
+        break;
+      case "/admin/list-products":
+        setTitle("Products");
         break;
       case "/admin/typography":
         setTitle("typography");
@@ -44,13 +48,19 @@ export default function HeaderNav(props) {
       case "/admin/maps":
         setTitle("maps");
         break;
-      case "/admin/notification":
-        setTitle("notification");
+      case "/admin/notifications":
+        setTitle("notifications");
         break;
       default:
         break;
     }
   }, [location]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("uid");
+    history.push("/login-admin");
+  };
 
   return (
     <>
@@ -61,9 +71,7 @@ export default function HeaderNav(props) {
         alignItems="center"
       >
         <Grid item xs={6}>
-          <Button href="/admin" className="header-nav-title color-black">
-            {title}
-          </Button>
+          <Button className="header-nav-title color-black">{title}</Button>
         </Grid>
         <Hidden mdUp={true}>
           <Grid
@@ -132,7 +140,7 @@ export default function HeaderNav(props) {
             >
               <MenuItem onClick={handleClose}>Profile</MenuItem>
               <MenuItem onClick={handleClose}>Settings</MenuItem>
-              <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </Menu>
           </Grid>
         </Hidden>
