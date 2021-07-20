@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./styles.scss";
-import callApi from "./../../../../utils/apiCaller";
+import callApi from "./../../../../../utils/apiCaller";
 import { connect } from "react-redux";
-import * as actions from "./../../../../Actions/index";
+import * as actions from "./../../../../../Actions";
 
 class Functions extends Component {
   constructor(props) {

@@ -7,7 +7,6 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  Typography,
   Box,
   Stack,
   Pagination,
@@ -19,16 +18,24 @@ export default function TaskUsers() {
   const dispatch = useDispatch();
   const now = new moment();
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(5);
+  const [postsPerPage, setPostsPerPage] = useState(7);
 
   const checkUsers = (users) => {
     var result = null;
     var count = 0;
 
     users.map((user, index) => {
-      if (moment(user.date).fromNow().indexOf("hours ago") !== -1) {
+      if (
+        moment(user.date).fromNow().indexOf("hours") !== -1 ||
+        moment(user.date).fromNow().indexOf("hour") !== -1 ||
+        moment(user.date).fromNow().indexOf("minutes") !== -1 ||
+        moment(user.date).fromNow().indexOf("minute") !== -1 ||
+        moment(user.date).fromNow().indexOf("seconds") !== -1 ||
+        moment(user.date).fromNow().indexOf("second") !== -1
+      ) {
         count++;
       }
+      console.log(moment(user.date).fromNow());
     });
 
     count === 0 ? (result = false) : (result = true);
@@ -61,9 +68,16 @@ export default function TaskUsers() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {checkUsers(users) ? (
-              users.map((user, index) => {
-                if (moment(user.date).fromNow().indexOf("hours ago") !== -1) {
+            {checkUsers(currentPosts) ? (
+              currentPosts.map((user, index) => {
+                if (
+                  moment(user.date).fromNow().indexOf("hours") !== -1 ||
+                  moment(user.date).fromNow().indexOf("hour") !== -1 ||
+                  moment(user.date).fromNow().indexOf("minutes") !== -1 ||
+                  moment(user.date).fromNow().indexOf("minute") !== -1 ||
+                  moment(user.date).fromNow().indexOf("seconds") !== -1 ||
+                  moment(user.date).fromNow().indexOf("second") !== -1
+                ) {
                   return (
                     <TableRow key={index}>
                       <TableCell>{user.id}</TableCell>

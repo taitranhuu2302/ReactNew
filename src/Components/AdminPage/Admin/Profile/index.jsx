@@ -39,7 +39,7 @@ export default function Profile() {
     postalCode: "",
     about: "",
   });
-  const [avatar, setAvatar] = useState({});
+  const [avatar, setAvatar] = useState(null);
   const [fullName, setFullName] = useState("");
 
   useEffect(() => {
