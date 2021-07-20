@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
   Grid,
@@ -12,13 +12,26 @@ import {
   Avatar,
   Typography,
   ListItemButton,
+  InputAdornment,
+  IconButton,
+  Stack,
 } from "@material-ui/core";
 import HeaderTask from "./../Home/Tasks/HeaderTask";
+import {
+  acGetUserAdminRequest,
+  acUpdateUserAdminRequest,
+} from "./../../../../Actions";
+import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
+import VisibilityIcon from "@material-ui/icons/Visibility";
 
 export default function Profile() {
+  const usersAdmin = useSelector((state) => state.usersAdmin);
+  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState({
-    username: "",
+    id: "",
     email: "",
+    password: "",
     firstName: "",
     lastName: "",
     city: "",
@@ -26,19 +39,55 @@ export default function Profile() {
     postalCode: "",
     about: "",
   });
+  const [avatar, setAvatar] = useState({});
+  const [fullName, setFullName] = useState("");
+
+  useEffect(() => {
+    dispatch(acGetUserAdminRequest());
+  }, []);
+
+  useEffect(() => {
+    const userLocal = localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user"))
+      : "";
+    var i = -1;
+    if (usersAdmin.length > 0) {
+      usersAdmin.forEach((user, index) => {
+        if (user.email === userLocal) {
+          return (i = index);
+        }
+      });
+    }
+    if (i !== -1) {
+      setInputValue({
+        ...inputValue,
+        id: usersAdmin[i].id,
+        email: usersAdmin[i].email,
+        password: usersAdmin[i].password,
+        firstName: usersAdmin[i].firstName,
+        lastName: usersAdmin[i].lastName,
+        city: usersAdmin[i].city || "",
+        country: usersAdmin[i].country || "",
+        postalCode: usersAdmin[i].postalCode || "",
+        about: usersAdmin[i].about || "",
+      });
+      setAvatar(usersAdmin[i].avatar);
+      setFullName(`${usersAdmin[i].firstName} ${usersAdmin[i].lastName}`);
+    }
+  }, [usersAdmin]);
 
   const listInput = [
-    {
-      label: "Username",
-      name: "username",
-      width: 3,
-      value: inputValue.username,
-    },
     {
       label: "Email Address",
       name: "email",
       width: 3,
       value: inputValue.email,
+    },
+    {
+      label: "Password",
+      name: "password",
+      width: 3,
+      value: inputValue.password,
     },
     {
       label: "First Name",
@@ -78,6 +127,16 @@ export default function Profile() {
     },
   ];
 
+  const onChangeAvatar = (e) => {
+    const file = e.target.files[0];
+    const fr = new FileReader();
+    fr.readAsDataURL(file);
+    fr.onloadend = () => {
+      setAvatar(fr.result);
+    };
+    setAvatar(file);
+  };
+
   const onChange = (e) => {
     setInputValue({
       ...inputValue,
@@ -85,7 +144,19 @@ export default function Profile() {
     });
   };
   const updateProfile = () => {
-    console.log(inputValue);
+    const userUpdate = {
+      id: inputValue.id,
+      email: inputValue.email,
+      password: inputValue.password,
+      firstName: inputValue.firstName,
+      lastName: inputValue.lastName,
+      city: inputValue.city,
+      country: inputValue.country,
+      postalCode: inputValue.postalCode,
+      about: inputValue.about,
+      avatar: avatar,
+    };
+    dispatch(acUpdateUserAdminRequest(userUpdate));
   };
 
   return (
@@ -106,7 +177,7 @@ export default function Profile() {
                   color="secondary"
                   className="w-100"
                   type="text"
-                  readOnly
+                  disabled
                   value="How2Code"
                 />
               </Grid>
@@ -114,14 +185,39 @@ export default function Profile() {
                 return (
                   <Grid key={index} item xs={item.width}>
                     <InputLabel>{item.label}</InputLabel>
-                    <Input
-                      color="secondary"
-                      className="w-100"
-                      type="text"
-                      value={item.value || ""}
-                      onChange={onChange}
-                      name={item.name}
-                    />
+                    {item.name !== "password" ? (
+                      <Input
+                        color="secondary"
+                        className="w-100"
+                        type="text"
+                        disabled={item.name === "email" ? true : false}
+                        value={item.value || ""}
+                        onChange={onChange}
+                        name={item.name}
+                      />
+                    ) : (
+                      <Input
+                        color="secondary"
+                        className="w-100"
+                        type={showPassword ? "text" : "password"}
+                        value={item.value || ""}
+                        onChange={onChange}
+                        name={item.name}
+                        endAdornment={
+                          <InputAdornment position="end">
+                            <IconButton
+                              onClick={() => setShowPassword(!showPassword)}
+                            >
+                              {showPassword ? (
+                                <VisibilityIcon />
+                              ) : (
+                                <VisibilityOffIcon />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        }
+                      />
+                    )}
                   </Grid>
                 );
               })}
@@ -146,24 +242,38 @@ export default function Profile() {
                 marginTop: "-46px",
               }}
             >
-              <Avatar
-                sx={{ width: "120px", height: "120px" }}
-                src="https://demos.creative-tim.com/material-dashboard-react/static/media/marc.e8607287.jpg"
-              />
+              <Avatar sx={{ width: "120px", height: "120px" }} src={avatar} />
             </Box>
+            <Stack>
+              <label
+                htmlFor="contained-button-file"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "26px",
+                }}
+              >
+                <Input
+                  accept="image/*"
+                  id="contained-button-file"
+                  multiple
+                  onChange={onChangeAvatar}
+                  type="file"
+                  sx={{ display: "none" }}
+                />
+                <Button variant="contained" color="secondary" component="span">
+                  Upload
+                </Button>
+              </label>
+            </Stack>
             <List className="mt-4 pb-5">
               <ListItem sx={{ justifyContent: "center" }}>
-                <Typography variant="h5">Students</Typography>
+                <Typography variant="h5">{fullName}</Typography>
               </ListItem>
               <ListItem sx={{ justifyContent: "center" }}>
-                <Typography>Tran Huu Tai</Typography>
+                <Typography>{inputValue.about}</Typography>
               </ListItem>
-              <ListItem sx={{ justifyContent: "center" }}>
-                <Typography>
-                  You only live once, but if you do it right, once is enough
-                </Typography>
-              </ListItem>
-              <ListItem sx={{ justifyContent: "center" }} className="mt-5">
+              <ListItem sx={{ justifyContent: "center" }} className="mt-3">
                 <Button className="w-25" variant="contained" color="secondary">
                   Follow me
                 </Button>
