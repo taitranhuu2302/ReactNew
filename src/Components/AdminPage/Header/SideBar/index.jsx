@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import ViewQuiltIcon from "@material-ui/icons/ViewQuilt";
 import PersonIcon from "@material-ui/icons/Person";
-import BackupTableIcon from "@material-ui/icons/BackupTable";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
 import RoomIcon from "@material-ui/icons/Room";

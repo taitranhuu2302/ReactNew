@@ -16,7 +16,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 export default function User(props) {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
-  const now = moment();
   useEffect(() => {
     setPassword(props.user.password);
   }, []);

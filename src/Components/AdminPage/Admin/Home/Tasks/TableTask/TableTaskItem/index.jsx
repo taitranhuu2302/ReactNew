@@ -24,6 +24,7 @@ export default function TabelTaskItem(props) {
           <Typography
             variant="body1"
             className={props.work.role === "Doing" ? null : "text-through"}
+            sx={props.work.checked === true ? { color: "#999" } : {}}
           >
             {props.work.work}
           </Typography>
@@ -32,11 +33,13 @@ export default function TabelTaskItem(props) {
           </Typography>
         </TableCell>
         <TableCell align="right">
-          <Tooltip title="Delete" placement="top">
-            <Button onClick={() => props.deleteWork(props.work.id)}>
-              <CloseIcon color="error" />
-            </Button>
-          </Tooltip>
+          {props.work.checked === true ? (
+            <Tooltip title="Delete" placement="top">
+              <Button onClick={() => props.deleteWork(props.work.id)}>
+                <CloseIcon color="error" />
+              </Button>
+            </Tooltip>
+          ) : null}
         </TableCell>
       </TableRow>
     </>

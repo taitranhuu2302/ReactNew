@@ -625,34 +625,6 @@
       "password": "qweqweqwe",
       "date": "07/20/2021 11:45:33 PM",
       "id": 6
-    },
-    {
-      "email": "hoang@gmail.com",
-      "username": "123123qweqas",
-      "password": "qweqweqwe",
-      "date": "07/20/2021 11:45:43 PM",
-      "id": 7
-    },
-    {
-      "email": "qweqweqweqwe@gmail.com",
-      "username": "123qwdqweqwe",
-      "password": "123123123",
-      "date": "07/20/2021 11:46:00 PM",
-      "id": 8
-    },
-    {
-      "email": "qweqwekjibqoie@gmail.com",
-      "username": "qweqwoeihqoiweno",
-      "password": "qweqweqwe",
-      "date": "07/20/2021 11:48:25 PM",
-      "id": 9
-    },
-    {
-      "email": "qweqweqweqwe@gmail.comqweqwe",
-      "username": "qweqweqwe",
-      "password": "qweqweqwe",
-      "date": "07/20/2021 11:48:45 PM",
-      "id": 10
     }
   ],
   "carts": [],
@@ -696,16 +668,18 @@
       "date": "07/19/2021 7:58:31 PM"
     },
     {
+      "checked": false,
       "id": 2,
       "work": "Administer and update the Website interface",
       "role": "Doing",
       "date": "07/19/2021 7:58:37 PM"
     },
     {
+      "checked": false,
+      "id": 3,
       "work": "Regular management of Hosting and data backup",
       "role": "Doing",
-      "date": "07/19/2021 7:58:42 PM",
-      "id": 3
+      "date": "07/19/2021 7:58:42 PM"
     },
     {
       "checked": true,

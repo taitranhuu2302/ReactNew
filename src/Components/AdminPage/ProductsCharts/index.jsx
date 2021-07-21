@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as actions from "../../../Actions";
+import { acFetchProductsRequest } from "../../../Actions";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import "./styles.scss";
@@ -79,9 +79,11 @@ export default function HightCharts() {
   const [options, setOptions] = useState({});
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(actions.acFetchProductsRequest());
+    dispatch(acFetchProductsRequest());
   }, []);
+
   useEffect(() => {
     setOptions(generateProducts(products));
   }, [products]);

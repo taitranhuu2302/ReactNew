@@ -16,7 +16,6 @@ import * as actions from "./../../../../../../Actions";
 export default function TaskUsers() {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
-  const now = new moment();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(7);
 
@@ -24,7 +23,7 @@ export default function TaskUsers() {
     var result = null;
     var count = 0;
 
-    users.map((user, index) => {
+    users.forEach((user, index) => {
       if (
         moment(user.date).fromNow().indexOf("hours") !== -1 ||
         moment(user.date).fromNow().indexOf("hour") !== -1 ||
@@ -35,7 +34,6 @@ export default function TaskUsers() {
       ) {
         count++;
       }
-      console.log(moment(user.date).fromNow());
     });
 
     count === 0 ? (result = false) : (result = true);

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import AdminProduct from "./AdminProduct";
 import * as actions from "./../../../../../Actions";
 import Pagination from "./Pagination";
-import { Link } from "react-router-dom";
 import FilterTable from "./FilterTable";
 
 class Home extends Component {
