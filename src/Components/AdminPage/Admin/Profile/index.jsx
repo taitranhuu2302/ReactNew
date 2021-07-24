@@ -132,7 +132,6 @@ export default function Profile() {
     fr.onloadend = () => {
       setAvatar(fr.result);
     };
-    setAvatar(file);
   };
 
   const onChange = (e) => {

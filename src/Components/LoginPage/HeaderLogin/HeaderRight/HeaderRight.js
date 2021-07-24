@@ -1,30 +1,52 @@
-import React, { Component } from "react";
+import React, { Component, Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import "./styles.scss";
+import { acGetUsersRequest } from "./../../../../Actions";
 
-class HeaderRight extends Component {
-  onLogOut = () => {
+export default function HeaderRight() {
+  const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const [username, setUsername] = useState(null);
+  const history = useHistory();
+  useEffect(() => {
+    dispatch(acGetUsersRequest());
+  }, []);
+
+  useEffect(() => {
+    var uid = localStorage.getItem("username");
+    if (users) {
+      var index = users.findIndex((user) => user.id === Number(uid));
+      if (index !== -1) {
+        setUsername(users[index].username);
+      }
+    }
+  }, [users]);
+
+  const onLogOut = () => {
     localStorage.removeItem("username");
-    this.props.history.push("/global/login");
+    history.push("/global/login");
   };
-  render() {
-    var checkUser = localStorage.getItem("username") ? true : false;
-    var userValue = JSON.parse(localStorage.getItem("username"));
-    return (
+  return (
+    <Fragment>
       <ul className="list-icon justify-content-end">
         <li className="list-item user">
           <Link to="/global/login">
             <i className="fas fa-user"></i>
           </Link>
-          {checkUser ? (
-            <ul className="nav sub rounded">
+          {username ? (
+            <ul
+              className="nav sub rounded"
+              style={{ width: "700%", justifyContent: "center" }}
+            >
               <li className="nav-item">
-                <Link className=" " to="/">
-                  {userValue}
+                <Link className="" to="/membership/accountinfo">
+                  {username}
                 </Link>
               </li>
               <li className="nav-item">
-                <button className="btn shadow-none" onClick={this.onLogOut}>
+                <button className="btn shadow-none" onClick={onLogOut}>
                   LOG OUT
                 </button>
               </li>
@@ -42,8 +64,6 @@ class HeaderRight extends Component {
           </Link>
         </li>
       </ul>
-    );
-  }
+    </Fragment>
+  );
 }
-
-export default HeaderRight;

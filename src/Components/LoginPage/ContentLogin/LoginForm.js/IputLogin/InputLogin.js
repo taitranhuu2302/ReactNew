@@ -52,6 +52,8 @@ class InputLogin extends Component {
 
   onLogged = () => {
     var { email, err } = this.state;
+    var { users } = this.props;
+    var index = users.findIndex((user) => user.email === email);
     var usered = localStorage.getItem("username") ? true : false;
     if (usered) {
       err.exits = "You are logged in";
@@ -62,7 +64,7 @@ class InputLogin extends Component {
     }
     if (this.handleErr()) {
       this.props.history.push("/");
-      this.props.onLogged(email);
+      this.props.onLogged(users[index].id);
     }
   };
 

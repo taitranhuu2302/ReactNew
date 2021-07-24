@@ -10,6 +10,7 @@ import LoginAdminPage from "./Pages/AdminPage/LoginPage";
 import RegisterAdmin from "./Pages/AdminPage/RegisPage";
 import AvatarPage from "./Pages/AdminPage/AvatarPage";
 import DetailPage from "./Pages/DetailPage/DetailPage";
+import Membership from "./Pages/Membership";
 import { Redirect } from "react-router-dom";
 
 const routes = [
@@ -83,6 +84,11 @@ const routes = [
     main: ({ match, history }) => (
       <DetailPage match={match} history={history} />
     ),
+  },
+  {
+    path: "/membership/accountinfo",
+    exact: false,
+    main: () => <Membership />,
   },
   {
     path: "",

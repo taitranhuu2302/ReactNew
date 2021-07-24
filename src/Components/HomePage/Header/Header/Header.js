@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import HeaderLeft from "../HeaderLeft/HeaderLeft";
-import HeaderRight from "../HeaderRight/HeaderRight";
+import HeaderRight from "./../HeaderRight/HeaderRight";
 import "./styles.scss";
 
 class Header extends Component {
