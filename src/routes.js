@@ -37,16 +37,6 @@ const routes = [
       ),
   },
   {
-    path: "/choose-avatar",
-    exact: false,
-    main: ({ match }) =>
-      localStorage.getItem("uid") ? (
-        <AvatarPage match={match} />
-      ) : (
-        <Redirect to="/login-admin" />
-      ),
-  },
-  {
     path: "/login-admin",
     exact: false,
     main: () =>
@@ -64,19 +54,32 @@ const routes = [
   {
     path: "/global/login",
     exact: false,
-    main: ({ match, history }) => <LoginPage match={match} history={history} />,
+    main: ({ match, history }) =>
+      localStorage.getItem("username") ? (
+        <Redirect to="/" />
+      ) : (
+        <LoginPage match={match} history={history} />
+      ),
   },
   {
     path: "/global/register",
     exact: true,
-    main: ({ match, history }) => <SignPage match={match} history={history} />,
+    main: ({ match, history }) =>
+      localStorage.getItem("username") ? (
+        <Redirect to="/" />
+      ) : (
+        <SignPage match={match} history={history} />
+      ),
   },
   {
     path: "/global/register/complete",
     exact: false,
-    main: ({ match, history }) => (
-      <FinishRegister match={match} history={history} />
-    ),
+    main: ({ match, history }) =>
+      localStorage.getItem("username") ? (
+        <Redirect to="/" />
+      ) : (
+        <FinishRegister match={match} history={history} />
+      ),
   },
   {
     path: "/GraphicsCard/:id",
@@ -88,7 +91,8 @@ const routes = [
   {
     path: "/membership/accountinfo",
     exact: false,
-    main: () => <Membership />,
+    main: () =>
+      localStorage.getItem("username") ? <Membership /> : <Redirect to="/" />,
   },
   {
     path: "",
