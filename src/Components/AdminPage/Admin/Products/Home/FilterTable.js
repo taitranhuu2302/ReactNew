@@ -7,6 +7,7 @@ class FilterTable extends Component {
     this.state = {
       filterName: "",
       filterStatus: 0,
+      filterCategory: 0,
     };
   }
 
@@ -15,7 +16,8 @@ class FilterTable extends Component {
     var value = e.target.value;
     this.props.onFilter(
       name === "filterName" ? value : this.state.filterName,
-      name === "filterStatus" ? value : this.state.filterStatus
+      name === "filterStatus" ? value : this.state.filterStatus,
+      name === "filterCategory" ? value : this.state.filterCategory
     );
     this.setState({
       [name]: value,
@@ -23,7 +25,7 @@ class FilterTable extends Component {
   };
 
   render() {
-    var { filterName, filterStatus } = this.state;
+    var { filterName, filterStatus, filterCategory } = this.state;
     return (
       <tr className="filter-table">
         <td></td>
@@ -40,13 +42,26 @@ class FilterTable extends Component {
         <td>
           <select
             className="form-control"
+            value={filterCategory}
+            onChange={this.onFilter}
+            name="filterCategory"
+          >
+            <option value={0}>All</option>
+            <option value={1}>AORUS</option>
+            <option value={2}>NVIDIA</option>
+            <option value={3}>AMD</option>
+          </select>
+        </td>
+        <td>
+          <select
+            className="form-control"
             value={filterStatus}
             onChange={this.onFilter}
             name="filterStatus"
           >
-            <option value={0}>Tất Cả</option>
-            <option value={-1}>Ẩn</option>
-            <option value={1}>Kích Hoạt</option>
+            <option value={0}>All</option>
+            <option value={-1}>Blocked</option>
+            <option value={1}>Active</option>
           </select>
         </td>
         <td>

@@ -25,6 +25,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 export default function Profile() {
   const usersAdmin = useSelector((state) => state.usersAdmin);
   const [showPassword, setShowPassword] = useState(false);
+  const [updated, setUpdated] = useState(false);
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState({
     id: "",
@@ -154,6 +155,10 @@ export default function Profile() {
       avatar: avatar,
     };
     dispatch(acUpdateUserAdminRequest(userUpdate));
+    setUpdated(true);
+    setTimeout(() => {
+      setUpdated(false);
+    }, 5000);
   };
 
   return (
@@ -219,6 +224,13 @@ export default function Profile() {
                 );
               })}
               <Grid item xs={12} className="mt-3">
+                {updated && (
+                  <Box sx={{ marginBottom: "15px" }}>
+                    <Typography color="secondary" variant="body2">
+                      You have successfully updated !
+                    </Typography>
+                  </Box>
+                )}
                 <Button
                   onClick={updateProfile}
                   variant="contained"

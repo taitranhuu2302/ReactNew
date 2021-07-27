@@ -21,6 +21,7 @@ export default function MemberShip() {
     image: "",
     password: "",
   });
+  const [save, setSave] = useState(false);
 
   useEffect(() => {
     dispatch(acGetUsersRequest());
@@ -135,6 +136,10 @@ export default function MemberShip() {
 
   const handleSave = () => {
     dispatch(acUpdateUserRequest(inputValue));
+    setSave(true);
+    setTimeout(() => {
+      setSave(false);
+    }, 5000);
   };
 
   return (
@@ -155,6 +160,13 @@ export default function MemberShip() {
           </Grid>
           <Grid item xs={12} md={8}>
             <MemberInput handleChange={handleChange} inputList={inputList} />
+            {save && (
+              <Box sx={{ textAlign: "center", marginTop: "15px" }}>
+                <Typography variant="subtitle1" sx={{ color: "#ff6400" }}>
+                  You have successfully modified !
+                </Typography>
+              </Box>
+            )}
             <Box className="d-flex justify-content-center">
               <Button
                 onClick={handleSave}

@@ -2,6 +2,26 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class AdminProduct extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      category: "",
+    };
+  }
+
+  checkCategory = () => {
+    var { product } = this.props;
+    var result = null;
+    if (product.aorus) {
+      result = "AORUS";
+    } else if (product.nvidia) {
+      result = "NVIDIA";
+    } else {
+      result = "AMD";
+    }
+    return result;
+  };
+
   render() {
     var { product } = this.props;
     return (
@@ -11,6 +31,17 @@ class AdminProduct extends Component {
           <img src={product.image} alt="" />
         </td>
         <td className="fw-bold">{product.name}</td>
+        <td>
+          <span
+            className={
+              (product.aorus && "bgr-aorus rounded text-white p-1") ||
+              (product.nvidia && "bgr-nvidia rounded text-white p-1") ||
+              (product.amd && "bgr-amd rounded text-white p-1")
+            }
+          >
+            {this.checkCategory()}
+          </span>
+        </td>
         <td className="">
           <span
             className={
@@ -22,6 +53,7 @@ class AdminProduct extends Component {
             {product.status ? "Active" : "Blocked"}
           </span>
         </td>
+
         <td>
           <Link
             to={`/admin/${product.id}/edit-product`}

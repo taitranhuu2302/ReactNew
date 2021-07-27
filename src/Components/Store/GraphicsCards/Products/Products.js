@@ -12,14 +12,14 @@ class Products extends Component {
       </div>
     );
   }
-
   ProductList = (list) => {
-    var { match } = this.props;
+    var { match, carts } = this.props;
     var result = null;
     result = list.map((item, index) => {
       return (
         <Product
           key={index}
+          carts={carts}
           item={item}
           match={match}
           onAddToCart={this.props.onAddToCart}

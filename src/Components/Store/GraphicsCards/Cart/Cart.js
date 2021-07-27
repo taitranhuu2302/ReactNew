@@ -38,7 +38,7 @@ class Cart extends Component {
             <div className="compare-title text-white">
               <h2>Compare</h2>
               <div className="amount-product font-family-Ti size-18">
-                2 product(s)
+                {cart.length} product(s)
               </div>
             </div>
           </div>

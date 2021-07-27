@@ -66,6 +66,7 @@ class GraphicsCard extends Component {
                     products={currentPosts}
                     onAddToCart={this.onAddToCart}
                     match={match}
+                    carts={carts}
                   />
                 </div>
               </div>

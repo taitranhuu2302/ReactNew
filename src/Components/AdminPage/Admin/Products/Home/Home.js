@@ -16,6 +16,7 @@ class Home extends Component {
       filter: {
         filterName: "",
         filterStatus: 0,
+        filterCategory: 0,
       },
     };
   }
@@ -32,11 +33,12 @@ class Home extends Component {
     this.props.onDeleteProduct(id);
   };
 
-  onFilter = (filterName, filterStatus) => {
+  onFilter = (filterName, filterStatus, filterCategory) => {
     this.setState({
       filter: {
         filterName: filterName.toLowerCase(),
         filterStatus: parseInt(filterStatus),
+        filterCategory: parseInt(filterCategory),
       },
     });
   };
@@ -75,6 +77,28 @@ class Home extends Component {
           }
         });
       }
+      if (filter.filterCategory) {
+        products = products.filter((product) => {
+          if (filter.filterCategory === 0) {
+            return products;
+          } else {
+            if (product.aorus) {
+              return (
+                product.aorus === (filter.filterCategory === 1 ? true : false)
+              );
+            } else if (product.nvidia) {
+              return (
+                product.nvidia === (filter.filterCategory === 2 ? true : false)
+              );
+            }
+            if (product.amd) {
+              return (
+                product.amd === (filter.filterCategory === 3 ? true : false)
+              );
+            }
+          }
+        });
+      }
     }
     var indexOfLast = currentPage * postsPerPage;
     var indexOfFirst = indexOfLast - postsPerPage;
@@ -92,6 +116,7 @@ class Home extends Component {
                   <th>STT</th>
                   <th>Image</th>
                   <th>Name Product</th>
+                  <th>Category</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
