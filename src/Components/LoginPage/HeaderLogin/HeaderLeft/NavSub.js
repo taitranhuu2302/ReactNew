@@ -6,7 +6,7 @@ class NavSub extends Component {
     var { item } = this.props;
     return (
       <li className="menu-item">
-        <Link to="/">{item.label}</Link>
+        <Link to={item.to}>{item.label}</Link>
       </li>
     );
   }

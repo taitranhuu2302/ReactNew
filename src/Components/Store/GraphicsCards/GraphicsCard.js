@@ -42,8 +42,11 @@ class GraphicsCard extends Component {
   };
 
   render() {
-    const { products, match, carts } = this.props;
+    var { products, match, carts } = this.props;
     const { currentPage, postsPerPage } = this.state;
+    products = products.filter((product) => {
+      return product.status === true;
+    });
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);

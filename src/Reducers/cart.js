@@ -21,7 +21,6 @@ const cart = (state = initialState, action) => {
       return [...state];
     case types.ADD_TO_CART:
       state.push(action.product);
-      console.log(action.product);
       return [...state];
     case types.DELETE_CART:
       index = findIndex(state, action.id);

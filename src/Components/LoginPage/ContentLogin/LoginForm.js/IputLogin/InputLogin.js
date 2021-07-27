@@ -41,6 +41,7 @@ class InputLogin extends Component {
       users.every((item) => item.email !== email || item.password !== password)
     ) {
       err.email = "Email or password is incorrect";
+      this.setState({ password: "" });
       check = false;
     }
 
