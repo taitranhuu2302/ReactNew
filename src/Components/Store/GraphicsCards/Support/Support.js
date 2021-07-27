@@ -8,7 +8,7 @@ class Support extends Component {
       <div className="container">
         <div className="row">
           <div className="col-12 support-div">
-            <div className="row m-0 box">
+            <div className="row m-0 p-0 box">
               <div className="col item">
                 <Link to="/global/register" className="text-decoration-none">
                   <img

@@ -3,6 +3,7 @@ import "./styles.scss";
 import callApi from "./../../../../../utils/apiCaller";
 import { connect } from "react-redux";
 import * as actions from "./../../../../../Actions";
+import moment from "moment";
 
 class Functions extends Component {
   constructor(props) {
@@ -38,6 +39,8 @@ class Functions extends Component {
       msize: "",
       mc: "",
       ccores: "",
+      created_at: "",
+      updated_at: "",
     };
   }
 
@@ -76,6 +79,8 @@ class Functions extends Component {
           msize: product.msize,
           mc: product.mc,
           ccores: product.ccores,
+          created_at: product.created_at || "",
+          updated_at: product.updated_at || "",
         });
       });
     }
@@ -104,6 +109,7 @@ class Functions extends Component {
   onSave = (e) => {
     e.preventDefault();
     var { history } = this.props;
+    const now = new moment();
     var {
       id,
       name,
@@ -134,6 +140,8 @@ class Functions extends Component {
       msize,
       mc,
       ccores,
+      created_at,
+      updated_at,
     } = this.state;
     var product = {};
     if (id) {
@@ -164,6 +172,8 @@ class Functions extends Component {
         mb: mb,
         mt: mt,
         msize: msize,
+        created_at: created_at,
+        updated_at: now.format("L LTS"),
         mc: mc,
         ccores: ccores,
       };
@@ -197,6 +207,8 @@ class Functions extends Component {
         mb: mb,
         mt: mt,
         msize: msize,
+        created_at: now.format("L LTS"),
+        updated_at: now.format("L LTS"),
         mc: mc,
         ccores: ccores,
       };
@@ -506,24 +518,18 @@ class Functions extends Component {
               ></textarea>
             </div>
             <div className="mb-3">
-              <label className="label-add" htmlFor="img-product">
-                Image Address:
-              </label>
+              <label className="label-add">Image Address:</label>
               <input
                 type="file"
-                id="img-product"
                 className="shadow-none form-control"
                 multiple
                 onChange={this.onUpFiles}
               />
             </div>
             <div className="mb-3">
-              <label className="label-add" htmlFor="img-product">
-                Image Link:
-              </label>
+              <label className="label-add">Image Link:</label>
               <input
                 type="text"
-                id="img-product"
                 className="shadow-none form-control"
                 name="imageLink"
                 multiple

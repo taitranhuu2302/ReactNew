@@ -22,6 +22,18 @@ class AdminProduct extends Component {
     return result;
   };
 
+  checkClassCategory = (aorus, nvidia, amd) => {
+    var result = null;
+    if (aorus) {
+      result = "bgr-aorus rounded text-white p-1";
+    } else if (nvidia) {
+      result = "bgr-nvidia rounded text-white p-1";
+    } else {
+      result = "bgr-amd rounded text-white p-1";
+    }
+    return result;
+  };
+
   render() {
     var { product } = this.props;
     return (
@@ -33,11 +45,11 @@ class AdminProduct extends Component {
         <td className="fw-bold">{product.name}</td>
         <td>
           <span
-            className={
-              (product.aorus && "bgr-aorus rounded text-white p-1") ||
-              (product.nvidia && "bgr-nvidia rounded text-white p-1") ||
-              (product.amd && "bgr-amd rounded text-white p-1")
-            }
+            className={this.checkClassCategory(
+              product.aorus,
+              product.nvidia,
+              product.amd
+            )}
           >
             {this.checkCategory()}
           </span>
