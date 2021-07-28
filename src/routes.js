@@ -8,7 +8,6 @@ import FinishRegister from "./Pages/LoginPage/FinishRegister";
 import AdminPage from "./Pages/AdminPage/AdminPage";
 import LoginAdminPage from "./Pages/AdminPage/LoginPage";
 import RegisterAdmin from "./Pages/AdminPage/RegisPage";
-import AvatarPage from "./Pages/AdminPage/AvatarPage";
 import DetailPage from "./Pages/DetailPage/DetailPage";
 import Membership from "./Pages/Membership";
 import { Redirect } from "react-router-dom";

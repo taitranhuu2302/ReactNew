@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Grid, InputLabel, TextField } from "@material-ui/core";
+import React from "react";
+import { Grid } from "@material-ui/core";
 import InputForm from "./Input";
 
 export default function MemberInput(props) {
