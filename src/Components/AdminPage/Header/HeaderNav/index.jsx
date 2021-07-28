@@ -12,18 +12,28 @@ import {
   Menu,
   MenuItem,
   Hidden,
+  Avatar,
 } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { acGetUserAdminRequest } from "./../../../../Actions";
 
 export default function HeaderNav(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const usersAdmin = useSelector((state) => state.usersAdmin);
+  const dispatch = useDispatch();
   let history = useHistory();
   const [title, setTitle] = useState("");
+  const [avatar, setAvatar] = useState(null);
   const location = useLocation();
+
+  useEffect(() => {
+    dispatch(acGetUserAdminRequest());
+  }, []);
 
   useEffect(() => {
     switch (location.pathname) {
@@ -55,6 +65,14 @@ export default function HeaderNav(props) {
         break;
     }
   }, [location]);
+
+  useEffect(() => {
+    let id = localStorage.getItem("uid");
+    if (usersAdmin.length > 0) {
+      let index = usersAdmin.findIndex((user) => user.id === +id);
+      setAvatar(usersAdmin[index].avatar || "");
+    }
+  }, [usersAdmin]);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -129,7 +147,7 @@ export default function HeaderNav(props) {
               onClick={(e) => setAnchorEl(e.currentTarget)}
               className="color-black"
             >
-              <PersonIcon />
+              {avatar ? <Avatar src={avatar} /> : <PersonIcon />}
             </Button>
             <Menu
               id="menu-user"

@@ -71,7 +71,9 @@ export default function Profile() {
         about: usersAdmin[i].about || "",
       });
       setAvatar(usersAdmin[i].avatar);
-      setFullName(`${usersAdmin[i].firstName} ${usersAdmin[i].lastName}`);
+      inputValue.firstName && inputValue.lastName
+        ? setFullName(`${usersAdmin[i].firstName} ${usersAdmin[i].lastName}`)
+        : setFullName(inputValue.email);
     }
   }, [usersAdmin]);
 

@@ -1,5 +1,7 @@
+import { Typography } from "@material-ui/core";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 class AdminProduct extends Component {
   constructor(props) {
@@ -38,12 +40,14 @@ class AdminProduct extends Component {
     var { product } = this.props;
     return (
       <tr>
-        <td>{product.id}</td>
-        <td>
+        <td className="text-center">{product.id}</td>
+        <td className="text-center">
           <img src={product.image} alt="" />
         </td>
-        <td className="fw-bold">{product.name}</td>
-        <td>
+        <td className="text-center" className="fw-bold">
+          {product.name}
+        </td>
+        <td className="text-center">
           <span
             className={this.checkClassCategory(
               product.aorus,
@@ -54,7 +58,7 @@ class AdminProduct extends Component {
             {this.checkCategory()}
           </span>
         </td>
-        <td className="">
+        <td className="text-center">
           <span
             className={
               product.status
@@ -66,7 +70,7 @@ class AdminProduct extends Component {
           </span>
         </td>
 
-        <td>
+        <td className="text-center">
           <Link
             to={`/admin/${product.id}/edit-product`}
             className="btn shadow-none me-3 mb-3 bg-warning text-white"
@@ -79,6 +83,14 @@ class AdminProduct extends Component {
           >
             Delete
           </button>
+        </td>
+        <td className="">
+          <Typography variant="subtitle1" className="fw-bold">
+            {product.updated_at}
+          </Typography>
+          <Typography variant="body2" className="">
+            {moment(product.updated_at).fromNow()}
+          </Typography>
         </td>
       </tr>
     );

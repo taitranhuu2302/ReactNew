@@ -30,7 +30,7 @@ class FilterTable extends Component {
       <tr className="filter-table">
         <td></td>
         <td></td>
-        <td>
+        <td className="text-center">
           <input
             type="text"
             className="w-100 rounded  form-control"
@@ -39,7 +39,7 @@ class FilterTable extends Component {
             onChange={this.onFilter}
           />
         </td>
-        <td>
+        <td className="text-center">
           <select
             className="form-control"
             value={filterCategory}
@@ -52,7 +52,7 @@ class FilterTable extends Component {
             <option value={3}>AMD</option>
           </select>
         </td>
-        <td>
+        <td className="text-center">
           <select
             className="form-control"
             value={filterStatus}
@@ -64,7 +64,7 @@ class FilterTable extends Component {
             <option value={1}>Active</option>
           </select>
         </td>
-        <td>
+        <td className="text-center">
           <Link
             to="/admin/add-products"
             className="btn add-product bg-primary text-white"
@@ -72,6 +72,7 @@ class FilterTable extends Component {
             Add Product
           </Link>
         </td>
+        <td className="text-center"></td>
       </tr>
     );
   }

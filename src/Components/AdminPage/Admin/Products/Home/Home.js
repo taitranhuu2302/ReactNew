@@ -105,7 +105,7 @@ class Home extends Component {
     var currentList = products.slice(indexOfFirst, indexOfLast);
     return (
       <div className="body-admin" id="home">
-        <div className="container">
+        <div className="px-4">
           <div className="title text-center font-family-Ad  my-4">
             <h1 className="">LIST OF PRODUCTS</h1>
           </div>
@@ -113,12 +113,13 @@ class Home extends Component {
             <table className="table border table-home table-striped table-hover">
               <thead>
                 <tr>
-                  <th>STT</th>
-                  <th>Image</th>
-                  <th>Name Product</th>
-                  <th>Category</th>
-                  <th>Status</th>
-                  <th>Actions</th>
+                  <th className="text-center">STT</th>
+                  <th className="text-center">Image</th>
+                  <th className="text-center">Name Product</th>
+                  <th className="text-center">Category</th>
+                  <th className="text-center">Status</th>
+                  <th className="text-center">Actions</th>
+                  <th className="text-center">Last Update</th>
                 </tr>
               </thead>
               <tbody className="list-products">

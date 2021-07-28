@@ -66,7 +66,7 @@ export default function Users() {
                   </TableCell>
                   <TableCell>
                     <Typography variant="subtitle1" color="initial">
-                      Date
+                      Registration Date
                     </Typography>
                   </TableCell>
                   <TableCell colSpan="2"></TableCell>
