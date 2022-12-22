@@ -1,14 +1,17 @@
 # Run App
 Demo: [https://github.com/taitranhuu1908/ReactNew.git](https://react-app-c62a7.web.app/)
 
-git clone https://github.com/taitranhuu1908/ReactNew.git
+**How to run the application**
 
-**To run the application**
+Step 1
+---------------------
+```
+npm install
+```
 
-B1: npm install
+Step 2
+---------------------
+```
+npm start
+```
 
-B2: npm start
-
-B3: Wait
-
-B4: Success !!!
