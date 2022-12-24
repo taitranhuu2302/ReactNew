@@ -1,4 +1,4 @@
-# AORUS Clone
+# AORUS Clone ( only Front-end )
 Demo: [https://github.com/taitranhuu1908/ReactNew.git](https://react-app-c62a7.web.app/)
 
 **Some demo images**
